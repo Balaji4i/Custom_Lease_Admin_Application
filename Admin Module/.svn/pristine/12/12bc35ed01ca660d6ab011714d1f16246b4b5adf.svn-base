@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="searchFunctionsPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Funtions_ROVO1" RangeSize="25"
+              DataControl="Functions_AMDataControl"
+              id="Funtions_ROVO1Iterator"/>
+    <searchRegion Criteria="SearchFunctions"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Funtions_ROVO1Iterator" id="SearchFunctionsQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Funtions_ROVO1Iterator" id="Funtions_ROVO1">
+      <nodeDefinition DefName="fusion.um.model.ROVO.Funtions_ROVO"
+                      Name="Funtions_ROVO10">
+        <AttrNames>
+          <Item Value="FuncId"/>
+          <Item Value="FuncName"/>
+          <Item Value="FuncShortCode"/>
+          <Item Value="AutoNumberYn"/>
+          <Item Value="Prefix"/>
+          <Item Value="NextNumber"/>
+          <Item Value="PagePath"/>
+          <Item Value="ActiveYn"/>
+          <Item Value="InactiveOn"/>
+          <Item Value="AttributeCategory"/>
+          <Item Value="Attribute1"/>
+          <Item Value="Attribute2"/>
+          <Item Value="Attribute3"/>
+          <Item Value="Attribute4"/>
+          <Item Value="Attribute5"/>
+          <Item Value="Attribute6"/>
+          <Item Value="Attribute7"/>
+          <Item Value="Attribute8"/>
+          <Item Value="Attribute9"/>
+          <Item Value="Attribute10"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdateLogin"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Funtions_ROVO1Iterator" id="FuncId">
+      <AttrNames>
+        <Item Value="FuncId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

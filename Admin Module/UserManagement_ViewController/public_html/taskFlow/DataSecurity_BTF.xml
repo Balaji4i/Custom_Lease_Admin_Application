@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="DataSecurity">
+    <default-activity id="__1">SearchDatasecurity</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__5">backing_fragments_SearchDatasecurity</managed-bean-name>
+      <managed-bean-class id="__4">fusion.um.view.backing.SearchDatasecurity</managed-bean-class>
+      <managed-bean-scope id="__2">backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1fragments/SearchDatasecurity.jsff-->
+    </managed-bean>
+    <managed-bean id="__7">
+      <managed-bean-name id="__9">backing_fragments_AddEditDateaSecurity</managed-bean-name>
+      <managed-bean-class id="__8">fusion.um.view.backing.AddEditDateaSecurity</managed-bean-class>
+      <managed-bean-scope id="__6">backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1fragments/AddEditDateaSecurity.jsff-->
+    </managed-bean>
+    <view id="SearchDatasecurity">
+      <page>/fragments/SearchDatasecurity.jsff</page>
+    </view>
+    <view id="AddEditDateaSecurity">
+      <page>/fragments/AddEditDateaSecurity.jsff</page>
+    </view>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__10">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__11">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__12">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__13">
+      <from-activity-id id="__14">SearchDatasecurity</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome id="__17">go</from-outcome>
+        <to-activity-id id="__16">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome id="__25">edit</from-outcome>
+        <to-activity-id id="__24">ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id id="__19">CreateInsert</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__22">CreateInsert</from-outcome>
+        <to-activity-id id="__21">AddEditDateaSecurity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id id="__27">ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome id="__28">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__29">AddEditDateaSecurity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__31">
+      <from-activity-id id="__32">AddEditDateaSecurity</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome id="__35">back</from-outcome>
+        <to-activity-id id="__33">Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id id="__37">Execute</from-activity-id>
+      <control-flow-case id="__40">
+        <from-outcome id="__38">Execute</from-outcome>
+        <to-activity-id id="__39">SearchDatasecurity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

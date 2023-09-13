@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AddEditDataCombinationPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DataCombination_VO1" RangeSize="25"
+              DataControl="DataCombination_AMDataControl"
+              id="DataCombination_VO1Iterator"/>
+    <iterator id="DataSecurity_VO1Iterator" Binds="DataSecurity_VO1"
+              DataControl="DataCombination_AMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <list IterBinding="DataCombination_VO1Iterator" StaticList="false"
+          Uses="LOV_Segment1" id="Segment1" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataCombination_VO1Iterator" StaticList="false"
+          Uses="LOV_Segment2" id="Segment2" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataCombination_VO1Iterator" StaticList="false"
+          Uses="LOV_Segment3" id="Segment3" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataCombination_VO1Iterator" StaticList="false"
+          Uses="LOV_Segment4" id="Segment4" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataCombination_VO1Iterator" StaticList="false"
+          Uses="LOV_Segment5" id="Segment5" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <button IterBinding="DataCombination_VO1Iterator" id="ActiveYn"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="ActiveYn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <action id="Commit" DataControl="DataCombination_AMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="DataCombination_AMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

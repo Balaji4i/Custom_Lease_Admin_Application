@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__1">
+    <managed-bean-name id="__3">backing_pages_Home</managed-bean-name>
+    <managed-bean-class id="__4">fusion.um.view.backing.Home</managed-bean-class>
+    <managed-bean-scope id="__2">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1pages/Home1.jspx-->
+  </managed-bean>
+  <managed-bean id="__7">
+    <managed-bean-name id="__6">Home</managed-bean-name>
+    <managed-bean-class id="__5">fusion.um.view.backing.Home</managed-bean-class>
+    <managed-bean-scope id="__8">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__11">
+    <managed-bean-name id="__10">backing_pages_Home2</managed-bean-name>
+    <managed-bean-class id="__9">fusion.um.view.backing.pages.Home</managed-bean-class>
+    <managed-bean-scope id="__12">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1pages/Home.jspx-->
+  </managed-bean>
+  <managed-bean id="__16">
+    <managed-bean-name id="__15">backing_pages_Dashboard</managed-bean-name>
+    <managed-bean-class id="__13">fusion.um.view.backing.pages.Dashboard</managed-bean-class>
+    <managed-bean-scope id="__14">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1pages/Dashboard.jspx-->
+  </managed-bean>
+</adfc-config>

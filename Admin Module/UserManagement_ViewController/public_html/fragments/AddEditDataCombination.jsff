@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.pgl1}"
+                           id="pgl1"
+                           styleClass="AFStretchWidth">
+        <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.pgl2}"
+                            id="pgl2">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                      binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.gr1}"
+                      id="gr1">
+            <af:gridCell marginStart="5px" width="50%"
+                         binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.gc1}"
+                         id="gc1" marginEnd="5px">
+              <af:outputLabel value="Data Combination"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.ol1}"
+                              id="ol1"
+                              inlineStyle="font-weight:bolder; font-size:large;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.gc2}"
+                         id="gc2" halign="end">
+              <af:commandButton text="Save"
+                                binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.cb1}"
+                                id="cb1" action="back"
+                                actionListener="#{backingBeanScope.backing_fragments_AddEditDataCombination.onClickCommit}"/>
+              <af:spacer width="10" height="10"
+                         binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.s1}"
+                         id="s1"/>
+              <af:commandButton text="Cancel"
+                                binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.cb2}"
+                                id="cb2" immediate="true">
+                <af:showPopupBehavior popupId="p1"/>
+              </af:commandButton>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelFormLayout binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.pfl1}"
+                            id="pfl1"
+                            inlineStyle="padding-left:470px;padding-top:50px;"
+                            styleClass="AFStretchWidth">
+          <af:selectOneChoice value="#{bindings.Segment1.inputValue}"
+                              label="#{backingBeanScope.backing_fragments_AddEditDataCombination.segment1}"
+                              required="#{bindings.Segment1.hints.mandatory}"
+                              shortDesc="#{bindings.Segment1.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.soc1}"
+                              id="soc1"
+                              rendered="#{backingBeanScope.backing_fragments_AddEditDataCombination.render1}"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.Segment1.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.si1}"
+                           id="si1"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.Segment2.inputValue}"
+                              label="#{backingBeanScope.backing_fragments_AddEditDataCombination.segment2}"
+                              required="#{bindings.Segment2.hints.mandatory}"
+                              shortDesc="#{bindings.Segment2.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.soc2}"
+                              id="soc2"
+                              rendered="#{backingBeanScope.backing_fragments_AddEditDataCombination.render2}"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.Segment2.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.si2}"
+                           id="si2"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.Segment3.inputValue}"
+                              label="#{backingBeanScope.backing_fragments_AddEditDataCombination.segment3}"
+                              required="#{bindings.Segment3.hints.mandatory}"
+                              shortDesc="#{bindings.Segment3.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.soc3}"
+                              id="soc3"
+                              rendered="#{backingBeanScope.backing_fragments_AddEditDataCombination.render3}"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.Segment3.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.si3}"
+                           id="si3"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.Segment4.inputValue}"
+                              label="#{backingBeanScope.backing_fragments_AddEditDataCombination.segment4}"
+                              required="#{bindings.Segment4.hints.mandatory}"
+                              shortDesc="#{bindings.Segment4.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.soc4}"
+                              id="soc4"
+                              rendered="#{backingBeanScope.backing_fragments_AddEditDataCombination.render4}"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.Segment4.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.si4}"
+                           id="si4"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.Segment5.inputValue}"
+                              label="#{backingBeanScope.backing_fragments_AddEditDataCombination.segment5}"
+                              required="#{bindings.Segment5.hints.mandatory}"
+                              shortDesc="#{bindings.Segment5.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.soc5}"
+                              id="soc5"
+                              rendered="#{backingBeanScope.backing_fragments_AddEditDataCombination.render5}"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.Segment5.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.si5}"
+                           id="si5"/>
+          </af:selectOneChoice>
+          <af:selectBooleanCheckbox value="#{bindings.ActiveYn.inputValue}"
+                                    label="Active ?"
+                                    shortDesc="#{bindings.ActiveYn.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.sbc1}"
+                                    id="sbc1"/>
+        </af:panelFormLayout>
+        <af:popup binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.p1}"
+                  id="p1">
+          <af:dialog binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.d1}"
+                     id="d1" type="none"
+                     inlineStyle="width:350px; height:100.0px;" title="Warning"
+                     titleIconSource="/image/warning.png">
+            <af:outputText value="Are you sure you want to Cancel this information?"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.ot1}"
+                           id="ot1"/>
+            <f:facet name="buttonBar">
+              <af:group binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.g1}"
+                        id="g1">
+                <af:commandButton text="Ok"
+                                  binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.cb3}"
+                                  id="cb3" action="back"
+                                  actionListener="#{backingBeanScope.backing_fragments_AddEditDataCombination.onClickRollback}"/>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.s2}"
+                           id="s2"/>
+                <af:commandButton
+                                  binding="#{backingBeanScope.backing_fragments_AddEditDataCombination.cb4}"
+                                  id="cb4" text="Cancel"
+                                  actionListener="#{backingBeanScope.backing_fragments_AddEditDataCombination.onClickClose}"/>
+              </af:group>
+            </f:facet>
+          </af:dialog>
+        </af:popup>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_AddEditDataCombination-->
+</jsp:root>

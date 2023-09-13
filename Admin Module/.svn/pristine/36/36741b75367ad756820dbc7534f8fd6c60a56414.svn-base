@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_SearchDataGroup.pgl1}"
+                           id="pgl1" layout="scroll">
+        <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_SearchDataGroup.pgl2}"
+                            id="pgl2">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                      binding="#{backingBeanScope.backing_fragments_SearchDataGroup.gr1}"
+                      id="gr1">
+            <af:gridCell marginStart="5px" width="50%"
+                         binding="#{backingBeanScope.backing_fragments_SearchDataGroup.gc1}"
+                         id="gc1" marginEnd="5px">
+              <af:outputLabel value="Data Group"
+                              binding="#{backingBeanScope.backing_fragments_SearchDataGroup.ol1}"
+                              id="ol1"
+                              inlineStyle="font-weight:bolder; font-size:large;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         binding="#{backingBeanScope.backing_fragments_SearchDataGroup.gc2}"
+                         id="gc2"/>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.SearchDataGroupQuery.queryDescriptor}"
+                  model="#{bindings.SearchDataGroupQuery.queryModel}"
+                  queryListener="#{bindings.SearchDataGroupQuery.processQuery}"
+                  queryOperationListener="#{bindings.SearchDataGroupQuery.processQueryOperation}"
+                  resultComponentId="::pc1:resId1"
+                  binding="#{backingBeanScope.backing_fragments_SearchDataGroup.qryId1}"/>
+        <af:spacer width="10" height="10"
+                   binding="#{backingBeanScope.backing_fragments_SearchDataGroup.s1}"
+                   id="s1"/>
+        <af:panelBox text="Search Result"
+                     binding="#{backingBeanScope.backing_fragments_SearchDataGroup.pb1}"
+                     id="pb1">
+          <f:facet name="toolbar"/>
+          <af:panelSplitter binding="#{backingBeanScope.backing_fragments_SearchDataGroup.ps1}"
+                            id="ps1" styleClass="AFStretchWidth"
+                            splitterPosition="700">
+            <f:facet name="first">
+              <af:panelCollection binding="#{backingBeanScope.backing_fragments_SearchDataGroup.pc1}"
+                                  id="pc1" styleClass="AFStretchWidth">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar binding="#{backingBeanScope.backing_fragments_SearchDataGroup.t1}"
+                              id="t1" flex="1">
+                    <af:commandImageLink binding="#{backingBeanScope.backing_fragments_SearchDataGroup.cil1}"
+                                         id="cil1" icon="/image/add.png"
+                                         hoverIcon="/image/add_en.png"
+                                         action="go"/>
+                    <af:spacer width="10" height="10"
+                               binding="#{backingBeanScope.backing_fragments_SearchDataGroup.s2}"
+                               id="s2"/>
+                    <af:commandImageLink binding="#{backingBeanScope.backing_fragments_SearchDataGroup.cil2}"
+                                         id="cil2" icon="/image/edit.png"
+                                         hoverIcon="/image/edit_en.png"
+                                         action="edit">
+                      <af:setPropertyListener from="#{bindings.DataGroupId.inputValue}"
+                                              to="#{pageFlowScope.gid}"
+                                              type="action"/>
+                    </af:commandImageLink>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.DataGroup_ROVO1.collectionModel}"
+                          var="row" rows="#{bindings.DataGroup_ROVO1.rangeSize}"
+                          emptyText="#{bindings.DataGroup_ROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="6"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.DataGroup_ROVO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.DataGroup_ROVO1.collectionModel.makeCurrent}"
+                          rowSelection="single" id="resId1"
+                          binding="#{backingBeanScope.backing_fragments_SearchDataGroup.resId1}"
+                          contentDelivery="immediate" scrollPolicy="page"
+                          autoHeightRows="0">
+                  <af:column sortProperty="#{bindings.DataGroup_ROVO1.hints.DataGroupName.name}"
+                             sortable="false" headerText="Group Name"
+                             id="resId1c1" width="400">
+                    <af:commandLink text="#{row.DataGroupName}" id="cl1"
+                                    action="edit">
+                      <af:setPropertyListener from="#{bindings.DataGroupId.inputValue}"
+                                              to="#{pageFlowScope.gid}"
+                                              type="action"/>
+                    </af:commandLink>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.DataGroup_ROVO1.hints.ActiveYn.name}"
+                             sortable="false" headerText="Active ?"
+                             id="resId1c2" width="275">
+                    <af:outputText value="#{row.ActiveYn}" id="ot2"
+                                   rendered="false"/>
+                    <af:image source="/image/Ok_icon.png" id="i1"
+                              rendered="#{row.ActiveYn eq 'Y'}"/>
+                    <af:image source="/image/Cancel.png" id="i2"
+                              rendered="#{row.ActiveYn eq 'N'}"/>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </f:facet>
+            <f:facet name="second">
+              <af:panelCollection binding="#{backingBeanScope.backing_fragments_SearchDataGroup.pc2}"
+                                  id="pc2" styleClass="AFStretchWidth">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.DataGroupDetail_ROVO1.collectionModel}"
+                          var="row"
+                          rows="#{bindings.DataGroupDetail_ROVO1.rangeSize}"
+                          emptyText="#{bindings.DataGroupDetail_ROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="6"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.DataGroupDetail_ROVO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.DataGroupDetail_ROVO1.collectionModel.makeCurrent}"
+                          rowSelection="single"
+                          binding="#{backingBeanScope.backing_fragments_SearchDataGroup.t2}"
+                          id="t2" contentDelivery="immediate"
+                          partialTriggers=":::pc1:resId1 :::qryId1"
+                          scrollPolicy="page" autoHeightRows="0">
+                  <af:column headerText="Data Combination" id="c2" width="400">
+                    <af:selectOneChoice value="#{row.bindings.DcombId.inputValue}"
+                                        label="#{row.bindings.DcombId.label}"
+                                        required="#{bindings.DataGroupDetail_ROVO1.hints.DcombId.mandatory}"
+                                        shortDesc="#{bindings.DataGroupDetail_ROVO1.hints.DcombId.tooltip}"
+                                        id="soc1" readOnly="true">
+                      <f:selectItems value="#{row.bindings.DcombId.items}"
+                                     id="si1"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.DataGroupDetail_ROVO1.hints.ActiveYn.name}"
+                             sortable="false" headerText="Active ?" id="c1"
+                             width="135">
+                    <af:outputText value="#{row.ActiveYn}" id="ot3"
+                                   rendered="false"/>
+                    <af:image source="/image/Ok_icon.png" id="image1"
+                              rendered="#{row.ActiveYn eq 'Y'}"/>
+                    <af:image source="/image/Cancel.png" id="image2"
+                              rendered="#{row.ActiveYn eq 'N'}"/>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </f:facet>
+          </af:panelSplitter>
+        </af:panelBox>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_SearchDataGroup-->
+</jsp:root>

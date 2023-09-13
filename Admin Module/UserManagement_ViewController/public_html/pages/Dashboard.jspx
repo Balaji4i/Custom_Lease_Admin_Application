@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 binding="#{backingBeanScope.backing_pages_Dashboard.d1}">
+      <af:form id="f1" binding="#{backingBeanScope.backing_pages_Dashboard.f1}">
+        <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.pgl1}"
+                             id="pgl1" layout="vertical" halign="center">
+          <af:spacer width="10" height="100"
+                     binding="#{backingBeanScope.backing_pages_Dashboard.s1}"
+                     id="s1"/>
+          <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.pgl2}"
+                               id="pgl2" layout="horizontal" halign="center">
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.pgl3}"
+                                 id="pgl3" layout="vertical" halign="center">
+              <af:commandLink binding="#{backingBeanScope.backing_pages_Dashboard.cl1}"
+                              id="cl1" action="toHome">
+                <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.pgl4}"
+                                     id="pgl4" layout="vertical"
+                                     halign="center">
+                  <af:image source="/image/grid_matte_dashboard.png"
+                            binding="#{backingBeanScope.backing_pages_Dashboard.i1}"
+                            id="i1" inlineStyle="width:64px; height:64.0px;"/>
+                  <af:outputText value="Function"
+                                 binding="#{backingBeanScope.backing_pages_Dashboard.ot1}"
+                                 id="ot1"
+                                 inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                </af:panelGroupLayout>
+                <af:setPropertyListener from="#{'/taskFlow/Functions_BTF.xml#Functions_BTF'}"
+                                        to="#{pageFlowScope.taskid}"
+                                        type="action"/>
+              </af:commandLink>
+            </af:panelGroupLayout>
+            <af:spacer width="58" height="10"
+                       binding="#{backingBeanScope.backing_pages_Dashboard.s2}"
+                       id="s2" rendered="false"/>
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.pgl5}"
+                                 id="pgl5" layout="vertical" halign="center"
+                                 rendered="false">
+              <af:commandLink binding="#{backingBeanScope.backing_pages_Dashboard.cl3}"
+                              id="cl3" action="toHome">
+                <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.pgl6}"
+                                     id="pgl6" layout="vertical"
+                                     halign="center">
+                  <af:image source="/image/grid_matte_helpprocurement.png"
+                            binding="#{backingBeanScope.backing_pages_Dashboard.i3}"
+                            id="i3" inlineStyle="width:64px; height:64.0px;"/>
+                  <af:outputText value="Data Security"
+                                 binding="#{backingBeanScope.backing_pages_Dashboard.ot3}"
+                                 id="ot3"
+                                 inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                </af:panelGroupLayout>
+                <af:setPropertyListener from="#{'/taskFlow/DataSecurity_BTF.xml#DataSecurity'}"
+                                        to="#{pageFlowScope.taskid}"
+                                        type="action"/>
+              </af:commandLink>
+            </af:panelGroupLayout>
+            <af:spacer width="48" height="10"
+                       binding="#{backingBeanScope.backing_pages_Dashboard.s3}"
+                       id="s3" rendered="false"/>
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout1}"
+                                 id="panelGroupLayout1" layout="vertical"
+                                 halign="center" rendered="false">
+              <af:commandLink binding="#{backingBeanScope.backing_pages_Dashboard.commandLink1}"
+                              id="commandLink1" action="toHome">
+                <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout2}"
+                                     id="panelGroupLayout2" layout="vertical"
+                                     halign="center">
+                  <af:image source="/image/grid_matte_distribute.png"
+                            binding="#{backingBeanScope.backing_pages_Dashboard.image1}"
+                            id="image1"
+                            inlineStyle="width:64px; height:64.0px;"/>
+                  <af:outputText value="Data Combination"
+                                 binding="#{backingBeanScope.backing_pages_Dashboard.outputText1}"
+                                 id="outputText1"
+                                 inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                </af:panelGroupLayout>
+                <af:setPropertyListener from="#{'/taskFlow/DataCombination_BTF.xml#DataCombination_BTF'}"
+                                        to="#{pageFlowScope.taskid}"
+                                        type="action"/>
+              </af:commandLink>
+            </af:panelGroupLayout>
+            <af:spacer width="49" height="10"
+                       binding="#{backingBeanScope.backing_pages_Dashboard.s4}"
+                       id="s4"/>
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout3}"
+                                 id="panelGroupLayout3" layout="vertical"
+                                 halign="center" rendered="false">
+              <af:commandLink binding="#{backingBeanScope.backing_pages_Dashboard.commandLink2}"
+                              id="commandLink2" action="toHome">
+                <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout4}"
+                                     id="panelGroupLayout4" layout="vertical"
+                                     halign="center">
+                  <af:image source="/image/grid_matte_group.png"
+                            binding="#{backingBeanScope.backing_pages_Dashboard.image2}"
+                            id="image2"
+                            inlineStyle="width:64px; height:64.0px;"/>
+                  <af:outputText value="Data Group"
+                                 binding="#{backingBeanScope.backing_pages_Dashboard.outputText2}"
+                                 id="outputText2"
+                                 inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                </af:panelGroupLayout>
+                <af:setPropertyListener from="#{'/taskFlow/DataGroup_BTF.xml#DataGroup_BTF'}"
+                                        to="#{pageFlowScope.taskid}"
+                                        type="action"/>
+              </af:commandLink>
+            </af:panelGroupLayout>
+            <af:spacer width="49" height="10"
+                       binding="#{backingBeanScope.backing_pages_Dashboard.s5}"
+                       id="s5" rendered="false"/>
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout5}"
+                                 id="panelGroupLayout5" layout="vertical"
+                                 halign="center">
+              <af:commandLink binding="#{backingBeanScope.backing_pages_Dashboard.commandLink3}"
+                              id="commandLink3" action="toHome">
+                <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout6}"
+                                     id="panelGroupLayout6" layout="vertical"
+                                     halign="center">
+                  <af:image source="/image/grid_matte_checklist.png"
+                            binding="#{backingBeanScope.backing_pages_Dashboard.image3}"
+                            id="image3"
+                            inlineStyle="width:64px; height:64.0px;"/>
+                  <af:outputText value="Menu"
+                                 binding="#{backingBeanScope.backing_pages_Dashboard.outputText3}"
+                                 id="outputText3"
+                                 inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                </af:panelGroupLayout>
+                <af:setPropertyListener from="#{'/taskFlow/Menu_BTF.xml#Menu_BTF'}"
+                                        to="#{pageFlowScope.taskid}"
+                                        type="action"/>
+              </af:commandLink>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+          <af:spacer width="10" height="50"
+                     binding="#{backingBeanScope.backing_pages_Dashboard.s6}"
+                     id="s6"/>
+          <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout7}"
+                               id="panelGroupLayout7" layout="horizontal"
+                               halign="center">
+            <af:spacer width="10" height="100"
+                       binding="#{backingBeanScope.backing_pages_Dashboard.spacer1}"
+                       id="spacer1"/>
+            <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout8}"
+                                 id="panelGroupLayout8" layout="horizontal"
+                                 halign="center">
+              <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout13}"
+                                   id="panelGroupLayout13" layout="vertical"
+                                   halign="center">
+                <af:commandLink binding="#{backingBeanScope.backing_pages_Dashboard.commandLink6}"
+                                id="commandLink6" action="toHome">
+                  <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout14}"
+                                       id="panelGroupLayout14" layout="vertical"
+                                       halign="center">
+                    <af:image source="/image/grid_matte_clipboardcheckmark.png"
+                              binding="#{backingBeanScope.backing_pages_Dashboard.image6}"
+                              id="image6"
+                              inlineStyle="width:64px; height:64.0px;"/>
+                    <af:outputText value="Menu Access"
+                                   binding="#{backingBeanScope.backing_pages_Dashboard.outputText6}"
+                                   id="outputText6"
+                                   inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                  </af:panelGroupLayout>
+                  <af:setPropertyListener from="#{'/taskFlow/MenuAccess_BTF.xml#MenuAccess_BTF'}"
+                                          to="#{pageFlowScope.taskid}"
+                                          type="action"/>
+                </af:commandLink>
+              </af:panelGroupLayout>
+              <af:spacer width="60" height="10"
+                         binding="#{backingBeanScope.backing_pages_Dashboard.spacer4}"
+                         id="spacer4"/>
+              <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout15}"
+                                   id="panelGroupLayout15" layout="vertical"
+                                   halign="center">
+                <af:commandLink binding="#{backingBeanScope.backing_pages_Dashboard.commandLink7}"
+                                id="commandLink7" action="toHome">
+                  <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout16}"
+                                       id="panelGroupLayout16" layout="vertical"
+                                       halign="center">
+                    <af:image source="/image/grid_matte_binoculars.png"
+                              binding="#{backingBeanScope.backing_pages_Dashboard.image7}"
+                              id="image7"
+                              inlineStyle="width:64px; height:64.0px;"/>
+                    <af:outputText value="Lookup"
+                                   binding="#{backingBeanScope.backing_pages_Dashboard.outputText7}"
+                                   id="outputText7"
+                                   inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                  </af:panelGroupLayout>
+                  <af:setPropertyListener from="#{'/taskFlow/Lookup_BTF.xml#Lookup_BTF'}"
+                                          to="#{pageFlowScope.taskid}"
+                                          type="action"/>
+                </af:commandLink>
+              </af:panelGroupLayout>
+              <af:spacer width="65" height="10"
+                         binding="#{backingBeanScope.backing_pages_Dashboard.spacer5}"
+                         id="spacer5"/>
+              <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout17}"
+                                   id="panelGroupLayout17" layout="vertical"
+                                   halign="center">
+                <af:commandLink binding="#{backingBeanScope.backing_pages_Dashboard.commandLink8}"
+                                id="commandLink8" action="toHome">
+                  <af:panelGroupLayout binding="#{backingBeanScope.backing_pages_Dashboard.panelGroupLayout18}"
+                                       id="panelGroupLayout18" layout="vertical"
+                                       halign="center">
+                    <af:image source="/image/grid_matte_contacts.png"
+                              binding="#{backingBeanScope.backing_pages_Dashboard.image8}"
+                              id="image8"
+                              inlineStyle="width:64px; height:64.0px;"/>
+                    <af:outputText value="User"
+                                   binding="#{backingBeanScope.backing_pages_Dashboard.outputText8}"
+                                   id="outputText8"
+                                   inlineStyle="color:White; font-size:small; font-weight:bold;"/>
+                  </af:panelGroupLayout>
+                  <af:setPropertyListener from="#{'/taskFlow/User_BTF.xml#User_BTF'}"
+                                          to="#{pageFlowScope.taskid}"
+                                          type="action"/>
+                </af:commandLink>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_pages_Dashboard-->
+</jsp:root>

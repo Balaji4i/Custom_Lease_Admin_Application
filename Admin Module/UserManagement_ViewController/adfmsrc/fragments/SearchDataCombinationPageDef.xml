@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="SearchDataCombinationPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DataCombination_ROVO1" RangeSize="25"
+              DataControl="DataCombination_AMDataControl"
+              id="DataCombination_ROVO1Iterator"/>
+    <iterator id="DataSecurity_VO1Iterator" Binds="DataSecurity_VO1"
+              DataControl="DataCombination_AMDataControl" RangeSize="25"/>
+    <iterator Binds="SearchCombination_ROVO1" RangeSize="25"
+              DataControl="DataCombination_AMDataControl"
+              id="SearchCombination_ROVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DataCombination_ROVO1Iterator"
+          id="DataCombination_ROVO1">
+      <nodeDefinition DefName="fusion.um.model.ROVO.DataCombination_ROVO"
+                      Name="DataCombination_ROVO10">
+        <AttrNames>
+          <Item Value="Segment1"/>
+          <Item Value="Segment2"/>
+          <Item Value="Segment3"/>
+          <Item Value="Segment4"/>
+          <Item Value="Segment5"/>
+          <Item Value="ActiveYn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DataCombination_ROVO1Iterator" id="DcombId">
+      <AttrNames>
+        <Item Value="DcombId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DataCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment1" id="Segment1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment2" id="Segment2" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment3" id="Segment3" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment4" id="Segment4" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment5" id="Segment5" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="SearchCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment1" id="Segment11" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="SearchCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment2" id="Segment21" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="SearchCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment3" id="Segment31" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="SearchCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment4" id="Segment41" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="SearchCombination_ROVO1Iterator" StaticList="false"
+          Uses="LOV_Segment5" id="Segment51" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

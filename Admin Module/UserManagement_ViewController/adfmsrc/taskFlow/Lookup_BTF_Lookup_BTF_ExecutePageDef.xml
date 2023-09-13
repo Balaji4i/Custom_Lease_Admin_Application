@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="Lookup_BTF_Lookup_BTF_ExecutePageDef" Package="taskFlow"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="LookupType_ROVO1" RangeSize="25"
+              DataControl="Lookup_AMDataControl" id="LookupType_ROVO1Iterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="LookupType_ROVO1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

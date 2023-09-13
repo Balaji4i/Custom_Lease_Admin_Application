@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.pgl1}"
+                           id="pgl1" layout="scroll">
+        <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.pgl2}"
+                             id="pgl2">
+          <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.pgl3}"
+                              id="pgl3">
+            <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                        binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.gr1}"
+                        id="gr1">
+              <af:gridCell marginStart="5px" width="50%"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.gc1}"
+                           id="gc1" marginEnd="5px">
+                <af:outputLabel value="Data Group"
+                                binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.ol1}"
+                                id="ol1"
+                                inlineStyle="font-size:large; font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.gc2}"
+                           id="gc2" halign="end">
+                <af:commandButton text="Save"
+                                  binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.cb1}"
+                                  id="cb1" action="back"
+                                  actionListener="#{backingBeanScope.backing_fragments_AddEditDataGroup.onClickCommit}"/>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.s1}"
+                           id="s1"/>
+                <af:commandButton text="Cancel"
+                                  binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.cb2}"
+                                  id="cb2" immediate="true">
+                  <af:showPopupBehavior popupId="p1"/>
+                </af:commandButton>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:popup binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.p1}"
+                    id="p1">
+            <af:dialog binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.d1}"
+                       id="d1" type="none"
+                       inlineStyle="width:350px; height:100.0px;"
+                       titleIconSource="/image/warning.png" title="Warning">
+              <af:outputText value="Are you sure you want to Cancel this information?"
+                             binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.ot1}"
+                             id="ot1"/>
+              <f:facet name="buttonBar">
+                <af:group binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.g1}"
+                          id="g1">
+                  <af:commandButton text="Ok"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.cb3}"
+                                    id="cb3" action="back"
+                                    actionListener="#{backingBeanScope.backing_fragments_AddEditDataGroup.onClickRollback}"/>
+                  <af:spacer width="10" height="10"
+                             binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.s2}"
+                             id="s2"/>
+                  <af:commandButton text="Canel"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.cb4}"
+                                    id="cb4"
+                                    actionListener="#{backingBeanScope.backing_fragments_AddEditDataGroup.onClickClose}"/>
+                </af:group>
+              </f:facet>
+            </af:dialog>
+          </af:popup>
+        </af:panelGroupLayout>
+        <af:panelFormLayout binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.pfl1}"
+                            id="pfl1"
+                            inlineStyle="padding-left:400px; height:100px;">
+          <af:inputText value="#{bindings.DataGroupName.inputValue}"
+                        label="Group Name"
+                        required="#{bindings.DataGroupName.hints.mandatory}"
+                        columns="#{bindings.DataGroupName.hints.displayWidth}"
+                        maximumLength="#{bindings.DataGroupName.hints.precision}"
+                        shortDesc="#{bindings.DataGroupName.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.it1}"
+                        id="it1">
+            <f:validator binding="#{bindings.DataGroupName.validator}"/>
+          </af:inputText>
+          <af:selectBooleanCheckbox value="#{bindings.ActiveYn.inputValue}"
+                                    label="Active ?"
+                                    shortDesc="#{bindings.ActiveYn.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.sbc1}"
+                                    id="sbc1"/>
+        </af:panelFormLayout>
+        <af:panelCollection binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.pc1}"
+                            id="pc1" styleClass="AFStretchWidth">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.t2}"
+                        id="t2">
+              <af:commandImageLink
+                                   binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.cil1}"
+                                   id="cil1" icon="/image/add.png"
+                                   hoverIcon="/image/add_en.png"
+                                   actionListener="#{backingBeanScope.backing_fragments_AddEditDataGroup.onClickInsert}"
+                                   partialSubmit="true"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.DataGroupDetail_VO1.collectionModel}"
+                    var="row" rows="#{bindings.DataGroupDetail_VO1.rangeSize}"
+                    emptyText="#{bindings.DataGroupDetail_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="6"
+                    rowBandingInterval="0"
+                    binding="#{backingBeanScope.backing_fragments_AddEditDataGroup.t1}"
+                    id="t1" partialTriggers="::cil1" scrollPolicy="page"
+                    autoHeightRows="0" columnStretching="column:c2">
+            <af:column sortProperty="#{bindings.DataGroupDetail_VO1.hints.DcombId.name}"
+                       sortable="false"
+                       headerText="Data Combination"
+                       id="c1" width="650">
+              <af:selectOneChoice value="#{row.bindings.DcombId.inputValue}"
+                                  label="#{row.bindings.DcombId.label}"
+                                  required="#{bindings.DataGroupDetail_VO1.hints.DcombId.mandatory}"
+                                  shortDesc="#{bindings.DataGroupDetail_VO1.hints.DcombId.tooltip}"
+                                  id="soc1">
+                <f:selectItems value="#{row.bindings.DcombId.items}" id="si1"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="Active ?"
+                       id="c2" width="100">
+              <af:selectBooleanCheckbox value="#{row.bindings.Trans_Active.inputValue}"
+                                        label="#{row.bindings.Trans_Active.label}"
+                                        shortDesc="#{bindings.DataGroupDetail_VO1.hints.Trans_Active.tooltip}"
+                                        id="sbc2"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_AddEditDataGroup-->
+</jsp:root>

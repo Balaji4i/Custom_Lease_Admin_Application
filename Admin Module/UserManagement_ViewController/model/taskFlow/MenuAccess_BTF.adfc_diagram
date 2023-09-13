@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">MenuAccess</property>
+      <property
+         name="start">false</property>
+      <property
+         name="page">/fragments/MenuAccess.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>MenuAccess&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="thumbnailExpanded">false</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">91.65918</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">464.0</property>
+   </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">getResetData</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>getResetData&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">129.0459</property>
+      <property
+         name="x">184.68848</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall3"
+      to="View2">
+      <property
+         name="fromOutcome">getResetData</property>
+      <property
+         name="sdm:polyPoints">R50,225.68848,128.69531,423.0,91.30859,L50</property>
+   </ControlFlowCase>
+</SDM>

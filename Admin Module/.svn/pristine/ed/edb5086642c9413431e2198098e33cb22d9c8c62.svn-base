@@ -1,0 +1,579 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout id="pgl1" layout="scroll">
+        <af:panelGridLayout id="pgl2">
+          <af:gridRow marginTop="5px" height="40px" id="gr1">
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         id="gc2">
+              <af:outputLabel value="Functions" id="ol1"
+                              inlineStyle="font-weight:bolder; font-size:large;"/>
+            </af:gridCell>
+            <af:gridCell width="50%" marginEnd="5px"
+                         id="gc1" marginStart="50px" halign="end"
+                         valign="stretch">
+              <af:commandButton text="Save" id="cb1" action="back"
+                                actionListener="#{FunctionBean.onClickCommit}"/>
+              <af:spacer width="10" height="10" id="s2"/>
+              <af:commandButton text="Cancel"
+                                immediate="true" id="cb2">
+                <af:showPopupBehavior popupId="p1" triggerType="action"/>
+              </af:commandButton>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelFormLayout id="pfl2"
+                            inlineStyle="padding-left:450px; height:350px;">
+          <af:inputText value="#{bindings.FuncId.inputValue}"
+                        label="#{bindings.FuncId.hints.label}"
+                        required="#{bindings.FuncId.hints.mandatory}"
+                        columns="#{bindings.FuncId.hints.displayWidth}"
+                        maximumLength="#{bindings.FuncId.hints.precision}"
+                        shortDesc="#{bindings.FuncId.hints.tooltip}" id="it5"
+                        rendered="false">
+            <f:validator binding="#{bindings.FuncId.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.FuncId.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.FuncName.inputValue}"
+                        label="#{bindings.FuncName.hints.label}"
+                        required="#{bindings.FuncName.hints.mandatory}"
+                        columns="#{bindings.FuncName.hints.displayWidth}"
+                        maximumLength="#{bindings.FuncName.hints.precision}"
+                        shortDesc="#{bindings.FuncName.hints.tooltip}" id="it8">
+            <f:validator binding="#{bindings.FuncName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.FuncShortCode.inputValue}"
+                        label="#{bindings.FuncShortCode.hints.label}"
+                        required="#{bindings.FuncShortCode.hints.mandatory}"
+                        columns="#{bindings.FuncShortCode.hints.displayWidth}"
+                        maximumLength="#{bindings.FuncShortCode.hints.precision}"
+                        shortDesc="#{bindings.FuncShortCode.hints.tooltip}"
+                        id="it7" contentStyle="text-transform:uppercase">
+            <f:validator binding="#{bindings.FuncShortCode.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.Prefix.inputValue}"
+                        label="#{bindings.Prefix.hints.label}"
+                        required="#{bindings.Prefix.hints.mandatory}"
+                        columns="#{bindings.Prefix.hints.displayWidth}"
+                        maximumLength="#{bindings.Prefix.hints.precision}"
+                        shortDesc="#{bindings.Prefix.hints.tooltip}" id="it1"
+                        visible="#{bindings.AutoNumberYn.inputValue==' Y'? 'false':'true'}"
+                        partialTriggers="sbc1" contentStyle="width:220px;">
+            <f:validator binding="#{bindings.Prefix.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.NextNumber.inputValue}"
+                        label="#{bindings.NextNumber.hints.label}"
+                        required="#{bindings.NextNumber.hints.mandatory}"
+                        columns="#{bindings.NextNumber.hints.displayWidth}"
+                        maximumLength="#{bindings.NextNumber.hints.precision}"
+                        shortDesc="#{bindings.NextNumber.hints.tooltip}"
+                        id="it6"
+                        visible="#{bindings.AutoNumberYn.inputValue==' Y'? 'false':'true'}"
+                        partialTriggers="sbc1" contentStyle="width:220px;">
+            <f:validator binding="#{bindings.NextNumber.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.NextNumber.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.PagePath.inputValue}"
+                        label="#{bindings.PagePath.hints.label}"
+                        required="#{bindings.PagePath.hints.mandatory}"
+                        columns="#{bindings.PagePath.hints.displayWidth}"
+                        maximumLength="#{bindings.PagePath.hints.precision}"
+                        shortDesc="#{bindings.PagePath.hints.tooltip}" id="it3"
+                        rows="2">
+            <f:validator binding="#{bindings.PagePath.validator}"/>
+          </af:inputText>
+          <af:selectBooleanCheckbox value="#{bindings.AutoNumberYn.inputValue}"
+                                    label="#{bindings.AutoNumberYn.label}"
+                                    shortDesc="#{bindings.AutoNumberYn.hints.tooltip}"
+                                    id="sbc1" autoSubmit="true"/>
+          <af:selectBooleanCheckbox value="#{bindings.ActiveYn.inputValue}"
+                                    label="Active ?"
+                                    shortDesc="#{bindings.ActiveYn.hints.tooltip}"
+                                    id="sbc2" autoSubmit="true"/>
+          <af:inputDate value="#{bindings.InactiveOn.inputValue}"
+                        label="#{bindings.InactiveOn.hints.label}"
+                        required="#{bindings.InactiveOn.hints.mandatory}"
+                        shortDesc="#{bindings.InactiveOn.hints.tooltip}"
+                        id="id1"
+                        visible="#{bindings.ActiveYn.inputValue=='N'? 'true':'false'}"
+                        partialTriggers="sbc2">
+            <f:validator binding="#{bindings.InactiveOn.validator}"/>
+            <af:convertDateTime pattern="#{bindings.InactiveOn.format}"/>
+          </af:inputDate>
+          <af:popup id="p1" binding="#{FunctionBean.p1}">
+            <af:dialog id="d1" type="none" title="Warning"
+                       inlineStyle="width:350px; height:100.0px;"
+                       titleIconSource="/image/warning.png">
+              <af:outputText value="Are you sure you want to Cancel this information?" id="ot1"/>
+              <f:facet name="buttonBar">
+                <af:group id="g1">
+                  <af:commandButton text="Ok" id="cb3" action="back"
+                                    actionListener="#{FunctionBean.onClickRollback}"
+                                    immediate="true"/>
+                  <af:spacer width="10" height="10" id="s3"/>
+                  <af:commandButton text="Cancel" id="cb4"
+                                    actionListener="#{FunctionBean.onClickClose}"/>
+                </af:group>
+              </f:facet>
+            </af:dialog>
+          </af:popup>
+        </af:panelFormLayout>
+        <af:spacer width="10" height="10" id="s4"/>
+        <af:panelTabbed position="left" id="pt2" styleClass="AFStretchWidth"
+                        dimensionsFrom="auto">
+          <af:showDetailItem id="tab1" text="Approvals" rendered="false">
+            <af:outputText value="Approvals" id="ot2"
+                           inlineStyle="font-weight:bolder; font-size:medium;"/>
+            <af:panelBox text="Level" id="pb1">
+              <f:facet name="toolbar"/>
+              <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t4" flex="1">
+                    <af:commandImageLink
+                                         disabled="#{!bindings.CreateInsert.enabled}"
+                                         id="cil1" icon="/image/add.png"
+                                         hoverIcon="/image/add_en.png"
+                                         actionListener="#{FunctionBean.onClickCreate}"
+                                         partialSubmit="true"/>
+                    <af:spacer width="10" height="10" id="s5"/>
+                    <af:commandImageLink actionListener="#{bindings.Delete.execute}"
+                                         disabled="#{!bindings.Delete.enabled}"
+                                         id="cil4" icon="/image/delete.png"
+                                         hoverIcon="/image/delete_en.png"/>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.FuncApprLevels_VO1.collectionModel}"
+                          var="row"
+                          rows="#{bindings.FuncApprLevels_VO1.rangeSize}"
+                          emptyText="#{bindings.FuncApprLevels_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="3"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.FuncApprLevels_VO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.FuncApprLevels_VO1.collectionModel.makeCurrent}"
+                          rowSelection="single" id="t1"
+                          partialTriggers=":::pfl2 :::it5" scrollPolicy="page"
+                          autoHeightRows="0">
+                  <af:column sortProperty="#{bindings.FuncApprLevels_VO1.hints.ApprLevelId.name}"
+                             sortable="false"
+                             headerText="#{bindings.FuncApprLevels_VO1.hints.ApprLevelId.label}"
+                             id="c5" rendered="false">
+                    <af:inputText value="#{row.bindings.ApprLevelId.inputValue}"
+                                  label="#{bindings.FuncApprLevels_VO1.hints.ApprLevelId.label}"
+                                  required="#{bindings.FuncApprLevels_VO1.hints.ApprLevelId.mandatory}"
+                                  columns="#{bindings.FuncApprLevels_VO1.hints.ApprLevelId.displayWidth}"
+                                  maximumLength="#{bindings.FuncApprLevels_VO1.hints.ApprLevelId.precision}"
+                                  shortDesc="#{bindings.FuncApprLevels_VO1.hints.ApprLevelId.tooltip}"
+                                  id="it12">
+                      <f:validator binding="#{row.bindings.ApprLevelId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.FuncApprLevels_VO1.hints.ApprLevelId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.FuncApprLevels_VO1.hints.FuncId.name}"
+                             sortable="false"
+                             headerText="#{bindings.FuncApprLevels_VO1.hints.FuncId.label}"
+                             id="c6" rendered="false">
+                    <af:inputText value="#{row.bindings.FuncId.inputValue}"
+                                  label="#{bindings.FuncApprLevels_VO1.hints.FuncId.label}"
+                                  required="#{bindings.FuncApprLevels_VO1.hints.FuncId.mandatory}"
+                                  columns="#{bindings.FuncApprLevels_VO1.hints.FuncId.displayWidth}"
+                                  maximumLength="#{bindings.FuncApprLevels_VO1.hints.FuncId.precision}"
+                                  shortDesc="#{bindings.FuncApprLevels_VO1.hints.FuncId.tooltip}"
+                                  id="it2">
+                      <f:validator binding="#{row.bindings.FuncId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.FuncApprLevels_VO1.hints.FuncId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.FuncApprLevels_VO1.hints.LevelNo.name}"
+                             sortable="false"
+                             headerText="Lvl No"
+                             id="c1" width="50">
+                    <af:inputText value="#{row.bindings.LevelNo.inputValue}"
+                                  label="#{bindings.FuncApprLevels_VO1.hints.LevelNo.label}"
+                                  required="#{bindings.FuncApprLevels_VO1.hints.LevelNo.mandatory}"
+                                  columns="#{bindings.FuncApprLevels_VO1.hints.LevelNo.displayWidth}"
+                                  maximumLength="#{bindings.FuncApprLevels_VO1.hints.LevelNo.precision}"
+                                  shortDesc="#{bindings.FuncApprLevels_VO1.hints.LevelNo.tooltip}"
+                                  id="it11">
+                      <f:validator binding="#{row.bindings.LevelNo.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.FuncApprLevels_VO1.hints.LevelNo.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.FuncApprLevels_VO1.hints.LevelName.name}"
+                             sortable="false"
+                             headerText="Level Name"
+                             id="c2" width="180">
+                    <af:inputText value="#{row.bindings.LevelName.inputValue}"
+                                  label="#{bindings.FuncApprLevels_VO1.hints.LevelName.label}"
+                                  columns="#{bindings.FuncApprLevels_VO1.hints.LevelName.displayWidth}"
+                                  maximumLength="#{bindings.FuncApprLevels_VO1.hints.LevelName.precision}"
+                                  shortDesc="#{bindings.FuncApprLevels_VO1.hints.LevelName.tooltip}"
+                                  id="it4" required="true" autoTab="true">
+                      <f:validator binding="#{row.bindings.LevelName.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="Level Type"
+                             id="c3" width="150" rendered="false">
+                    <af:selectOneChoice value="#{row.bindings.LevelType.inputValue}"
+                                        label="#{row.bindings.LevelType.label}"
+                                        required="#{bindings.FuncApprLevels_VO1.hints.LevelType.mandatory}"
+                                        shortDesc="#{bindings.FuncApprLevels_VO1.hints.LevelType.tooltip}"
+                                        id="soc1">
+                      <f:selectItems value="#{row.bindings.LevelType.items}"
+                                     id="si1"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column headerText="Approve by all ?"
+                             id="c4" width="120">
+                    <af:selectBooleanCheckbox value="#{row.bindings.Trans_Active_2.inputValue}"
+                                              label="#{row.bindings.Trans_Active_2.label}"
+                                              shortDesc="#{bindings.FuncApprLevels_VO1.hints.Trans_Active_2.tooltip}"
+                                              id="sbc5"/>
+                  </af:column>
+                  <af:column headerText="Active ?"
+                             id="c8">
+                    <af:selectBooleanCheckbox value="#{row.bindings.Trans_Active.inputValue}"
+                                              label="#{row.bindings.Trans_Active.label}"
+                                              shortDesc="#{bindings.FuncApprLevels_VO1.hints.Trans_Active.tooltip}"
+                                              id="sbc3"/>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+              <af:spacer width="10" height="10" id="s1"/>
+              <af:panelBox text="User" id="pb3">
+                <f:facet name="toolbar"/>
+                <af:panelCollection id="pc3" styleClass="AFStretchWidth"
+                                    partialTriggers="::pc1:t1">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t3" flex="1">
+                      <af:commandImageLink
+                                           disabled="#{!bindings.CreateInsert1.enabled}"
+                                           id="cil2" icon="/image/add.png"
+                                           hoverIcon="/image/add_en.png"
+                                           actionListener="#{FunctionBean.onClickApprovalCreate}"
+                                           partialSubmit="true"/>
+                      <af:spacer width="10" height="10" id="s6"/>
+                      <af:commandImageLink actionListener="#{bindings.Delete1.execute}"
+                                           disabled="#{!bindings.Delete1.enabled}"
+                                           id="cil5" icon="/image/delete.png"
+                                           hoverIcon="/image/delete_en.png"/>
+                    </af:toolbar>
+                  </f:facet>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.FuncApprovals_VO1.collectionModel}"
+                            var="row"
+                            rows="#{bindings.FuncApprovals_VO1.rangeSize}"
+                            emptyText="#{bindings.FuncApprovals_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            fetchSize="3"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.FuncApprovals_VO1.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.FuncApprovals_VO1.collectionModel.makeCurrent}"
+                            rowSelection="single" id="t2"
+                            partialTriggers=":::pfl2 :::pc1:t1 :::it5"
+                            scrollPolicy="page" contentDelivery="immediate"
+                            autoHeightRows="0">
+                    <af:column sortProperty="#{bindings.FuncApprovals_VO1.hints.FuncApprId.name}"
+                               sortable="false"
+                               headerText="#{bindings.FuncApprovals_VO1.hints.FuncApprId.label}"
+                               id="c13" rendered="false">
+                      <af:inputText value="#{row.bindings.FuncApprId.inputValue}"
+                                    label="#{bindings.FuncApprovals_VO1.hints.FuncApprId.label}"
+                                    required="#{bindings.FuncApprovals_VO1.hints.FuncApprId.mandatory}"
+                                    columns="#{bindings.FuncApprovals_VO1.hints.FuncApprId.displayWidth}"
+                                    maximumLength="#{bindings.FuncApprovals_VO1.hints.FuncApprId.precision}"
+                                    shortDesc="#{bindings.FuncApprovals_VO1.hints.FuncApprId.tooltip}"
+                                    id="it17">
+                        <f:validator binding="#{row.bindings.FuncApprId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FuncApprovals_VO1.hints.FuncApprId.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.FuncApprovals_VO1.hints.ApprLevelId.name}"
+                               sortable="false"
+                               headerText="#{bindings.FuncApprovals_VO1.hints.ApprLevelId.label}"
+                               id="c12" rendered="false">
+                      <af:inputText value="#{row.bindings.ApprLevelId.inputValue}"
+                                    label="#{bindings.FuncApprovals_VO1.hints.ApprLevelId.label}"
+                                    required="#{bindings.FuncApprovals_VO1.hints.ApprLevelId.mandatory}"
+                                    columns="#{bindings.FuncApprovals_VO1.hints.ApprLevelId.displayWidth}"
+                                    maximumLength="#{bindings.FuncApprovals_VO1.hints.ApprLevelId.precision}"
+                                    shortDesc="#{bindings.FuncApprovals_VO1.hints.ApprLevelId.tooltip}"
+                                    id="it16">
+                        <f:validator binding="#{row.bindings.ApprLevelId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FuncApprovals_VO1.hints.ApprLevelId.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.FuncApprovals_VO1.hints.FuncId.name}"
+                               sortable="false"
+                               headerText="#{bindings.FuncApprovals_VO1.hints.FuncId.label}"
+                               id="c7" rendered="false">
+                      <af:inputText value="#{row.bindings.FuncId.inputValue}"
+                                    label="#{bindings.FuncApprovals_VO1.hints.FuncId.label}"
+                                    required="#{bindings.FuncApprovals_VO1.hints.FuncId.mandatory}"
+                                    columns="#{bindings.FuncApprovals_VO1.hints.FuncId.displayWidth}"
+                                    maximumLength="#{bindings.FuncApprovals_VO1.hints.FuncId.precision}"
+                                    shortDesc="#{bindings.FuncApprovals_VO1.hints.FuncId.tooltip}"
+                                    id="it21">
+                        <f:validator binding="#{row.bindings.FuncId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FuncApprovals_VO1.hints.FuncId.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.FuncApprovals_VO1.hints.SeqNumber.name}"
+                               sortable="false"
+                               headerText="Seq No"
+                               id="c10" width="50">
+                      <af:inputText value="#{row.bindings.SeqNumber.inputValue}"
+                                    label="#{bindings.FuncApprovals_VO1.hints.SeqNumber.label}"
+                                    required="#{bindings.FuncApprovals_VO1.hints.SeqNumber.mandatory}"
+                                    columns="#{bindings.FuncApprovals_VO1.hints.SeqNumber.displayWidth}"
+                                    maximumLength="#{bindings.FuncApprovals_VO1.hints.SeqNumber.precision}"
+                                    shortDesc="#{bindings.FuncApprovals_VO1.hints.SeqNumber.tooltip}"
+                                    id="it18">
+                        <f:validator binding="#{row.bindings.SeqNumber.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FuncApprovals_VO1.hints.SeqNumber.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column headerText="User Name"
+                               id="c9" width="155">
+                      <af:selectOneChoice value="#{row.bindings.UserId.inputValue}"
+                                          label="#{row.bindings.UserId.label}"
+                                          required="#{bindings.FuncApprovals_VO1.hints.UserId.mandatory}"
+                                          shortDesc="#{bindings.FuncApprovals_VO1.hints.UserId.tooltip}"
+                                          id="soc2"
+                                          valueChangeListener="#{FunctionBean.onClickEmpInsert}"
+                                          autoSubmit="true">
+                        <f:selectItems value="#{row.bindings.UserId.items}"
+                                       id="si2"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.FuncApprovals_VO1.hints.ApprRole.name}"
+                               sortable="false"
+                               headerText="Role"
+                               id="c15" width="155" rendered="false">
+                      <af:inputText value="#{row.bindings.ApprRole.inputValue}"
+                                    label="#{bindings.FuncApprovals_VO1.hints.ApprRole.label}"
+                                    required="#{bindings.FuncApprovals_VO1.hints.ApprRole.mandatory}"
+                                    columns="#{bindings.FuncApprovals_VO1.hints.ApprRole.displayWidth}"
+                                    maximumLength="#{bindings.FuncApprovals_VO1.hints.ApprRole.precision}"
+                                    shortDesc="#{bindings.FuncApprovals_VO1.hints.ApprRole.tooltip}"
+                                    id="it13">
+                        <f:validator binding="#{row.bindings.ApprRole.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.FuncApprovals_VO1.hints.ApprRoleDesc.name}"
+                               sortable="false"
+                               headerText="Role Description"
+                               id="c11" width="155" rendered="false">
+                      <af:inputText value="#{row.bindings.ApprRoleDesc.inputValue}"
+                                    label="#{bindings.FuncApprovals_VO1.hints.ApprRoleDesc.label}"
+                                    required="#{bindings.FuncApprovals_VO1.hints.ApprRoleDesc.mandatory}"
+                                    columns="#{bindings.FuncApprovals_VO1.hints.ApprRoleDesc.displayWidth}"
+                                    maximumLength="#{bindings.FuncApprovals_VO1.hints.ApprRoleDesc.precision}"
+                                    shortDesc="#{bindings.FuncApprovals_VO1.hints.ApprRoleDesc.tooltip}"
+                                    id="it15">
+                        <f:validator binding="#{row.bindings.ApprRoleDesc.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column headerText="Employee Name"
+                               id="c16" width="155">
+                      <af:selectOneChoice value="#{row.bindings.EmpId.inputValue}"
+                                          label="#{row.bindings.EmpId.label}"
+                                          required="#{bindings.FuncApprovals_VO1.hints.EmpId.mandatory}"
+                                          shortDesc="#{bindings.FuncApprovals_VO1.hints.EmpId.tooltip}"
+                                          id="soc3" autoSubmit="true">
+                        <f:selectItems value="#{row.bindings.EmpId.items}"
+                                       id="si3"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.FuncApprovals_VO1.hints.ApprLimit.name}"
+                               sortable="false"
+                               headerText="Limit"
+                               id="c14" rendered="false">
+                      <af:inputText value="#{row.bindings.ApprLimit.inputValue}"
+                                    label="#{bindings.FuncApprovals_VO1.hints.ApprLimit.label}"
+                                    required="#{bindings.FuncApprovals_VO1.hints.ApprLimit.mandatory}"
+                                    columns="#{bindings.FuncApprovals_VO1.hints.ApprLimit.displayWidth}"
+                                    maximumLength="#{bindings.FuncApprovals_VO1.hints.ApprLimit.precision}"
+                                    shortDesc="#{bindings.FuncApprovals_VO1.hints.ApprLimit.tooltip}"
+                                    id="it22" contentStyle="text-align:right">
+                        <f:validator binding="#{row.bindings.ApprLimit.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FuncApprovals_VO1.hints.ApprLimit.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column headerText="Active ?"
+                               id="c17">
+                      <af:selectBooleanCheckbox value="#{row.bindings.Trans_Active_1.inputValue}"
+                                                label="#{row.bindings.Trans_Active_1.label}"
+                                                shortDesc="#{bindings.FuncApprovals_VO1.hints.Trans_Active_1.tooltip}"
+                                                id="sbc4"/>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </af:panelBox>
+            </af:panelBox>
+          </af:showDetailItem>
+          <af:showDetailItem id="tab2" text="CheckList">
+            <af:panelBox text="Checklist" id="pb2" styleClass="AFStretchWidth">
+              <f:facet name="toolbar"/>
+              <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t6" flex="1">
+                    <af:commandImageLink id="cil3" icon="/image/add.png"
+                                         hoverIcon="/image/add_en.png"
+                                         actionListener="#{FunctionBean.onClickChecklistCreate}"
+                                         partialSubmit="true"/>
+                    <af:spacer width="10" height="10" id="s7"/>
+                    <af:commandImageLink actionListener="#{bindings.Delete2.execute}"
+                                         disabled="#{!bindings.Delete2.enabled}"
+                                         id="cil6" icon="/image/delete.png"
+                                         hoverIcon="/image/delete_en.png"/>
+                  </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.FuncChecklist_VO1.collectionModel}"
+                          var="row"
+                          rows="#{bindings.FuncChecklist_VO1.rangeSize}"
+                          emptyText="#{bindings.FuncChecklist_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="6"
+                          rowBandingInterval="0" id="t5" contentDelivery="immediate"
+                          partialTriggers="::cil3" autoHeightRows="0"
+                          styleClass="AFStretchWidth">
+                  <af:column sortProperty="#{bindings.FuncChecklist_VO1.hints.FuncClId.name}"
+                             sortable="false"
+                             headerText="#{bindings.FuncChecklist_VO1.hints.FuncClId.label}"
+                             id="c22" rendered="false">
+                    <af:inputText value="#{row.bindings.FuncClId.inputValue}"
+                                  label="#{bindings.FuncChecklist_VO1.hints.FuncClId.label}"
+                                  required="#{bindings.FuncChecklist_VO1.hints.FuncClId.mandatory}"
+                                  columns="#{bindings.FuncChecklist_VO1.hints.FuncClId.displayWidth}"
+                                  maximumLength="#{bindings.FuncChecklist_VO1.hints.FuncClId.precision}"
+                                  shortDesc="#{bindings.FuncChecklist_VO1.hints.FuncClId.tooltip}"
+                                  id="it9">
+                      <f:validator binding="#{row.bindings.FuncClId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.FuncChecklist_VO1.hints.FuncClId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.FuncChecklist_VO1.hints.FuncId.name}"
+                             sortable="false"
+                             headerText="#{bindings.FuncChecklist_VO1.hints.FuncId.label}"
+                             id="c23" rendered="false">
+                    <af:inputText value="#{row.bindings.FuncId.inputValue}"
+                                  label="#{bindings.FuncChecklist_VO1.hints.FuncId.label}"
+                                  required="#{bindings.FuncChecklist_VO1.hints.FuncId.mandatory}"
+                                  columns="#{bindings.FuncChecklist_VO1.hints.FuncId.displayWidth}"
+                                  maximumLength="#{bindings.FuncChecklist_VO1.hints.FuncId.precision}"
+                                  shortDesc="#{bindings.FuncChecklist_VO1.hints.FuncId.tooltip}"
+                                  id="it19">
+                      <f:validator binding="#{row.bindings.FuncId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.FuncChecklist_VO1.hints.FuncId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.FuncChecklist_VO1.hints.SeqNumber.name}"
+                             sortable="false"
+                             headerText="Seq No"
+                             id="c18" width="70">
+                    <af:inputText value="#{row.bindings.SeqNumber.inputValue}"
+                                  label="#{bindings.FuncChecklist_VO1.hints.SeqNumber.label}"
+                                  required="#{bindings.FuncChecklist_VO1.hints.SeqNumber.mandatory}"
+                                  columns="#{bindings.FuncChecklist_VO1.hints.SeqNumber.displayWidth}"
+                                  maximumLength="#{bindings.FuncChecklist_VO1.hints.SeqNumber.precision}"
+                                  shortDesc="#{bindings.FuncChecklist_VO1.hints.SeqNumber.tooltip}"
+                                  id="it10">
+                      <f:validator binding="#{row.bindings.SeqNumber.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.FuncChecklist_VO1.hints.SeqNumber.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.FuncChecklist_VO1.hints.ClItem.name}"
+                             sortable="false"
+                             headerText="Item"
+                             id="c20" width="570">
+                    <af:inputText value="#{row.bindings.ClItem.inputValue}"
+                                  label="#{bindings.FuncChecklist_VO1.hints.ClItem.label}"
+                                  required="#{bindings.FuncChecklist_VO1.hints.ClItem.mandatory}"
+                                  columns="#{bindings.FuncChecklist_VO1.hints.ClItem.displayWidth}"
+                                  maximumLength="#{bindings.FuncChecklist_VO1.hints.ClItem.precision}"
+                                  shortDesc="#{bindings.FuncChecklist_VO1.hints.ClItem.tooltip}"
+                                  id="it14">
+                      <f:validator binding="#{row.bindings.ClItem.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.FuncChecklist_VO1.hints.ClType.name}"
+                             sortable="false" headerText="Type" id="c21"
+                             width="262" rendered="false">
+                    <af:selectOneChoice value="#{row.bindings.ClType.inputValue}"
+                                        label="#{row.bindings.ClType.label}"
+                                        required="#{bindings.FuncChecklist_VO1.hints.ClType.mandatory}"
+                                        shortDesc="#{bindings.FuncChecklist_VO1.hints.ClType.tooltip}"
+                                        id="soc5" autoSubmit="true">
+                      <f:selectItems value="#{row.bindings.ClType.items}"
+                                     id="si5"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.FuncChecklist_VO1.hints.LookupType.name}"
+                             sortable="false"
+                             headerText="Lookup Type"
+                             id="c19" width="280" rendered="false">
+                    <af:selectOneChoice value="#{row.bindings.LookupType.inputValue}"
+                                        label="#{row.bindings.LookupType.label}"
+                                        required="#{bindings.FuncChecklist_VO1.hints.LookupType.mandatory}"
+                                        shortDesc="#{bindings.FuncChecklist_VO1.hints.LookupType.tooltip}"
+                                        id="soc4"
+                                        disabled="#{row.bindings.ClType.inputValue ne 2}"
+                                        partialTriggers="soc5">
+                      <f:selectItems value="#{row.bindings.LookupType.items}"
+                                     id="si4"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column
+                             id="c25" headerText="Checklist Lookup"
+                             width="250">
+                    <af:selectOneChoice value="#{row.bindings.Attribute1.inputValue}"
+                                        label="#{row.bindings.Attribute1.label}"
+                                        required="#{bindings.FuncChecklist_VO1.hints.Attribute1.mandatory}"
+                                        shortDesc="#{bindings.FuncChecklist_VO1.hints.Attribute1.tooltip}"
+                                        id="soc6">
+                      <f:selectItems value="#{row.bindings.Attribute1.items}"
+                                     id="si6"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column headerText="Mandatory ?"
+                             id="c24" width="255">
+                    <af:selectBooleanCheckbox value="#{row.bindings.Trans_Mandatory.inputValue}"
+                                              label="#{row.bindings.Trans_Mandatory.label}"
+                                              shortDesc="#{bindings.FuncChecklist_VO1.hints.Trans_Mandatory.tooltip}"
+                                              id="sbc6" autoSubmit="true"/>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:panelBox>
+          </af:showDetailItem>
+        </af:panelTabbed>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:FunctionBean-->
+</jsp:root>

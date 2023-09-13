@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="fusion.um.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/fragments/searchFunctions.jsff"
+          usageId="fusion_um_view_searchFunctionsPageDef"/>
+    <page path="/taskFlow/Functions_BTF.xml#Functions_BTF@CreateInsert"
+          usageId="fusion_um_view_Functions_BTF_Functions_BTF_CreateInsertPageDef"/>
+    <page path="/taskFlow/Functions_BTF.xml#Functions_BTF@Execute"
+          usageId="fusion_um_view_Functions_BTF_Functions_BTF_ExecutePageDef"/>
+    <page path="/taskFlow/Functions_BTF.xml#Functions_BTF@ExecuteWithParams"
+          usageId="fusion_um_view_Functions_BTF_Functions_BTF_ExecuteWithParamsPageDef"/>
+    <page path="/fragments/AddEditFunctions.jsff"
+          usageId="fusion_um_view_AddEditFunctionsPageDef"/>
+    <page path="/pages/Home1.jspx" usageId="fusion_um_view_HomePageDef"/>
+    <page path="/fragments/SearchDatasecurity.jsff"
+          usageId="fusion_um_view_SearchDatasecurityPageDef"/>
+    <page path="/taskFlow/DataSecurity_BTF.xml#DataSecurity@ExecuteWithParams"
+          usageId="fusion_um_view_DataSecurity_BTF_DataSecurity_ExecuteWithParamsPageDef"/>
+    <page path="/taskFlow/DataSecurity_BTF.xml#DataSecurity@CreateInsert"
+          usageId="fusion_um_view_DataSecurity_BTF_DataSecurity_CreateInsertPageDef"/>
+    <page path="/taskFlow/DataSecurity_BTF.xml#DataSecurity@Execute"
+          usageId="fusion_um_view_DataSecurity_BTF_DataSecurity_ExecutePageDef"/>
+    <page path="/fragments/AddEditDateaSecurity.jsff"
+          usageId="fusion_um_view_AddEditDateaSecurityPageDef"/>
+    <page path="/fragments/SearchDataCombination.jsff"
+          usageId="fusion_um_view_SearchDataCombinationPageDef"/>
+    <page path="/taskFlow/DataCombination_BTF.xml#DataCombination_BTF@CreateInsert"
+          usageId="fusion_um_view_DataCombination_BTF_DataCombination_BTF_CreateInsertPageDef"/>
+    <page path="/taskFlow/DataCombination_BTF.xml#DataCombination_BTF@Execute"
+          usageId="fusion_um_view_DataCombination_BTF_DataCombination_BTF_ExecutePageDef"/>
+    <page path="/fragments/AddEditDataCombination.jsff"
+          usageId="fusion_um_view_AddEditDataCombinationPageDef"/>
+    <page path="/taskFlow/DataCombination_BTF.xml#DataCombination_BTF@ExecuteWithParams"
+          usageId="fusion_um_view_DataCombination_BTF_DataCombination_BTF_ExecuteWithParamsPageDef"/>
+    <page path="/fragments/SearchDataGroup.jsff"
+          usageId="fusion_um_view_SearchDataGroupPageDef"/>
+    <page path="/fragments/AddEditDataGroup.jsff"
+          usageId="fusion_um_view_AddEditDataGroupPageDef"/>
+    <page path="/taskFlow/DataGroup_BTF.xml#DataGroup_BTF@CreateInsert"
+          usageId="fusion_um_view_DataGroup_BTF_DataGroup_BTF_CreateInsertPageDef"/>
+    <page path="/taskFlow/DataGroup_BTF.xml#DataGroup_BTF@Execute"
+          usageId="fusion_um_view_DataGroup_BTF_DataGroup_BTF_ExecutePageDef"/>
+    <page path="/taskFlow/DataGroup_BTF.xml#DataGroup_BTF@ExecuteWithParams"
+          usageId="fusion_um_view_DataGroup_BTF_DataGroup_BTF_ExecuteWithParamsPageDef"/>
+    <page path="/fragments/SearchMenu.jsff"
+          usageId="fusion_um_view_SearchMenuPageDef"/>
+    <page path="/taskFlow/Menu_BTF.xml#Menu_BTF@CreateInsert"
+          usageId="fusion_um_view_Menu_BTF_Menu_BTF_CreateInsertPageDef"/>
+    <page path="/taskFlow/Menu_BTF.xml#Menu_BTF@Execute"
+          usageId="fusion_um_view_Menu_BTF_Menu_BTF_ExecutePageDef"/>
+    <page path="/taskFlow/Menu_BTF.xml#Menu_BTF@ExecuteWithParams"
+          usageId="fusion_um_view_Menu_BTF_Menu_BTF_ExecuteWithParamsPageDef"/>
+    <page path="/fragments/AddEditMenu.jsff"
+          usageId="fusion_um_view_AddEditMenuPageDef"/>
+    <page path="/fragments/MenuAccess.jsff"
+          usageId="fusion_um_view_MenuAccessPageDef"/>
+    <page path="/taskFlow/MenuAccess_BTF.xml#MenuAccess_BTF@getResetData"
+          usageId="fusion_um_view_MenuAccess_BTF_MenuAccess_BTF_getResetDataPageDef"/>
+    <page path="/taskFlow/Lookup_BTF.xml#Lookup_BTF@CreateInsert"
+          usageId="fusion_um_view_Lookup_BTF_Lookup_BTF_CreateInsertPageDef"/>
+    <page path="/taskFlow/Lookup_BTF.xml#Lookup_BTF@Execute"
+          usageId="fusion_um_view_Lookup_BTF_Lookup_BTF_ExecutePageDef"/>
+    <page path="/taskFlow/Lookup_BTF.xml#Lookup_BTF@ExecuteWithParams"
+          usageId="fusion_um_view_Lookup_BTF_Lookup_BTF_ExecuteWithParamsPageDef"/>
+    <page path="/fragments/SearchLookup.jsff"
+          usageId="fusion_um_view_SearchLookupPageDef"/>
+    <page path="/fragments/AddEditLookup.jsff"
+          usageId="fusion_um_view_AddEditLookupPageDef"/>
+    <page path="/fragments/SearchUser.jsff"
+          usageId="fusion_um_view_SearchUserPageDef"/>
+    <page path="/taskFlow/User_BTF.xml#User_BTF@CreateInsert"
+          usageId="fusion_um_view_User_BTF_User_BTF_CreateInsertPageDef"/>
+    <page path="/taskFlow/User_BTF.xml#User_BTF@Execute"
+          usageId="fusion_um_view_User_BTF_User_BTF_ExecutePageDef"/>
+    <page path="/fragments/AddEditUser.jsff"
+          usageId="fusion_um_view_AddEditUserPageDef"/>
+    <page path="/taskFlow/User_BTF.xml#User_BTF@ExecuteWithParams"
+          usageId="fusion_um_view_User_BTF_User_BTF_ExecuteWithParamsPageDef"/>
+    <page path="/pages/Home.jspx" usageId="fusion_um_view_HomePageDef1"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="fusion_um_view_searchFunctionsPageDef"
+          path="fragments.searchFunctionsPageDef"/>
+    <page id="fusion_um_view_Functions_BTF_Functions_BTF_CreateInsertPageDef"
+          path="taskFlow.Functions_BTF_Functions_BTF_CreateInsertPageDef"/>
+    <page id="fusion_um_view_Functions_BTF_Functions_BTF_ExecutePageDef"
+          path="taskFlow.Functions_BTF_Functions_BTF_ExecutePageDef"/>
+    <page id="fusion_um_view_Functions_BTF_Functions_BTF_ExecuteWithParamsPageDef"
+          path="taskFlow.Functions_BTF_Functions_BTF_ExecuteWithParamsPageDef"/>
+    <page id="fusion_um_view_AddEditFunctionsPageDef"
+          path="fragments.AddEditFunctionsPageDef"/>
+    <page id="fusion_um_view_HomePageDef" path="pages.HomePageDef"/>
+    <page id="fusion_um_view_SearchDatasecurityPageDef"
+          path="fragments.SearchDatasecurityPageDef"/>
+    <page id="fusion_um_view_DataSecurity_BTF_DataSecurity_ExecuteWithParamsPageDef"
+          path="taskFlow.DataSecurity_BTF_DataSecurity_ExecuteWithParamsPageDef"/>
+    <page id="fusion_um_view_DataSecurity_BTF_DataSecurity_CreateInsertPageDef"
+          path="taskFlow.DataSecurity_BTF_DataSecurity_CreateInsertPageDef"/>
+    <page id="fusion_um_view_DataSecurity_BTF_DataSecurity_ExecutePageDef"
+          path="taskFlow.DataSecurity_BTF_DataSecurity_ExecutePageDef"/>
+    <page id="fusion_um_view_AddEditDateaSecurityPageDef"
+          path="fragments.AddEditDateaSecurityPageDef"/>
+    <page id="fusion_um_view_SearchDataCombinationPageDef"
+          path="fragments.SearchDataCombinationPageDef"/>
+    <page id="fusion_um_view_DataCombination_BTF_DataCombination_BTF_CreateInsertPageDef"
+          path="taskFlow.DataCombination_BTF_DataCombination_BTF_CreateInsertPageDef"/>
+    <page id="fusion_um_view_DataCombination_BTF_DataCombination_BTF_ExecutePageDef"
+          path="taskFlow.DataCombination_BTF_DataCombination_BTF_ExecutePageDef"/>
+    <page id="fusion_um_view_AddEditDataCombinationPageDef"
+          path="fragments.AddEditDataCombinationPageDef"/>
+    <page id="fusion_um_view_DataCombination_BTF_DataCombination_BTF_ExecuteWithParamsPageDef"
+          path="taskFlow.DataCombination_BTF_DataCombination_BTF_ExecuteWithParamsPageDef"/>
+    <page id="fusion_um_view_SearchDataGroupPageDef"
+          path="fragments.SearchDataGroupPageDef"/>
+    <page id="fusion_um_view_AddEditDataGroupPageDef"
+          path="fragments.AddEditDataGroupPageDef"/>
+    <page id="fusion_um_view_DataGroup_BTF_DataGroup_BTF_CreateInsertPageDef"
+          path="taskFlow.DataGroup_BTF_DataGroup_BTF_CreateInsertPageDef"/>
+    <page id="fusion_um_view_DataGroup_BTF_DataGroup_BTF_ExecutePageDef"
+          path="taskFlow.DataGroup_BTF_DataGroup_BTF_ExecutePageDef"/>
+    <page id="fusion_um_view_DataGroup_BTF_DataGroup_BTF_ExecuteWithParamsPageDef"
+          path="taskFlow.DataGroup_BTF_DataGroup_BTF_ExecuteWithParamsPageDef"/>
+    <page id="fusion_um_view_SearchMenuPageDef"
+          path="fragments.SearchMenuPageDef"/>
+    <page id="fusion_um_view_Menu_BTF_Menu_BTF_CreateInsertPageDef"
+          path="taskFlow.Menu_BTF_Menu_BTF_CreateInsertPageDef"/>
+    <page id="fusion_um_view_Menu_BTF_Menu_BTF_ExecutePageDef"
+          path="taskFlow.Menu_BTF_Menu_BTF_ExecutePageDef"/>
+    <page id="fusion_um_view_Menu_BTF_Menu_BTF_ExecuteWithParamsPageDef"
+          path="taskFlow.Menu_BTF_Menu_BTF_ExecuteWithParamsPageDef"/>
+    <page id="fusion_um_view_AddEditMenuPageDef"
+          path="fragments.AddEditMenuPageDef"/>
+    <page id="fusion_um_view_MenuAccessPageDef"
+          path="fragments.MenuAccessPageDef"/>
+    <page id="fusion_um_view_MenuAccess_BTF_MenuAccess_BTF_getResetDataPageDef"
+          path="taskFlow.MenuAccess_BTF_MenuAccess_BTF_getResetDataPageDef"/>
+    <page id="fusion_um_view_Lookup_BTF_Lookup_BTF_CreateInsertPageDef"
+          path="taskFlow.Lookup_BTF_Lookup_BTF_CreateInsertPageDef"/>
+    <page id="fusion_um_view_Lookup_BTF_Lookup_BTF_ExecutePageDef"
+          path="taskFlow.Lookup_BTF_Lookup_BTF_ExecutePageDef"/>
+    <page id="fusion_um_view_Lookup_BTF_Lookup_BTF_ExecuteWithParamsPageDef"
+          path="taskFlow.Lookup_BTF_Lookup_BTF_ExecuteWithParamsPageDef"/>
+    <page id="fusion_um_view_SearchLookupPageDef"
+          path="fragments.SearchLookupPageDef"/>
+    <page id="fusion_um_view_AddEditLookupPageDef"
+          path="fragments.AddEditLookupPageDef"/>
+    <page id="fusion_um_view_SearchUserPageDef"
+          path="fragments.SearchUserPageDef"/>
+    <page id="fusion_um_view_User_BTF_User_BTF_CreateInsertPageDef"
+          path="taskFlow.User_BTF_User_BTF_CreateInsertPageDef"/>
+    <page id="fusion_um_view_User_BTF_User_BTF_ExecutePageDef"
+          path="taskFlow.User_BTF_User_BTF_ExecutePageDef"/>
+    <page id="fusion_um_view_AddEditUserPageDef"
+          path="fragments.AddEditUserPageDef"/>
+    <page id="fusion_um_view_User_BTF_User_BTF_ExecuteWithParamsPageDef"
+          path="taskFlow.User_BTF_User_BTF_ExecuteWithParamsPageDef"/>
+    <page id="fusion_um_view_HomePageDef1" path="pages.HomePageDef1"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="Functions_AMDataControl" Package="fusion.um.model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="Functions_AMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="DataSecurity_AMDataControl"
+                     Package="fusion.um.model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="DataSecurity_AMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="DataCombination_AMDataControl"
+                     Package="fusion.um.model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="DataCombination_AMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="DataGroup_AMDataControl" Package="fusion.um.model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="DataGroup_AMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="Menu_AMDataControl" Package="fusion.um.model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="Menu_AMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="MenuAccess_AMDataControl" Package="fusion.um.model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="MenuAccess_AMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="Lookup_AMDataControl" Package="fusion.um.model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="Lookup_AMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="User_AMDataControl" Package="fusion.um.model.AM"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="User_AMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

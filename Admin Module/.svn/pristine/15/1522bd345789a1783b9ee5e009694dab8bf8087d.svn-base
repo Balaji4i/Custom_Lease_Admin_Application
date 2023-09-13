@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="SearchMenuPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Menu_ROVO1" RangeSize="25" DataControl="Menu_AMDataControl"
+              id="Menu_ROVO1Iterator"/>
+    <searchRegion Criteria="SearchMenu"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Menu_ROVO1Iterator" id="SearchMenuQuery"/>
+    <iterator Binds="SubMenu_ROVO1" RangeSize="25"
+              DataControl="Menu_AMDataControl" id="SubMenu_ROVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Menu_ROVO1Iterator" id="Menu_ROVO1">
+      <nodeDefinition DefName="fusion.um.model.ROVO.Menu_ROVO"
+                      Name="Menu_ROVO10">
+        <AttrNames>
+          <Item Value="MenuName"/>
+          <Item Value="MenuNameDisp"/>
+          <Item Value="MenuNameDispTl"/>
+          <Item Value="MenuOrder"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SubMenu_ROVO1Iterator" id="SubMenu_ROVO1">
+      <nodeDefinition DefName="fusion.um.model.ROVO.SubMenu_ROVO"
+                      Name="SubMenu_ROVO10">
+        <AttrNames>
+          <Item Value="SubMenuName"/>
+          <Item Value="SubMenuNameDisp"/>
+          <Item Value="SubMenuNameDispTl"/>
+          <Item Value="SubMenuOrder"/>
+          <Item Value="MenuParams"/>
+          <Item Value="FuncId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Menu_ROVO1Iterator" id="MainMenuId">
+      <AttrNames>
+        <Item Value="MainMenuId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

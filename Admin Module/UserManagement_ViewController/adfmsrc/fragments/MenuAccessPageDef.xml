@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="MenuAccessPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UserRole_ROVO1" RangeSize="25"
+              DataControl="MenuAccess_AMDataControl"
+              id="UserRole_ROVO1Iterator"/>
+    <iterator Binds="MenuAccess_VO1" RangeSize="25"
+              DataControl="MenuAccess_AMDataControl"
+              id="MenuAccess_VO1Iterator"/>
+    <iterator id="SubMenu_ROVO1Iterator" Binds="SubMenu_ROVO1"
+              DataControl="MenuAccess_AMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <list IterBinding="UserRole_ROVO1Iterator" StaticList="false"
+          Uses="LOV_UserRole" id="UserRole" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <tree IterBinding="MenuAccess_VO1Iterator" id="MenuAccess_VO1">
+      <nodeDefinition DefName="fusion.um.model.VO.MenuAccess_VO"
+                      Name="MenuAccess_VO10">
+        <AttrNames>
+          <Item Value="MenuControl"/>
+          <Item Value="SubMenu"/>
+          <Item Value="MenuName"/>
+          <Item Value="RoleName"/>
+          <Item Value="Trans_MenuDisplay" Binds="Trans_MenuDisplay"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="MenuAccess_VO1Iterator" id="Trans_MenuDisplay"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Trans_MenuDisplay"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <methodAction id="getCommitData"
+                  InstanceName="MenuAccess_AMDataControl.dataProvider"
+                  DataControl="MenuAccess_AMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getCommitData" IsViewObjectMethod="false"/>
+    <methodAction id="getResetData"
+                  InstanceName="MenuAccess_AMDataControl.dataProvider"
+                  DataControl="MenuAccess_AMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getResetData" IsViewObjectMethod="false"/>
+    <action id="Commit" DataControl="MenuAccess_AMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

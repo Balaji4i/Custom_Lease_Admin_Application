@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="SearchDatasecurityPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DataSecurity_ROVO1" RangeSize="25"
+              DataControl="DataSecurity_AMDataControl"
+              id="DataSecurity_ROVO1Iterator"/>
+    <searchRegion Criteria="SearchDataSecurity"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DataSecurity_ROVO1Iterator"
+                  id="SearchDataSecurityQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DataSecurity_ROVO1Iterator" id="DataSecurity_ROVO1">
+      <nodeDefinition DefName="fusion.um.model.ROVO.DataSecurity_ROVO"
+                      Name="DataSecurity_ROVO10">
+        <AttrNames>
+          <Item Value="SeqNumber"/>
+          <Item Value="SegmentColumn"/>
+          <Item Value="ColumnName"/>
+          <Item Value="SrcTable"/>
+          <Item Value="SrcColumn"/>
+          <Item Value="SrcDispColumn"/>
+          <Item Value="SrcLookupType"/>
+          <Item Value="ActiveYn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DataSecurity_ROVO1Iterator" id="DseqId">
+      <AttrNames>
+        <Item Value="DseqId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

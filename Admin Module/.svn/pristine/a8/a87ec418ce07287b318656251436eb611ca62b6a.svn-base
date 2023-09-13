@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_SearchMenu.pgl1}"
+                           id="pgl1">
+        <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_SearchMenu.pgl2}"
+                            id="pgl2">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                      binding="#{backingBeanScope.backing_fragments_SearchMenu.gr1}"
+                      id="gr1">
+            <af:gridCell marginStart="5px" width="50%"
+                         binding="#{backingBeanScope.backing_fragments_SearchMenu.gc1}"
+                         id="gc1" marginEnd="5px">
+              <af:outputLabel value="Menu"
+                              binding="#{backingBeanScope.backing_fragments_SearchMenu.ol1}"
+                              id="ol1"
+                              inlineStyle="font-weight:bolder; font-size:large;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         binding="#{backingBeanScope.backing_fragments_SearchMenu.gc2}"
+                         id="gc2"/>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.SearchMenuQuery.queryDescriptor}"
+                  model="#{bindings.SearchMenuQuery.queryModel}"
+                  queryListener="#{bindings.SearchMenuQuery.processQuery}"
+                  queryOperationListener="#{bindings.SearchMenuQuery.processQueryOperation}"
+                  resultComponentId="::pc1:resId1"
+                  binding="#{backingBeanScope.backing_fragments_SearchMenu.qryId1}"/>
+        <af:spacer width="10" height="10"
+                   binding="#{backingBeanScope.backing_fragments_SearchMenu.s2}"
+                   id="s2"/>
+        <af:panelBox text="Search Result"
+                     binding="#{backingBeanScope.backing_fragments_SearchMenu.pb1}"
+                     id="pb1">
+          <f:facet name="toolbar"/>
+          <af:panelCollection binding="#{backingBeanScope.backing_fragments_SearchMenu.pc1}"
+                              id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar binding="#{backingBeanScope.backing_fragments_SearchMenu.t1}"
+                          id="t1" flex="1">
+                <af:commandImageLink
+                                     binding="#{backingBeanScope.backing_fragments_SearchMenu.cil1}"
+                                     id="cil1" icon="/image/add.png"
+                                     hoverIcon="/image/add_en.png"
+                                     action="go"/>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.backing_fragments_SearchMenu.s1}"
+                           id="s1"/>
+                <af:commandImageLink
+                                     binding="#{backingBeanScope.backing_fragments_SearchMenu.cil2}"
+                                     id="cil2" icon="/image/edit.png"
+                                     hoverIcon="/image/edit_en.png"
+                                     action="edit">
+                  <af:setPropertyListener to="#{pageFlowScope.mid}"
+                                          type="action"
+                                          from="#{bindings.MainMenuId.inputValue}"/>
+                </af:commandImageLink>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.Menu_ROVO1.collectionModel}" var="row"
+                      rows="#{bindings.Menu_ROVO1.rangeSize}"
+                      emptyText="#{bindings.Menu_ROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="6"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.Menu_ROVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Menu_ROVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="resId1"
+                      binding="#{backingBeanScope.backing_fragments_SearchMenu.resId1}"
+                      contentDelivery="immediate" varStatus="vs"
+                      scrollPolicy="page" autoHeightRows="0">
+              <af:column id="column1" headerText="S.No" width="50">
+                <af:outputText value="#{vs.index+1}" id="outputText1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Menu_ROVO1.hints.MenuName.name}"
+                         sortable="false" headerText="Menu Name" id="resId1c1"
+                         width="300">
+                <af:outputText value="#{row.MenuName}" id="ot3"
+                               rendered="false"/>
+                <af:commandImageLink text="#{row.MenuName}" id="cil3"
+                                     action="edit">
+                  <af:setPropertyListener to="#{pageFlowScope.mid}"
+                                          type="action"
+                                          from="#{bindings.MainMenuId.inputValue}"/>
+                </af:commandImageLink>
+              </af:column>
+              <af:column sortProperty="#{bindings.Menu_ROVO1.hints.MenuOrder.name}"
+                         sortable="false" headerText="Menu Order" id="resId1c4"
+                         width="320">
+                <af:outputText value="#{row.MenuOrder}" id="ot1">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Menu_ROVO1.hints.MenuOrder.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Menu_ROVO1.hints.MenuNameDisp.name}"
+                         sortable="false"
+                         headerText="Menu Name Display"
+                         id="resId1c2" width="290">
+                <af:outputText value="#{row.MenuNameDisp}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Menu_ROVO1.hints.MenuNameDispTl.name}"
+                         sortable="false"
+                         headerText="Menu Name Display TL"
+                         id="resId1c3" width="235">
+                <af:outputText value="#{row.MenuNameDispTl}" id="ot2"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+          <af:panelCollection binding="#{backingBeanScope.backing_fragments_SearchMenu.pc2}"
+                              id="pc2" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.SubMenu_ROVO1.collectionModel}"
+                      var="row" rows="#{bindings.SubMenu_ROVO1.rangeSize}"
+                      emptyText="#{bindings.SubMenu_ROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="6"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.SubMenu_ROVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SubMenu_ROVO1.collectionModel.makeCurrent}"
+                      rowSelection="single"
+                      binding="#{backingBeanScope.backing_fragments_SearchMenu.t2}"
+                      id="t2" contentDelivery="immediate"
+                      partialTriggers=":::pc1:resId1 :::qryId1" varStatus="vs"
+                      autoHeightRows="0" scrollPolicy="page">
+              <af:column id="c7" headerText="S.No" width="50">
+                <af:outputText value="#{vs.index+1}" id="ot10"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_ROVO1.hints.SubMenuName.name}"
+                         sortable="false"
+                         headerText="Sub Menu Name"
+                         id="c5" width="200">
+                <af:outputText value="#{row.SubMenuName}" id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_ROVO1.hints.SubMenuNameDisp.name}"
+                         sortable="false"
+                         headerText="Sub Menu Name Display"
+                         id="c3" width="200">
+                <af:outputText value="#{row.SubMenuNameDisp}" id="ot6"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_ROVO1.hints.SubMenuNameDispTl.name}"
+                         sortable="false"
+                         headerText="Sub Menu Name Display TL"
+                         id="c1" width="190">
+                <af:outputText value="#{row.SubMenuNameDispTl}" id="ot9"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_ROVO1.hints.SubMenuOrder.name}"
+                         sortable="false"
+                         headerText="Sub Menu Order"
+                         id="c2" width="180">
+                <af:outputText value="#{row.SubMenuOrder}" id="ot8">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SubMenu_ROVO1.hints.SubMenuOrder.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_ROVO1.hints.MenuParams.name}"
+                         sortable="false"
+                         headerText="Sub Menu Parameters"
+                         id="c4" width="180">
+                <af:outputText value="#{row.MenuParams}" id="ot5"/>
+              </af:column>
+              <af:column headerText="Function"
+                         id="c6" width="172">
+                <af:selectOneChoice value="#{row.bindings.FuncId.inputValue}"
+                                    label="#{row.bindings.FuncId.label}"
+                                    required="#{bindings.SubMenu_ROVO1.hints.FuncId.mandatory}"
+                                    shortDesc="#{bindings.SubMenu_ROVO1.hints.FuncId.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.FuncId.items}" id="si1"/>
+                </af:selectOneChoice>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelBox>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_SearchMenu-->
+</jsp:root>

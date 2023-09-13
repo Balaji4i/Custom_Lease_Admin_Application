@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AddEditDataGroupPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DataGroup_VO1" RangeSize="25"
+              DataControl="DataGroup_AMDataControl" id="DataGroup_VO1Iterator"/>
+    <iterator Binds="DataGroupDetail_VO1" RangeSize="25"
+              DataControl="DataGroup_AMDataControl"
+              id="DataGroupDetail_VO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DataGroup_VO1Iterator" id="DataGroupName">
+      <AttrNames>
+        <Item Value="DataGroupName"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="DataGroup_VO1Iterator" id="ActiveYn"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="ActiveYn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="DataGroupDetail_VO1Iterator" id="DataGroupDetail_VO1">
+      <nodeDefinition DefName="fusion.um.model.VO.DataGroupDetail_VO"
+                      Name="DataGroupDetail_VO10">
+        <AttrNames>
+          <Item Value="DcombId"/>
+          <Item Value="Trans_Active" Binds="Trans_Active"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="DataGroupDetail_VO1Iterator" id="Trans_Active"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Trans_Active"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <action id="Commit" DataControl="DataGroup_AMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="DataGroup_AMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="DataGroupDetail_VO1Iterator" id="CreateInsert"
+            InstanceName="DataGroup_AMDataControl.DataGroupDetail_VO1"
+            DataControl="DataGroup_AMDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

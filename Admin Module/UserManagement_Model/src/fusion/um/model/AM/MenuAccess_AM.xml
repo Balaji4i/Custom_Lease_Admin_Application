@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MenuAccess_AM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="fusion.um.model.AM.MenuAccess_AMImpl"
+  ComponentInterface="fusion.um.model.AM.common.MenuAccess_AM"
+  ClientProxyName="fusion.um.model.AM.client.MenuAccess_AMClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="fusion.um.model.AM.MenuAccess_AM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="UserRole_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.UserRole_ROVO"/>
+  <ViewUsage
+    Name="MenuAccess_VO1"
+    ViewObjectName="fusion.um.model.VO.MenuAccess_VO"/>
+  <ViewUsage
+    Name="SubMenu_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.SubMenu_ROVO"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="fusion.um.model.UserManagement_ModelBundle"/>
+  </ResourceBundle>
+  <ClientInterface>
+    <Method
+      Name="getResetData">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="getCommitData">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

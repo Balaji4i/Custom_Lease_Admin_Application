@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.pgl1}"
+                           id="pgl1" layout="default"
+                           styleClass="AFStretchHeight">
+        <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.pgl3}"
+                             id="pgl3">
+          <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.pgl2}"
+                              id="pgl2">
+            <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                        binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.gr1}"
+                        id="gr1">
+              <af:gridCell marginStart="5px" width="50%"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.gc1}"
+                           id="gc1" marginEnd="5px">
+                <af:outputLabel value="Data Security"
+                                binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.ol1}"
+                                id="ol1"
+                                inlineStyle="font-weight:bolder; font-size:large;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.gc2}"
+                           id="gc2" halign="end">
+                <af:commandButton text="Save"
+                                  binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.cb1}"
+                                  id="cb1" action="back"
+                                  actionListener="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.onClickCommit}"/>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.s1}"
+                           id="s1"/>
+                <af:commandButton text="Cancel"
+                                  binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.cb2}"
+                                  id="cb2" immediate="true">
+                  <af:showPopupBehavior popupId="p1"/>
+                </af:commandButton>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:popup binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.p1}"
+                    id="p1">
+            <af:dialog binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.d1}"
+                       id="d1" type="none"
+                       inlineStyle="width:350px; height:100.0px;"
+                       title="Warning" titleIconSource="/image/warning.png">
+              <af:outputText value="Are you sure you want to Cancel this information?"
+                             binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.ot1}"
+                             id="ot1"/>
+              <f:facet name="buttonBar">
+                <af:group binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.g1}"
+                          id="g1">
+                  <af:commandButton text="Ok"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.cb3}"
+                                    id="cb3" action="back"
+                                    actionListener="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.onClickRollback}"/>
+                  <af:spacer width="10" height="10"
+                             binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.s2}"
+                             id="s2"/>
+                  <af:commandButton text="Cancel"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.cb4}"
+                                    id="cb4"
+                                    actionListener="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.onClickClose}"/>
+                </af:group>
+              </f:facet>
+            </af:dialog>
+          </af:popup>
+        </af:panelGroupLayout>
+        <af:panelFormLayout binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.pfl1}"
+                            id="pfl1"
+                            inlineStyle="padding-left:400px;padding-top:50px;"
+                            styleClass="AFStretchHeight">
+          <af:inputText value="#{bindings.SeqNumber.inputValue}"
+                        label="Seq No"
+                        required="#{bindings.SeqNumber.hints.mandatory}"
+                        columns="#{bindings.SeqNumber.hints.displayWidth}"
+                        maximumLength="#{bindings.SeqNumber.hints.precision}"
+                        shortDesc="#{bindings.SeqNumber.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.it1}"
+                        id="it1" showRequired="true">
+            <f:validator binding="#{bindings.SeqNumber.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SeqNumber.format}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.SegmentColumn.inputValue}"
+                              label="Segment Column"
+                              required="#{bindings.SegmentColumn.hints.mandatory}"
+                              shortDesc="#{bindings.SegmentColumn.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc5}"
+                              id="soc5" showRequired="true"
+                              valueChangeListener="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.onClickSegment}"
+                              autoSubmit="true" contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SegmentColumn.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si5}"
+                           id="si5"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{bindings.ColumnName.inputValue}"
+                        label="Column Name"
+                        required="#{bindings.ColumnName.hints.mandatory}"
+                        columns="#{bindings.ColumnName.hints.displayWidth}"
+                        maximumLength="#{bindings.ColumnName.hints.precision}"
+                        shortDesc="#{bindings.ColumnName.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.it3}"
+                        id="it3" showRequired="true"
+                        contentStyle="width:220px;">
+            <f:validator binding="#{bindings.ColumnName.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.SrcTable.inputValue}"
+                              label="Source Table"
+                              required="#{bindings.SrcTable.hints.mandatory}"
+                              shortDesc="#{bindings.SrcTable.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc1}"
+                              id="soc1" showRequired="true" autoSubmit="true"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SrcTable.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si1}"
+                           id="si1"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.SrcColumn.inputValue}"
+                              label="Source Column"
+                              required="#{bindings.SrcColumn.hints.mandatory}"
+                              shortDesc="#{bindings.SrcColumn.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc2}"
+                              id="soc2" showRequired="true" autoSubmit="true"
+                              partialTriggers="soc1"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SrcColumn.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si2}"
+                           id="si2"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.SrcDispColumn.inputValue}"
+                              label="Source Display Column"
+                              required="#{bindings.SrcDispColumn.hints.mandatory}"
+                              shortDesc="#{bindings.SrcDispColumn.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc3}"
+                              id="soc3" showRequired="true" autoSubmit="true"
+                              partialTriggers="soc1"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SrcDispColumn.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si3}"
+                           id="si3"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.SrcLookupType.inputValue}"
+                              label="Source Lookup Type"
+                              required="#{bindings.SrcLookupType.hints.mandatory}"
+                              shortDesc="#{bindings.SrcLookupType.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.soc4}"
+                              id="soc4"
+                              visible="#{bindings.SrcTable.inputValue=='XXFND_LOOKUP_VALUES'?'true':'false'}"
+                              partialTriggers="soc1"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.SrcLookupType.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.si4}"
+                           id="si4"/>
+          </af:selectOneChoice>
+          <af:selectBooleanCheckbox value="#{bindings.Trans_Active.inputValue}"
+                                    label="Active ?"
+                                    shortDesc="#{bindings.Trans_Active.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditDateaSecurity.sbc1}"
+                                    id="sbc1" autoSubmit="true"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_AddEditDateaSecurity-->
+</jsp:root>

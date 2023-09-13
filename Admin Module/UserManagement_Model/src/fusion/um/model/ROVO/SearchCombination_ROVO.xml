@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SearchCombination_ROVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="fusion.um.model.ROVO.SearchCombination_ROVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="Segment1_PROGVO1"
+    ViewObjectName="fusion.um.model.PROGVO.Segment1_PROGVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Segment2_PROGVO1"
+    ViewObjectName="fusion.um.model.PROGVO.Segment2_PROGVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Segment3_PROGVO1"
+    ViewObjectName="fusion.um.model.PROGVO.Segment3_PROGVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Segment4_PROGVO1"
+    ViewObjectName="fusion.um.model.PROGVO.Segment4_PROGVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="Segment5_PROGVO1"
+    ViewObjectName="fusion.um.model.PROGVO.Segment5_PROGVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Segment1"
+    ListVOName="Segment1_PROGVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Segment1"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Seg1key"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Seg1Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Segment2"
+    ListVOName="Segment2_PROGVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Segment2"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Seg2Key"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Seg2Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Segment3"
+    ListVOName="Segment3_PROGVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Segment3"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Seg3Key"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Seg3Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Segment4"
+    ListVOName="Segment4_PROGVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Segment4"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Seg4Key"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Seg4Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Segment5"
+    ListVOName="Segment5_PROGVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Segment5"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Seg5Key"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Seg5Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[select SEGMENT1, SEGMENT2, SEGMENT3, SEGMENT4, SEGMENT5 from xxfnd_data_combination]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Segment1"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="SEGMENT1"
+    Expression="SEGMENT1"
+    SQLType="VARCHAR"
+    LOVName="LOV_Segment1">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+    <TransientExpression><![CDATA[null]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Segment2"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="60"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEGMENT2"
+    SQLType="VARCHAR"
+    LOVName="LOV_Segment2"
+    Expression="SEGMENT2">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+    <TransientExpression><![CDATA[null]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Segment3"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="60"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEGMENT3"
+    Expression="SEGMENT3"
+    SQLType="VARCHAR"
+    LOVName="LOV_Segment3">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+    <TransientExpression><![CDATA[null]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Segment4"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="60"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEGMENT4"
+    Expression="SEGMENT4"
+    SQLType="VARCHAR"
+    LOVName="LOV_Segment4">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+    <TransientExpression><![CDATA[null]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Segment5"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="60"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEGMENT5"
+    Expression="SEGMENT5"
+    SQLType="VARCHAR"
+    LOVName="LOV_Segment5">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+    <TransientExpression><![CDATA[null]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="fusion.um.model.UserManagement_ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

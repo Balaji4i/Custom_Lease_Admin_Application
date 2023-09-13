@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AddEditLookupPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="LookupTypes_VO1" RangeSize="25"
+              DataControl="Lookup_AMDataControl" id="LookupTypes_VO1Iterator"/>
+    <iterator Binds="LookupValues_VO1" RangeSize="25"
+              DataControl="Lookup_AMDataControl" id="LookupValues_VO1Iterator"/>
+    <iterator id="LookupParentValue_ROVO1Iterator"
+              Binds="LookupParentValue_ROVO1" DataControl="Lookup_AMDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="LookupTypes_VO1Iterator" id="LookupTypeName">
+      <AttrNames>
+        <Item Value="LookupTypeName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LookupTypes_VO1Iterator"
+                     id="LookupTypeNameDisp">
+      <AttrNames>
+        <Item Value="LookupTypeNameDisp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LookupTypes_VO1Iterator"
+                     id="LookupTypeNameDispTl">
+      <AttrNames>
+        <Item Value="LookupTypeNameDispTl"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="LookupTypes_VO1Iterator" StaticList="false"
+          Uses="LOV_AccessLevel" id="AccessLevel" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="LookupTypes_VO1Iterator" StaticList="false"
+          Uses="LOV_ParentTypeId" id="ParentTypeId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <tree IterBinding="LookupValues_VO1Iterator" id="LookupValues_VO1">
+      <nodeDefinition DefName="fusion.um.model.VO.LookupValues_VO"
+                      Name="LookupValues_VO10">
+        <AttrNames>
+          <Item Value="LookupValueName"/>
+          <Item Value="LookupValueNameDisp"/>
+          <Item Value="LookupValueNameDispTl"/>
+          <Item Value="AccessLevel"/>
+          <Item Value="LookupAddlValue"/>
+          <Item Value="ParentValueId"/>
+          <Item Value="Trans_Active" Binds="Trans_Active"/>
+          <Item Value="Trans_Parent_id"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="LookupTypes_VO1Iterator" id="ActiveYn"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="ActiveYn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="LookupValues_VO1Iterator" id="Trans_Active"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Trans_Active"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <action id="Commit" DataControl="Lookup_AMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="Lookup_AMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="LookupValues_VO1Iterator" id="CreateInsert"
+            InstanceName="Lookup_AMDataControl.LookupValues_VO1"
+            DataControl="Lookup_AMDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="LookupValues_VO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

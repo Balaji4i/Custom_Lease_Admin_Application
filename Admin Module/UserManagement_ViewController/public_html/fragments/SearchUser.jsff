@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_SearchUser.pgl1}"
+                           id="pgl1">
+        <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_SearchUser.pgl2}"
+                            id="pgl2">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                      binding="#{backingBeanScope.backing_fragments_SearchUser.gr1}"
+                      id="gr1">
+            <af:gridCell marginStart="5px" width="50%"
+                         binding="#{backingBeanScope.backing_fragments_SearchUser.gc1}"
+                         id="gc1" marginEnd="5px">
+              <af:outputLabel value="User"
+                              binding="#{backingBeanScope.backing_fragments_SearchUser.ol1}"
+                              id="ol1"
+                              inlineStyle="font-weight:bolder; font-size:large;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         binding="#{backingBeanScope.backing_fragments_SearchUser.gc2}"
+                         id="gc2"/>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.SearchUserQuery.queryDescriptor}"
+                  model="#{bindings.SearchUserQuery.queryModel}"
+                  queryListener="#{bindings.SearchUserQuery.processQuery}"
+                  queryOperationListener="#{bindings.SearchUserQuery.processQueryOperation}"
+                  resultComponentId="::pc1:resId1"
+                  binding="#{backingBeanScope.backing_fragments_SearchUser.qryId1}"/>
+        <af:spacer width="10" height="10"
+                   binding="#{backingBeanScope.backing_fragments_SearchUser.s1}"
+                   id="s1"/>
+        <af:panelBox text="Search Result"
+                     binding="#{backingBeanScope.backing_fragments_SearchUser.pb1}"
+                     id="pb1">
+          <f:facet name="toolbar"/>
+          <af:panelCollection binding="#{backingBeanScope.backing_fragments_SearchUser.pc1}"
+                              id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar binding="#{backingBeanScope.backing_fragments_SearchUser.t1}"
+                          id="t1" flex="1">
+                <af:commandImageLink
+                                     binding="#{backingBeanScope.backing_fragments_SearchUser.cil1}"
+                                     id="cil1" icon="/image/add.png"
+                                     hoverIcon="/image/add_en.png" action="go"
+                                     accessKey="a">
+                  <af:setPropertyListener from="#{'add'}"
+                                          to="#{pageFlowScope.addEdit}" type="action"/>
+                </af:commandImageLink>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.backing_fragments_SearchUser.s2}"
+                           id="s2"/>
+                <af:commandImageLink
+                                     binding="#{backingBeanScope.backing_fragments_SearchUser.cil2}"
+                                     id="cil2" icon="/image/edit.png"
+                                     hoverIcon="/image/edit_en.png"
+                                     action="edit">
+                  <af:setPropertyListener from="#{bindings.UserId.inputValue}" to="#{pageFlowScope.uid}" type="action"/>
+                  <af:setPropertyListener from="#{'edit'}"
+                                          to="#{pageFlowScope.addEdit}" type="action"/>
+                </af:commandImageLink>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.User_ROVO1.collectionModel}" var="row"
+                      rows="#{bindings.User_ROVO1.rangeSize}"
+                      emptyText="#{bindings.User_ROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="6"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.User_ROVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.User_ROVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="resId1"
+                      binding="#{backingBeanScope.backing_fragments_SearchUser.resId1}" first="0"
+                      scrollPolicy="page" autoHeightRows="0" varStatus="vs">
+              <af:column id="column1" headerText="S.No" width="50">
+                <af:outputText value="#{vs.index+1}" id="outputText1"/>
+              </af:column>
+              <af:column headerText="User Name"
+                         id="c5" width="150">
+                <af:outputText value="#{row.UserName}" id="ot5"
+                               rendered="false"/>
+                <af:commandImageLink text="#{row.UserName}" id="cil3"
+                                     action="edit">
+                  <af:setPropertyListener from="#{bindings.UserId.inputValue}"
+                                          to="#{pageFlowScope.uid}"
+                                          type="action"/>
+                  <af:setPropertyListener from="#{'edit'}"
+                                          to="#{pageFlowScope.addEdit}"
+                                          type="action"/>
+                </af:commandImageLink>
+              </af:column>
+              <af:column sortProperty="#{bindings.User_ROVO1.hints.UserNameDisp.name}"
+                         sortable="false"
+                         headerText="Display Name"
+                         id="resId1c1" width="150">
+                <af:outputText value="#{row.UserNameDisp}" id="ot3"/>
+              </af:column>
+              <af:column headerText="Employee Name" id="c3" width="180">
+                <af:selectOneChoice value="#{row.bindings.EmpId.inputValue}"
+                                    label="#{row.bindings.EmpId.label}"
+                                    required="#{bindings.User_ROVO1.hints.EmpId.mandatory}"
+                                    shortDesc="#{bindings.User_ROVO1.hints.EmpId.tooltip}"
+                                    id="soc3" readOnly="true">
+                  <f:selectItems value="#{row.bindings.EmpId.items}" id="si3"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column headerText="Email ID" id="c4" width="180">
+                <af:outputText value="#{row.UserEmailId}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.User_ROVO1.hints.UserNameDispTl.name}"
+                         sortable="false"
+                         headerText="User Name Display TL"
+                         id="resId1c2" width="180" rendered="false">
+                <af:outputText value="#{row.UserNameDispTl}" id="ot2"/>
+              </af:column>
+              <af:column headerText="Data Group"
+                         id="c1" width="180">
+                <af:selectOneChoice value="#{row.bindings.DataGroupId.inputValue}"
+                                    label="#{row.bindings.DataGroupId.label}"
+                                    required="#{bindings.User_ROVO1.hints.DataGroupId.mandatory}"
+                                    shortDesc="#{bindings.User_ROVO1.hints.DataGroupId.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.DataGroupId.items}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column headerText="Default Combination"
+                         id="c2" width="160">
+                <af:selectOneChoice value="#{row.bindings.DefDcombId.inputValue}"
+                                    label="#{row.bindings.DefDcombId.label}"
+                                    required="#{bindings.User_ROVO1.hints.DefDcombId.mandatory}"
+                                    shortDesc="#{bindings.User_ROVO1.hints.DefDcombId.tooltip}"
+                                    id="soc2" readOnly="true">
+                  <f:selectItems value="#{row.bindings.DefDcombId.items}"
+                                 id="si2"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.User_ROVO1.hints.ActiveYn.name}"
+                         sortable="false"
+                         headerText="Active ?"
+                         id="resId1c3" width="110">
+                <af:outputText value="#{row.ActiveYn}" id="ot1"
+                               rendered="false"/>
+                <af:image source="/image/Ok_icon.png" id="i1"
+                          rendered="#{row.ActiveYn eq 'Y'}"/>
+                <af:image source="/image/Cancel.png" id="i2"
+                          rendered="#{row.ActiveYn eq 'N'}"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelBox>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_SearchUser-->
+</jsp:root>

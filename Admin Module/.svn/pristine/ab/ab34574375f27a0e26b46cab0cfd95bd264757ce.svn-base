@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_AddEditUser.pgl1}"
+                           id="pgl1" layout="scroll">
+        <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_AddEditUser.pgl2}"
+                            id="pgl2">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                      binding="#{backingBeanScope.backing_fragments_AddEditUser.gr1}"
+                      id="gr1">
+            <af:gridCell marginStart="5px" width="50%"
+                         binding="#{backingBeanScope.backing_fragments_AddEditUser.gc1}"
+                         id="gc1" marginEnd="5px">
+              <af:outputLabel value="User"
+                              binding="#{backingBeanScope.backing_fragments_AddEditUser.ol1}"
+                              id="ol1"
+                              inlineStyle="font-weight:bolder; font-size:large;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         binding="#{backingBeanScope.backing_fragments_AddEditUser.gc2}"
+                         id="gc2" halign="end">
+              <af:commandButton text="Save"
+                                binding="#{backingBeanScope.backing_fragments_AddEditUser.cb1}"
+                                id="cb1"
+                                actionListener="#{backingBeanScope.backing_fragments_AddEditUser.onclickCommit}"
+                                action="#{backingBeanScope.backing_fragments_AddEditUser.onclickreturn}"/>
+              <af:spacer width="10" height="10"
+                         binding="#{backingBeanScope.backing_fragments_AddEditUser.s1}"
+                         id="s1"/>
+              <af:commandButton text="Cancel"
+                                binding="#{backingBeanScope.backing_fragments_AddEditUser.cb2}"
+                                id="cb2" action="back"
+                                actionListener="#{backingBeanScope.backing_fragments_AddEditUser.onClickRollback}"/>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelFormLayout binding="#{backingBeanScope.backing_fragments_AddEditUser.pfl1}"
+                            id="pfl1" maxColumns="2" rows="5"
+                            inlineStyle="text-align:center;padding-left:260px;padding-top:50px;padding-bottom:50px;">
+          <af:inputText value="#{bindings.UserName.inputValue}"
+                        label="User Name"
+                        required="#{bindings.UserName.hints.mandatory}"
+                        columns="#{bindings.UserName.hints.displayWidth}"
+                        maximumLength="#{bindings.UserName.hints.precision}"
+                        shortDesc="#{bindings.UserName.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditUser.it1}"
+                        id="it1">
+            <f:validator binding="#{bindings.UserName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.UserPawd.inputValue}"
+                        required="#{bindings.UserPawd.hints.mandatory}"
+                        columns="#{bindings.UserPawd.hints.displayWidth}"
+                        maximumLength="#{bindings.UserPawd.hints.precision}"
+                        shortDesc="#{bindings.UserPawd.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditUser.it2}"
+                        id="it2" label="Password" secret="true">
+            <f:validator binding="#{bindings.UserPawd.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.Trans_Confrm_Pass.inputValue}"
+                        label="Confrom Password"
+                        required="#{bindings.Trans_Confrm_Pass.hints.mandatory}"
+                        columns="#{bindings.Trans_Confrm_Pass.hints.displayWidth}"
+                        maximumLength="#{bindings.Trans_Confrm_Pass.hints.precision}"
+                        shortDesc="#{bindings.Trans_Confrm_Pass.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditUser.it7}"
+                        id="it7" secret="true" contentStyle="width:220px;">
+            <f:validator binding="#{bindings.Trans_Confrm_Pass.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.EmpId.inputValue}"
+                              label="Employee Name"
+                              required="#{bindings.EmpId.hints.mandatory}"
+                              shortDesc="#{bindings.EmpId.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditUser.soc3}"
+                              id="soc3" contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.EmpId.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditUser.si3}"
+                           id="si3"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{bindings.UserEmailId.inputValue}"
+                        label="Email ID"
+                        required="#{bindings.UserEmailId.hints.mandatory}"
+                        columns="#{bindings.UserEmailId.hints.displayWidth}"
+                        maximumLength="#{bindings.UserEmailId.hints.precision}"
+                        shortDesc="#{bindings.UserEmailId.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditUser.it6}"
+                        id="it6">
+            <f:validator binding="#{bindings.UserEmailId.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.UserNameDisp.inputValue}"
+                        label="Display Name"
+                        required="#{bindings.UserNameDisp.hints.mandatory}"
+                        columns="#{bindings.UserNameDisp.hints.displayWidth}"
+                        maximumLength="#{bindings.UserNameDisp.hints.precision}"
+                        shortDesc="#{bindings.UserNameDisp.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditUser.it4}"
+                        id="it4">
+            <f:validator binding="#{bindings.UserNameDisp.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.UserNameDispTl.inputValue}"
+                        label="Display Name TL"
+                        required="#{bindings.UserNameDispTl.hints.mandatory}"
+                        columns="#{bindings.UserNameDispTl.hints.displayWidth}"
+                        maximumLength="#{bindings.UserNameDispTl.hints.precision}"
+                        shortDesc="#{bindings.UserNameDispTl.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditUser.it5}"
+                        id="it5">
+            <f:validator binding="#{bindings.UserNameDispTl.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.UserRoleId.inputValue}"
+                        label="Role"
+                        required="#{bindings.UserRoleId.hints.mandatory}"
+                        columns="#{bindings.UserRoleId.hints.displayWidth}"
+                        maximumLength="#{bindings.UserRoleId.hints.precision}"
+                        shortDesc="#{bindings.UserRoleId.hints.tooltip}"
+                        binding="#{backingBeanScope.backing_fragments_AddEditUser.it3}"
+                        id="it3" rendered="false">
+            <f:validator binding="#{bindings.UserRoleId.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.UserRoleId.format}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.UserRoleId1.inputValue}"
+                              label="User Role"
+                              required="#{bindings.UserRoleId1.hints.mandatory}"
+                              shortDesc="#{bindings.UserRoleId1.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditUser.soc4}"
+                              id="soc4" contentStyle="width:220px;"
+                              autoSubmit="true">
+            <f:selectItems value="#{bindings.UserRoleId1.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditUser.si4}"
+                           id="si4"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.DataGroupId.inputValue}"
+                              label="Data Group"
+                              required="#{bindings.DataGroupId.hints.mandatory}"
+                              shortDesc="#{bindings.DataGroupId.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditUser.soc1}"
+                              id="soc1" autoSubmit="true"
+                              contentStyle="width:220px;">
+            <f:selectItems value="#{bindings.DataGroupId.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditUser.si1}"
+                           id="si1"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.DefDcombId.inputValue}"
+                              label="Default Combination"
+                              required="#{bindings.DefDcombId.hints.mandatory}"
+                              shortDesc="#{bindings.DefDcombId.hints.tooltip}"
+                              binding="#{backingBeanScope.backing_fragments_AddEditUser.soc2}"
+                              id="soc2" partialTriggers="soc1"
+                              contentStyle="width:220px;" rendered="false">
+            <f:selectItems value="#{bindings.DefDcombId.items}"
+                           binding="#{backingBeanScope.backing_fragments_AddEditUser.si2}"
+                           id="si2"/>
+          </af:selectOneChoice>
+          <af:selectBooleanCheckbox value="#{bindings.ActiveYn.inputValue}"
+                                    label="Active ?"
+                                    shortDesc="#{bindings.ActiveYn.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditUser.sbc1}"
+                                    id="sbc1"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_AddEditUser-->
+</jsp:root>

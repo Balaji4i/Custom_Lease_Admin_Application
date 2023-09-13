@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SubMenu_VO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="SubMenu_EO.SUB_MENU_ID, 
+       SubMenu_EO.SUB_MENU_NAME, 
+       SubMenu_EO.SUB_MENU_NAME_DISP, 
+       SubMenu_EO.SUB_MENU_NAME_DISP_TL, 
+       SubMenu_EO.SUB_MENU_ORDER, 
+       SubMenu_EO.MAIN_MENU_ID, 
+       SubMenu_EO.FUNC_ID, 
+       SubMenu_EO.MENU_PARAMS, 
+       SubMenu_EO.CREATED_BY, 
+       SubMenu_EO.CREATION_DATE, 
+       SubMenu_EO.LAST_UPDATED_BY, 
+       SubMenu_EO.LAST_UPDATE_DATE, 
+       SubMenu_EO.LAST_UPDATE_LOGIN, 
+       SubMenu_EO.ROWID"
+  FromList="XXFND_SUB_MENU SubMenu_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="MenuFunc_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.MenuFunc_ROVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_FuncId"
+    ListVOName="MenuFunc_ROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FuncId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FuncId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FuncName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="SubMenu_EO"
+    Entity="fusion.um.model.EO.SubMenu_EO"/>
+  <ViewAttribute
+    Name="SubMenuId"
+    PrecisionRule="true"
+    EntityAttrName="SubMenuId"
+    EntityUsage="SubMenu_EO"
+    AliasName="SUB_MENU_ID">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXFND_SUB_MENU_ID_S",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SubMenuName"
+    PrecisionRule="true"
+    EntityAttrName="SubMenuName"
+    EntityUsage="SubMenu_EO"
+    AliasName="SUB_MENU_NAME"/>
+  <ViewAttribute
+    Name="SubMenuNameDisp"
+    PrecisionRule="true"
+    EntityAttrName="SubMenuNameDisp"
+    EntityUsage="SubMenu_EO"
+    AliasName="SUB_MENU_NAME_DISP"/>
+  <ViewAttribute
+    Name="SubMenuNameDispTl"
+    PrecisionRule="true"
+    EntityAttrName="SubMenuNameDispTl"
+    EntityUsage="SubMenu_EO"
+    AliasName="SUB_MENU_NAME_DISP_TL"/>
+  <ViewAttribute
+    Name="SubMenuOrder"
+    PrecisionRule="true"
+    EntityAttrName="SubMenuOrder"
+    EntityUsage="SubMenu_EO"
+    AliasName="SUB_MENU_ORDER"/>
+  <ViewAttribute
+    Name="MainMenuId"
+    PrecisionRule="true"
+    EntityAttrName="MainMenuId"
+    EntityUsage="SubMenu_EO"
+    AliasName="MAIN_MENU_ID"/>
+  <ViewAttribute
+    Name="FuncId"
+    PrecisionRule="true"
+    EntityAttrName="FuncId"
+    EntityUsage="SubMenu_EO"
+    AliasName="FUNC_ID"
+    LOVName="LOV_FuncId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MenuParams"
+    PrecisionRule="true"
+    EntityAttrName="MenuParams"
+    EntityUsage="SubMenu_EO"
+    AliasName="MENU_PARAMS"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="SubMenu_EO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="SubMenu_EO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="SubMenu_EO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="SubMenu_EO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="SubMenu_EO"
+    AliasName="LAST_UPDATE_LOGIN"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="SubMenu_EO"
+    AliasName="ROWID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="SubMenuId"/>
+    <Item Value="RowID"/>
+  </AttrArray>
+</ViewObject>

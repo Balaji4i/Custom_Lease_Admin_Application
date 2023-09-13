@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AddEditUserPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="User_VO1" RangeSize="25" DataControl="User_AMDataControl"
+              id="User_VO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="User_VO1Iterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="User_VO1Iterator" id="UserPawd">
+      <AttrNames>
+        <Item Value="UserPawd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="User_VO1Iterator" id="UserRoleId">
+      <AttrNames>
+        <Item Value="UserRoleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="User_VO1Iterator" id="UserNameDisp">
+      <AttrNames>
+        <Item Value="UserNameDisp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="User_VO1Iterator" id="UserNameDispTl">
+      <AttrNames>
+        <Item Value="UserNameDispTl"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="User_VO1Iterator" StaticList="false"
+          Uses="LOV_DataGroupId" id="DataGroupId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="User_VO1Iterator" StaticList="false"
+          Uses="LOV_DefDcombId" id="DefDcombId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="User_VO1Iterator" StaticList="false" Uses="LOV_EmpId"
+          id="EmpId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="User_VO1Iterator" id="UserEmailId">
+      <AttrNames>
+        <Item Value="UserEmailId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="User_VO1Iterator" id="Trans_Confrm_Pass">
+      <AttrNames>
+        <Item Value="Trans_Confrm_Pass"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="User_AMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="User_AMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <button IterBinding="User_VO1Iterator" id="ActiveYn" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="ActiveYn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <list IterBinding="User_VO1Iterator" StaticList="false"
+          Uses="LOV_UserRoleId" id="UserRoleId1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

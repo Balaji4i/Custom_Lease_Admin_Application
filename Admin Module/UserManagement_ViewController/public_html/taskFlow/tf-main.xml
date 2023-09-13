@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="tf-main">
+    <default-activity id="__1">Dashboard</default-activity>
+    <view id="Dashboard">
+      <page>/pages/Dashboard.jspx</page>
+    </view>
+    <view id="Home">
+      <page>/pages/Home.jspx</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">Dashboard</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">toHome</from-outcome>
+        <to-activity-id id="__4">Home</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">Home</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome id="__12">toDashboard</from-outcome>
+        <to-activity-id id="__10">Dashboard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

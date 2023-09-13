@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" binding="#{backingBeanScope.backing_pages_Home.d1}">
+      <af:form id="f1" binding="#{backingBeanScope.backing_pages_Home.f1}">
+        <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                         id="pt1"
+                         binding="#{backingBeanScope.backing_pages_Home.pt1}">
+          <f:facet name="pageContents">
+            <af:panelStretchLayout binding="#{backingBeanScope.backing_pages_Home.psl1}"
+                                   id="psl1" inlineStyle="height:3000.0px;"
+                                   styleClass="AFStretchWidth">
+              <f:facet name="center">
+                <af:panelSplitter binding="#{backingBeanScope.backing_pages_Home.ps1}"
+                                  id="ps1" styleClass="AFStretchWidth"
+                                  splitterPosition="155"
+                                  inlineStyle="height:2500.0px;">
+                  <f:facet name="first">
+                    <af:panelAccordion discloseMany="false"
+                                       binding="#{backingBeanScope.backing_pages_Home.pa2}"
+                                       id="pa2">
+                      <af:showDetailItem id="sdi1" text="Admin"
+                                         binding="#{backingBeanScope.backing_pages_Home.sdi1}">
+                        <af:commandLink text="Function"
+                                        binding="#{backingBeanScope.backing_pages_Home.cl1}"
+                                        id="cl1">
+                          <af:setPropertyListener from="#{'/taskFlow/Functions_BTF.xml#Functions_BTF'}"
+                                                  to="#{pageFlowScope.taskid}"
+                                                  type="action"/>
+                        </af:commandLink>
+                        <af:commandLink text="Data Security"
+                                        binding="#{backingBeanScope.backing_pages_Home.cl2}"
+                                        id="cl2">
+                          <af:setPropertyListener from="#{'/taskFlow/DataSecurity_BTF.xml#DataSecurity'}"
+                                                  type="action"
+                                                  to="#{pageFlowScope.taskid}"/>
+                        </af:commandLink>
+                        <af:commandLink text="Data Combination"
+                                        binding="#{backingBeanScope.backing_pages_Home.cl3}"
+                                        id="cl3">
+                          <af:setPropertyListener from="#{'/taskFlow/DataCombination_BTF.xml#DataCombination_BTF'}"
+                                                  to="#{pageFlowScope.taskid}"
+                                                  type="action"/>
+                        </af:commandLink>
+                        <af:commandLink text="Data Group"
+                                        binding="#{backingBeanScope.backing_pages_Home.cl4}"
+                                        id="cl4">
+                          <af:setPropertyListener from="#{'/taskFlow/DataGroup_BTF.xml#DataGroup_BTF'}"
+                                                  to="#{pageFlowScope.taskid}"
+                                                  type="action"/>
+                        </af:commandLink>
+                        <af:commandLink text="Menu"
+                                        binding="#{backingBeanScope.backing_pages_Home.cl5}"
+                                        id="cl5">
+                          <af:setPropertyListener from="#{'/taskFlow/Menu_BTF.xml#Menu_BTF'}"
+                                                  to="#{pageFlowScope.taskid}"
+                                                  type="action"/>
+                        </af:commandLink>
+                        <af:commandLink text="Menu Access"
+                                        binding="#{backingBeanScope.backing_pages_Home.cl6}"
+                                        id="cl6">
+                          <af:setPropertyListener from="#{'/taskFlow/MenuAccess_BTF.xml#MenuAccess_BTF'}"
+                                                  to="#{pageFlowScope.taskid}"
+                                                  type="action"/>
+                        </af:commandLink>
+                        <af:commandLink text="Lookup"
+                                        binding="#{backingBeanScope.backing_pages_Home.cl7}"
+                                        id="cl7">
+                          <af:setPropertyListener from="#{'/taskFlow/Lookup_BTF.xml#Lookup_BTF'}"
+                                                  to="#{pageFlowScope.taskid}"
+                                                  type="action"/>
+                        </af:commandLink>
+                        <af:commandLink text="User"
+                                        binding="#{backingBeanScope.backing_pages_Home.cl8}"
+                                        id="cl8">
+                          <af:setPropertyListener from="#{'/taskFlow/User_BTF.xml#User_BTF'}"
+                                                  to="#{pageFlowScope.taskid}"
+                                                  type="action"/>
+                        </af:commandLink>
+                      </af:showDetailItem>
+                    </af:panelAccordion>
+                  </f:facet>
+                  <f:facet name="second">
+                    <af:region value="#{bindings.dynamicRegion1.regionModel}"
+                               id="r2"
+                               binding="#{backingBeanScope.backing_pages_Home.r2}"/>
+                  </f:facet>
+                </af:panelSplitter>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+          <f:facet name="footerStart"/>
+          <f:facet name="footer"/>
+          <f:facet name="footerEnd"/>
+          <f:facet name="headerStart"/>
+          <f:facet name="header"/>
+          <f:facet name="headerEnd"/>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_pages_Home-->
+</jsp:root>

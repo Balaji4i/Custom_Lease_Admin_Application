@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DataSecurity_AM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="fusion.um.model.AM.DataSecurity_AM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="DataSecurity_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.DataSecurity_ROVO"/>
+  <ViewUsage
+    Name="DataSecurity_VO1"
+    ViewObjectName="fusion.um.model.VO.DataSecurity_VO">
+    <ViewCriteriaUsage
+      Name="FindById"
+      FullName="fusion.um.model.VO.DataSecurity_VO.FindById"/>
+    <ParameterMap>
+      <PIMap Variable="BV_ID">
+        <TransientExpression><![CDATA[adf.context.pageFlowScope.sid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="DataSecSegment_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.DataSecSegment_ROVO"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="fusion.um.model.UserManagement_ModelBundle"/>
+  </ResourceBundle>
+</AppModule>

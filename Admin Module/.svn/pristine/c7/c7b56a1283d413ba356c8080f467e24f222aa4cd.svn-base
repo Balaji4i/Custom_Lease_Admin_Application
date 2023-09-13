@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DataCombination_AM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="fusion.um.model.AM.DataCombination_AM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="DataCombination_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.DataCombination_ROVO"/>
+  <ViewUsage
+    Name="DataCombination_VO1"
+    ViewObjectName="fusion.um.model.VO.DataCombination_VO">
+    <ViewCriteriaUsage
+      Name="FindById"
+      FullName="fusion.um.model.VO.DataCombination_VO.FindById"/>
+    <ParameterMap>
+      <PIMap Variable="BV_ID">
+        <TransientExpression><![CDATA[adf.context.pageFlowScope.did]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="DataSecurity_VO1"
+    ViewObjectName="fusion.um.model.VO.DataSecurity_VO"/>
+  <ViewUsage
+    Name="SearchCombination_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.SearchCombination_ROVO"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="fusion.um.model.UserManagement_ModelBundle"/>
+  </ResourceBundle>
+</AppModule>

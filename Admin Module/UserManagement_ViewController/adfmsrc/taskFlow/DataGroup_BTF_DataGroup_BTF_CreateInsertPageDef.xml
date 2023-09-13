@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="DataGroup_BTF_DataGroup_BTF_CreateInsertPageDef"
+                Package="taskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="DataGroup_VO1" RangeSize="25"
+              DataControl="DataGroup_AMDataControl" id="DataGroup_VO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="DataGroup_VO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

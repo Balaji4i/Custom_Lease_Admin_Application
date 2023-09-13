@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LookupValues_EO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="synonym"
+  DBObjectName="XXFND_LOOKUP_VALUES"
+  AliasName="LookupValues_EO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="LookupValueId"
+    IsNotNull="true"
+    ColumnName="LOOKUP_VALUE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXFND_LOOKUP_VALUES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LookupTypeId"
+    IsNotNull="true"
+    ColumnName="LOOKUP_TYPE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXFND_LOOKUP_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LookupValueName"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="LOOKUP_VALUE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXFND_LOOKUP_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LookupValueNameDisp"
+    IsNotNull="true"
+    Precision="240"
+    ColumnName="LOOKUP_VALUE_NAME_DISP"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXFND_LOOKUP_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LookupValueNameDispTl"
+    Precision="240"
+    ColumnName="LOOKUP_VALUE_NAME_DISP_TL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXFND_LOOKUP_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AccessLevel"
+    Precision="240"
+    ColumnName="ACCESS_LEVEL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXFND_LOOKUP_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LookupAddlValue"
+    Precision="240"
+    ColumnName="LOOKUP_ADDL_VALUE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXFND_LOOKUP_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ActiveYn"
+    Precision="1"
+    ColumnName="ACTIVE_YN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXFND_LOOKUP_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXFND_LOOKUP_VALUES"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XXFND_LOOKUP_VALUES"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXFND_LOOKUP_VALUES"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="XXFND_LOOKUP_VALUES"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateLogin"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="LAST_UPDATE_LOGIN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXFND_LOOKUP_VALUES"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ParentValueId"
+    ColumnName="PARENT_VALUE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXFND_LOOKUP_VALUES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RowID"
+    IsUpdateable="false"
+    ColumnName="ROWID"
+    SQLType="ROWID"
+    Type="oracle.jbo.domain.RowID"
+    ColumnType="ROWID"
+    TableName="XXFND_LOOKUP_VALUES"
+    PrimaryKey="true"/>
+  <ViewLinkAccessor
+    Name="LookupTypes_VO"
+    ViewLink="fusion.um.model.VL.LookupVO_VL"
+    ViewLinkEnd="fusion.um.model.VL.LookupVO_VL.LookupTypes_VO"
+    ViewLinkOtherEnd="fusion.um.model.VL.LookupVO_VL.LookupValues_VO"
+    Type="oracle.jbo.server.ViewRowImpl"
+    IsUpdateable="false"/>
+  <Key
+    Name="LookupvaluesEoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="LOOKUPVALUES_EO_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.LookupValueId"/>
+      <Item Value="fusion.um.model.EO.LookupValues_EO.RowID"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0029862">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0029862"/>
+      <Attr Name="_checkCondition" Value='"LOOKUP_VALUE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.LookupValueId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0029863">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0029863"/>
+      <Attr Name="_checkCondition" Value='"LOOKUP_TYPE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.LookupTypeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0029864">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0029864"/>
+      <Attr Name="_checkCondition" Value='"LOOKUP_VALUE_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.LookupValueName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0029865">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0029865"/>
+      <Attr Name="_checkCondition"
+        Value='"LOOKUP_VALUE_NAME_DISP" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.LookupValueNameDisp"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0029866">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0029866"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0029867">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0029867"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0029868">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0029868"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0029869">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0029869"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0029870">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0029870"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_LOGIN" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="fusion.um.model.EO.LookupValues_EO.LastUpdateLogin"/>
+    </AttrArray>
+  </Key>
+</Entity>

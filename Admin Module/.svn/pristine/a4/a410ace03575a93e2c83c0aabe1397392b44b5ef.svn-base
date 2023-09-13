@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MenuAccess_VO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="MenuAccess_EO.MENU_ACCESS_ID, 
+       MenuAccess_EO.USER_ROLE_ID, 
+       MenuAccess_EO.SUB_MENU_ID, 
+       MenuAccess_EO.MENU_DISPLAY, 
+       MenuAccess_EO.MENU_CONTROL, 
+       MenuAccess_EO.CREATED_BY, 
+       MenuAccess_EO.CREATION_DATE, 
+       MenuAccess_EO.LAST_UPDATED_BY, 
+       MenuAccess_EO.LAST_UPDATE_DATE, 
+       MenuAccess_EO.LAST_UPDATE_LOGIN, 
+       MenuAccess_EO.ROWID"
+  FromList="XXFND_MENU_ACCESS MenuAccess_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="fusion.um.model.VO.MenuAccess_VORowImpl"
+  ComponentClass="fusion.um.model.VO.MenuAccess_VOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="BV_ROLE_ID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="MenuSubMenu_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.MenuSubMenu_ROVO">
+    <ViewCriteriaUsage
+      Name="FindbySubmenuId"
+      FullName="fusion.um.model.ROVO.MenuSubMenu_ROVO.FindbySubmenuId"/>
+    <ParameterMap>
+      <PIMap Variable="BV_SUB_Id">
+        <TransientExpression><![CDATA[SubMenuId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="UserRole_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.UserRole_ROVO">
+    <ViewCriteriaUsage
+      Name="FindbyId"
+      FullName="fusion.um.model.ROVO.UserRole_ROVO.FindbyId"/>
+    <ParameterMap>
+      <PIMap Variable="BV_ID">
+        <TransientExpression><![CDATA[UserRoleId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="MenuControl_STATVO1"
+    ViewObjectName="fusion.um.model.STATVO.MenuControl_STATVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_MenuControl"
+    ListVOName="MenuControl_STATVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MenuControl"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="KeyMenu"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueMenu"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="MenuAccess_EO"
+    Entity="fusion.um.model.EO.MenuAccess_EO"/>
+  <ViewAttribute
+    Name="MenuAccessId"
+    PrecisionRule="true"
+    EntityAttrName="MenuAccessId"
+    EntityUsage="MenuAccess_EO"
+    AliasName="MENU_ACCESS_ID">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXFND_MENU_ACCESS_ID_S",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserRoleId"
+    PrecisionRule="true"
+    EntityAttrName="UserRoleId"
+    EntityUsage="MenuAccess_EO"
+    AliasName="USER_ROLE_ID"/>
+  <ViewAttribute
+    Name="SubMenuId"
+    PrecisionRule="true"
+    EntityAttrName="SubMenuId"
+    EntityUsage="MenuAccess_EO"
+    AliasName="SUB_MENU_ID"/>
+  <ViewAttribute
+    Name="MenuDisplay"
+    PrecisionRule="true"
+    EntityAttrName="MenuDisplay"
+    EntityUsage="MenuAccess_EO"
+    AliasName="MENU_DISPLAY"
+    DefaultValue="N"/>
+  <ViewAttribute
+    Name="MenuControl"
+    PrecisionRule="true"
+    EntityAttrName="MenuControl"
+    EntityUsage="MenuAccess_EO"
+    AliasName="MENU_CONTROL"
+    LOVName="LOV_MenuControl">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="MenuAccess_EO"
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="MenuAccess_EO"
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="MenuAccess_EO"
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="MenuAccess_EO"
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="MenuAccess_EO"
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="MenuAccess_EO"
+    AliasName="ROWID"/>
+  <ViewAttribute
+    Name="SubMenu"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if(SubMenuId !=null && MenuSubMenu_ROVO1.first()!=null )
+{
+MenuSubMenu_ROVO1.first().getAttribute("SubMenuNameDisp")
+}
+else
+{
+return null;
+}]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MenuName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(SubMenuId !=null && MenuSubMenu_ROVO1.first()!=null )
+{
+MenuSubMenu_ROVO1.first().getAttribute("MenuNameDisp")
+}
+else
+{
+return null;
+}]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RoleName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if(UserRoleId!=null && UserRole_ROVO1.first()!=null)
+{
+UserRole_ROVO1.first().getAttribute("LookupValueNameDisp");
+}
+else
+{
+return null;
+}]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Trans_MenuDisplay"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT"/>
+  <ViewCriteria
+    Name="FindByRoleId"
+    ViewObjectName="fusion.um.model.VO.MenuAccess_VO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow68"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="UserRoleId"
+        ViewAttribute="UserRoleId"
+        Operator="="
+        Conjunction="AND"
+        Value=":BV_ROLE_ID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="MenuAccessId"/>
+    <Item Value="RowID"/>
+  </AttrArray>
+</ViewObject>

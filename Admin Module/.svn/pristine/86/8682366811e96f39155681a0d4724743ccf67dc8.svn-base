@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="User_AM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="User_VO1"
+    ViewObjectName="fusion.um.model.VO.User_VO">
+    <ViewCriteriaUsage
+      Name="FindByID"
+      FullName="fusion.um.model.VO.User_VO.FindByID"/>
+    <ParameterMap>
+      <PIMap Variable="BV_ID">
+        <TransientExpression><![CDATA[adf.context.pageFlowScope.uid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="User_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.User_ROVO"/>
+</AppModule>

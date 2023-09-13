@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="MenuAccess_BTF">
+    <default-activity id="__1">getResetData</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__4">backing_fragments_MenuAccess</managed-bean-name>
+      <managed-bean-class id="__5">fusion.um.view.backing.MenuAccess</managed-bean-class>
+      <managed-bean-scope id="__3">backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1fragments/MenuAccess.jsff-->
+    </managed-bean>
+    <view id="MenuAccess">
+      <page>/fragments/MenuAccess.jsff</page>
+    </view>
+    <method-call id="getResetData">
+      <method>#{bindings.getResetData.execute}</method>
+      <outcome id="__6">
+        <fixed-outcome>getResetData</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">getResetData</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__11">getResetData</from-outcome>
+        <to-activity-id id="__10">MenuAccess</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

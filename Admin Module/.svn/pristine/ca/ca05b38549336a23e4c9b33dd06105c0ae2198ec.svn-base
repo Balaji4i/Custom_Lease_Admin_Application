@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1" binding="#{backingBeanScope.AddEditLookup.pt1}">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout id="pgl1" layout="scroll"
+                           binding="#{backingBeanScope.AddEditLookup.pgl1}">
+        <af:panelGroupLayout id="pgl2"
+                             binding="#{backingBeanScope.AddEditLookup.pgl2}">
+          <af:panelGridLayout id="pgl3"
+                              binding="#{backingBeanScope.AddEditLookup.pgl3}">
+            <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                        id="gr1"
+                        binding="#{backingBeanScope.AddEditLookup.gr1}">
+              <af:gridCell marginStart="5px" width="50%" id="gc2"
+                           marginEnd="5px"
+                           binding="#{backingBeanScope.AddEditLookup.gc2}">
+                <af:outputLabel value="Lookup" id="ol1"
+                                inlineStyle="font-size:large; font-weight:bold;"
+                                binding="#{backingBeanScope.AddEditLookup.ol1}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                           id="gc1"
+                           binding="#{backingBeanScope.AddEditLookup.gc1}"
+                           halign="end">
+                <af:commandButton text="Save"
+                                  binding="#{backingBeanScope.AddEditLookup.cb1}"
+                                  id="cb1" action="back"
+                                  actionListener="#{backingBeanScope.AddEditLookup.onClickCommit}"/>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.AddEditLookup.s1}"
+                           id="s1"/>
+                <af:commandButton text="Cancel"
+                                  binding="#{backingBeanScope.AddEditLookup.cb2}"
+                                  id="cb2" immediate="true">
+                  <af:showPopupBehavior popupId="p1"/>
+                </af:commandButton>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:panelFormLayout id="pfl1"
+                              inlineStyle="padding-left:400px; height:230px;"
+                              binding="#{backingBeanScope.AddEditLookup.pfl1}">
+            <af:inputText value="#{bindings.LookupTypeName.inputValue}"
+                          label="Lookup Type"
+                          required="#{bindings.LookupTypeName.hints.mandatory}"
+                          columns="#{bindings.LookupTypeName.hints.displayWidth}"
+                          maximumLength="#{bindings.LookupTypeName.hints.precision}"
+                          shortDesc="#{bindings.LookupTypeName.hints.tooltip}"
+                          id="it2"
+                          binding="#{backingBeanScope.AddEditLookup.it2}"
+                          autoSubmit="true">
+              <f:validator binding="#{bindings.LookupTypeName.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LookupTypeNameDisp.inputValue}"
+                          label="Display Name"
+                          required="#{bindings.LookupTypeNameDisp.hints.mandatory}"
+                          columns="#{bindings.LookupTypeNameDisp.hints.displayWidth}"
+                          maximumLength="#{bindings.LookupTypeNameDisp.hints.precision}"
+                          shortDesc="#{bindings.LookupTypeNameDisp.hints.tooltip}"
+                          id="it1"
+                          binding="#{backingBeanScope.AddEditLookup.it1}"
+                          autoSubmit="true">
+              <f:validator binding="#{bindings.LookupTypeNameDisp.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LookupTypeNameDispTl.inputValue}"
+                          label="Display Name TL"
+                          required="#{bindings.LookupTypeNameDispTl.hints.mandatory}"
+                          columns="#{bindings.LookupTypeNameDispTl.hints.displayWidth}"
+                          maximumLength="#{bindings.LookupTypeNameDispTl.hints.precision}"
+                          shortDesc="#{bindings.LookupTypeNameDispTl.hints.tooltip}"
+                          id="it3"
+                          binding="#{backingBeanScope.AddEditLookup.it3}">
+              <f:validator binding="#{bindings.LookupTypeNameDispTl.validator}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.AccessLevel.inputValue}"
+                                label="Access Level"
+                                required="#{bindings.AccessLevel.hints.mandatory}"
+                                shortDesc="#{bindings.AccessLevel.hints.tooltip}"
+                                id="soc2"
+                                binding="#{backingBeanScope.AddEditLookup.soc2}"
+                                autoSubmit="true" contentStyle="width:220px;">
+              <f:selectItems value="#{bindings.AccessLevel.items}" id="si1"
+                             binding="#{backingBeanScope.AddEditLookup.si1}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.ParentTypeId.inputValue}"
+                                label="Parent type"
+                                required="#{bindings.ParentTypeId.hints.mandatory}"
+                                shortDesc="#{bindings.ParentTypeId.hints.tooltip}"
+                                id="soc1"
+                                binding="#{backingBeanScope.AddEditLookup.soc1}"
+                                autoSubmit="true"
+                                valueChangeListener="#{backingBeanScope.AddEditLookup.onclickValueChange}"
+                                contentStyle="width:220px;">
+              <f:selectItems value="#{bindings.ParentTypeId.items}" id="si2"
+                             binding="#{backingBeanScope.AddEditLookup.si2}"/>
+            </af:selectOneChoice>
+            <af:selectBooleanCheckbox value="#{bindings.ActiveYn.inputValue}"
+                                      label="Active ?"
+                                      shortDesc="#{bindings.ActiveYn.hints.tooltip}"
+                                      id="sbc1"
+                                      binding="#{backingBeanScope.AddEditLookup.sbc1}"/>
+          </af:panelFormLayout>
+          <af:panelBox text="Values" id="pb1"
+                       binding="#{backingBeanScope.AddEditLookup.pb1}"
+                       partialTriggers="soc1">
+            <f:facet name="toolbar"/>
+            <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                binding="#{backingBeanScope.AddEditLookup.pc1}">
+              <f:facet name="menus"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t1"
+                            binding="#{backingBeanScope.AddEditLookup.t1}"
+                            flex="1">
+                  <af:commandImageLink
+                                       binding="#{backingBeanScope.AddEditLookup.cil1}"
+                                       id="cil1" icon="/image/add.png"
+                                       hoverIcon="/image/add_en.png"
+                                       actionListener="#{backingBeanScope.AddEditLookup.onClickInsert}"
+                                       partialSubmit="true"/>
+                  <af:spacer width="10" height="10"
+                             binding="#{backingBeanScope.AddEditLookup.s2}"
+                             id="s2"/>
+                  <af:commandImageLink actionListener="#{bindings.Delete.execute}"
+                                       disabled="#{!bindings.Delete.enabled}"
+                                       binding="#{backingBeanScope.AddEditLookup.cil2}"
+                                       id="cil2" icon="/image/delete.png"
+                                       hoverIcon="/image/delete_en.png"/>
+                </af:toolbar>
+              </f:facet>
+              <f:facet name="statusbar"/>
+              <af:table value="#{bindings.LookupValues_VO1.collectionModel}"
+                        var="row" rows="#{bindings.LookupValues_VO1.rangeSize}"
+                        emptyText="#{bindings.LookupValues_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="6"
+                        rowBandingInterval="0" id="t2"
+                        binding="#{backingBeanScope.AddEditLookup.t2}"
+                        partialTriggers="::cil1 :::soc1" contentDelivery="immediate"
+                        autoHeightRows="0" varStatus="vs"
+                        columnStretching="column:c7" columnBandingInterval="0">
+                <af:column id="column1" headerText="S.No" width="50">
+                  <af:outputText value="#{vs.index+1}" id="outputText1"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.LookupValues_VO1.hints.LookupValueName.name}"
+                           sortable="false"
+                           headerText="Lookup Value"
+                           id="c5" width="180">
+                  <af:inputText value="#{row.bindings.LookupValueName.inputValue}"
+                                label="#{bindings.LookupValues_VO1.hints.LookupValueName.label}"
+                                required="#{bindings.LookupValues_VO1.hints.LookupValueName.mandatory}"
+                                columns="#{bindings.LookupValues_VO1.hints.LookupValueName.displayWidth}"
+                                maximumLength="#{bindings.LookupValues_VO1.hints.LookupValueName.precision}"
+                                shortDesc="#{bindings.LookupValues_VO1.hints.LookupValueName.tooltip}"
+                                id="it6">
+                    <f:validator binding="#{row.bindings.LookupValueName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.LookupValues_VO1.hints.LookupValueNameDisp.name}"
+                           sortable="false"
+                           headerText="Display Name"
+                           id="c3" width="165">
+                  <af:inputText value="#{row.bindings.LookupValueNameDisp.inputValue}"
+                                label="#{bindings.LookupValues_VO1.hints.LookupValueNameDisp.label}"
+                                required="#{bindings.LookupValues_VO1.hints.LookupValueNameDisp.mandatory}"
+                                columns="#{bindings.LookupValues_VO1.hints.LookupValueNameDisp.displayWidth}"
+                                maximumLength="#{bindings.LookupValues_VO1.hints.LookupValueNameDisp.precision}"
+                                shortDesc="#{bindings.LookupValues_VO1.hints.LookupValueNameDisp.tooltip}"
+                                id="it5">
+                    <f:validator binding="#{row.bindings.LookupValueNameDisp.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.LookupValues_VO1.hints.LookupValueNameDispTl.name}"
+                           sortable="false"
+                           headerText="Display Name TL"
+                           id="c1" width="200">
+                  <af:inputText value="#{row.bindings.LookupValueNameDispTl.inputValue}"
+                                label="#{bindings.LookupValues_VO1.hints.LookupValueNameDispTl.label}"
+                                required="#{bindings.LookupValues_VO1.hints.LookupValueNameDispTl.mandatory}"
+                                columns="#{bindings.LookupValues_VO1.hints.LookupValueNameDispTl.displayWidth}"
+                                maximumLength="#{bindings.LookupValues_VO1.hints.LookupValueNameDispTl.precision}"
+                                shortDesc="#{bindings.LookupValues_VO1.hints.LookupValueNameDispTl.tooltip}"
+                                id="it7">
+                    <f:validator binding="#{row.bindings.LookupValueNameDispTl.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.LookupValues_VO1.hints.LookupAddlValue.name}"
+                           sortable="false"
+                           headerText="Additional Value"
+                           id="c2" width="150">
+                  <af:inputText value="#{row.bindings.LookupAddlValue.inputValue}"
+                                label="#{bindings.LookupValues_VO1.hints.LookupAddlValue.label}"
+                                required="#{bindings.LookupValues_VO1.hints.LookupAddlValue.mandatory}"
+                                columns="#{bindings.LookupValues_VO1.hints.LookupAddlValue.displayWidth}"
+                                maximumLength="#{bindings.LookupValues_VO1.hints.LookupAddlValue.precision}"
+                                shortDesc="#{bindings.LookupValues_VO1.hints.LookupAddlValue.tooltip}"
+                                id="it4">
+                    <f:validator binding="#{row.bindings.LookupAddlValue.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="Parent Value"
+                           id="c6" width="180">
+                  <af:selectOneChoice value="#{row.bindings.ParentValueId.inputValue}"
+                                      label="#{row.bindings.ParentValueId.label}"
+                                      required="#{bindings.LookupValues_VO1.hints.ParentValueId.mandatory}"
+                                      shortDesc="#{bindings.LookupValues_VO1.hints.ParentValueId.tooltip}"
+                                      id="soc4" partialTriggers=":::soc1"
+                                      autoSubmit="true">
+                    <f:selectItems value="#{row.bindings.ParentValueId.items}"
+                                   id="si4"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column sortProperty="#{bindings.LookupValues_VO1.hints.AccessLevel.name}"
+                           sortable="false" headerText="Access Level" id="c4"
+                           width="152">
+                  <af:selectOneChoice value="#{row.bindings.AccessLevel.inputValue}"
+                                      label="#{row.bindings.AccessLevel.label}"
+                                      required="#{bindings.LookupValues_VO1.hints.AccessLevel.mandatory}"
+                                      shortDesc="#{bindings.LookupValues_VO1.hints.AccessLevel.tooltip}"
+                                      id="soc3">
+                    <f:selectItems value="#{row.bindings.AccessLevel.items}"
+                                   id="si3"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="Active ?"
+                           id="c7" width="80">
+                  <af:selectBooleanCheckbox value="#{row.bindings.Trans_Active.inputValue}"
+                                            label="#{row.bindings.Trans_Active.label}"
+                                            shortDesc="#{bindings.LookupValues_VO1.hints.Trans_Active.tooltip}"
+                                            id="sbc2"/>
+                </af:column>
+              </af:table>
+            </af:panelCollection>
+          </af:panelBox>
+          <af:popup binding="#{backingBeanScope.AddEditLookup.p1}" id="p1">
+            <af:dialog binding="#{backingBeanScope.AddEditLookup.d1}" id="d1"
+                       titleIconSource="/image/warning.png" title="Warning"
+                       inlineStyle="width:350px; height:100.0px;" type="none">
+              <af:outputText value="Are you sure you want to Cancel this information?"
+                             binding="#{backingBeanScope.AddEditLookup.ot1}"
+                             id="ot1"/>
+              <f:facet name="buttonBar">
+                <af:group binding="#{backingBeanScope.AddEditLookup.g1}"
+                          id="g1">
+                  <af:commandButton text="Ok"
+                                    binding="#{backingBeanScope.AddEditLookup.cb3}"
+                                    id="cb3" action="back"
+                                    actionListener="#{backingBeanScope.AddEditLookup.onClickRollback}"/>
+                  <af:spacer width="10" height="10"
+                             binding="#{backingBeanScope.AddEditLookup.s3}"
+                             id="s3"/>
+                  <af:commandButton text="Cancel"
+                                    binding="#{backingBeanScope.AddEditLookup.cb4}"
+                                    id="cb4"
+                                    actionListener="#{backingBeanScope.AddEditLookup.onClickClose}"/>
+                </af:group>
+              </f:facet>
+            </af:dialog>
+          </af:popup>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:AddEditLookup-->
+</jsp:root>

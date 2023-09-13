@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Functions_AM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="fusion.um.model.AM.Functions_AM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="Functions_VO1"
+    ViewObjectName="fusion.um.model.VO.Functions_VO">
+    <ViewCriteriaUsage
+      Name="FindByFuncId"
+      FullName="fusion.um.model.VO.Functions_VO.FindByFuncId"/>
+    <ParameterMap>
+      <PIMap Variable="BV_ID">
+        <TransientExpression><![CDATA[adf.context.pageFlowScope.fid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="FuncApprLevels_VO1"
+    ViewObjectName="fusion.um.model.VO.FuncApprLevels_VO"/>
+  <ViewUsage
+    Name="FuncApprovals_VO1"
+    ViewObjectName="fusion.um.model.VO.FuncApprovals_VO"/>
+  <ViewUsage
+    Name="Funtions_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.Funtions_ROVO"/>
+  <ViewUsage
+    Name="Level_Type_STATVO1"
+    ViewObjectName="fusion.um.model.STATVO.Level_Type_STATVO"/>
+  <ViewUsage
+    Name="FuncChecklist_VO1"
+    ViewObjectName="fusion.um.model.VO.FuncChecklist_VO"/>
+  <ViewLinkUsage
+    Name="Function_ApprovalLevel_VL1"
+    ViewLinkObjectName="fusion.um.model.VL.Function_ApprovalLevel_VL"
+    SrcViewUsageName="fusion.um.model.AM.Functions_AM.Functions_VO1"
+    DstViewUsageName="fusion.um.model.AM.Functions_AM.FuncApprLevels_VO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FuncApprovalLevel_Approval_VL1"
+    ViewLinkObjectName="fusion.um.model.VL.FuncApprovalLevel_Approval_VL"
+    SrcViewUsageName="fusion.um.model.AM.Functions_AM.FuncApprLevels_VO1"
+    DstViewUsageName="fusion.um.model.AM.Functions_AM.FuncApprovals_VO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FuncCheckList_VL1"
+    ViewLinkObjectName="fusion.um.model.VL.FuncCheckList_VL"
+    SrcViewUsageName="fusion.um.model.AM.Functions_AM.Functions_VO1"
+    DstViewUsageName="fusion.um.model.AM.Functions_AM.FuncChecklist_VO1"
+    Reversed="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="fusion.um.model.UserManagement_ModelBundle"/>
+  </ResourceBundle>
+</AppModule>

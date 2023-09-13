@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AddEditFunctionsPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Functions_VO1" RangeSize="25"
+              DataControl="Functions_AMDataControl" id="Functions_VO1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="FuncApprLevels_VO1" RangeSize="25"
+              DataControl="Functions_AMDataControl"
+              id="FuncApprLevels_VO1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="FuncApprovals_VO1" RangeSize="25"
+              DataControl="Functions_AMDataControl"
+              id="FuncApprovals_VO1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="FuncChecklist_VO1" RangeSize="25"
+              DataControl="Functions_AMDataControl"
+              id="FuncChecklist_VO1Iterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Functions_VO1Iterator" id="FuncId">
+      <AttrNames>
+        <Item Value="FuncId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Functions_VO1Iterator" id="FuncName">
+      <AttrNames>
+        <Item Value="FuncName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Functions_VO1Iterator" id="FuncShortCode">
+      <AttrNames>
+        <Item Value="FuncShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Functions_VO1Iterator" id="Prefix">
+      <AttrNames>
+        <Item Value="Prefix"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Functions_VO1Iterator" id="NextNumber">
+      <AttrNames>
+        <Item Value="NextNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Functions_VO1Iterator" id="PagePath">
+      <AttrNames>
+        <Item Value="PagePath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Functions_VO1Iterator" id="InactiveOn">
+      <AttrNames>
+        <Item Value="InactiveOn"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="Functions_VO1Iterator" id="AutoNumberYn"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="AutoNumberYn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="FuncApprLevels_VO1Iterator" id="FuncApprLevels_VO1">
+      <nodeDefinition DefName="fusion.um.model.VO.FuncApprLevels_VO"
+                      Name="FuncApprLevels_VO10">
+        <AttrNames>
+          <Item Value="ApprLevelId"/>
+          <Item Value="FuncId"/>
+          <Item Value="LevelNo"/>
+          <Item Value="LevelName"/>
+          <Item Value="LevelType"/>
+          <Item Value="ApprByAll"/>
+          <Item Value="Trans_Active" Binds="Trans_Active"/>
+          <Item Value="Trans_Active_2" Binds="Trans_Active_2"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="FuncApprovals_VO1Iterator" id="FuncApprovals_VO1">
+      <nodeDefinition DefName="fusion.um.model.VO.FuncApprovals_VO"
+                      Name="FuncApprovals_VO10">
+        <AttrNames>
+          <Item Value="FuncApprId"/>
+          <Item Value="ApprLevelId"/>
+          <Item Value="FuncId"/>
+          <Item Value="SeqNumber"/>
+          <Item Value="UserId"/>
+          <Item Value="ApprRole"/>
+          <Item Value="ApprRoleDesc"/>
+          <Item Value="EmpId"/>
+          <Item Value="ApprLimit"/>
+          <Item Value="Trans_Active_1" Binds="Trans_Active_1"/>
+          <Item Value="Trans_UserName"/>
+          <Item Value="Trans_EmployeeName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="FuncApprLevels_VO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="FuncApprovals_VO1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <button IterBinding="Functions_VO1Iterator" id="ActiveYn"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="ActiveYn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <action id="Commit" DataControl="Functions_AMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="Functions_AMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <button IterBinding="FuncApprLevels_VO1Iterator" id="Trans_Active"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Trans_Active"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <button IterBinding="FuncApprovals_VO1Iterator" id="Trans_Active_1"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Trans_Active_1"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <button IterBinding="FuncApprLevels_VO1Iterator" id="Trans_Active_2"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Trans_Active_2"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="FuncChecklist_VO1Iterator" id="FuncChecklist_VO1">
+      <nodeDefinition DefName="fusion.um.model.VO.FuncChecklist_VO"
+                      Name="FuncChecklist_VO10">
+        <AttrNames>
+          <Item Value="FuncClId"/>
+          <Item Value="FuncId"/>
+          <Item Value="SeqNumber"/>
+          <Item Value="ClType"/>
+          <Item Value="ClItem"/>
+          <Item Value="LookupType"/>
+          <Item Value="Trans_Mandatory" Binds="Trans_Mandatory"/>
+          <Item Value="Attribute1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="FuncChecklist_VO1Iterator" id="CreateInsert2"
+            InstanceName="Functions_AMDataControl.FuncChecklist_VO1"
+            DataControl="Functions_AMDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <button IterBinding="FuncChecklist_VO1Iterator" id="Trans_Mandatory"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Trans_Mandatory"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <action IterBinding="FuncApprLevels_VO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="FuncApprovals_VO1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="FuncChecklist_VO1Iterator" id="Delete2"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

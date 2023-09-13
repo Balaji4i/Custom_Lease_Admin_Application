@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelStretchLayout id="psl1"
+                             styleClass="AFStretchWidth"
+                             dimensionsFrom="auto" startWidth="10px"
+                             endWidth="10px" topHeight="10px"
+                             bottomHeight="10px">
+        <f:facet name="center">
+          <af:panelGroupLayout id="pgl1" layout="vertical">
+            <af:panelGridLayout id="pgl2">
+              <af:gridRow marginTop="5px" marginBottom="5px" id="gr1">
+                <af:gridCell marginStart="5px" width="50%" id="gc1">
+                  <af:outputLabel value="Function" id="ol1"
+                                  inlineStyle="font-weight:bolder; font-size:large;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                             id="gc2"/>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.SearchFunctionsQuery.queryDescriptor}"
+                      model="#{bindings.SearchFunctionsQuery.queryModel}"
+                      queryListener="#{bindings.SearchFunctionsQuery.processQuery}"
+                      queryOperationListener="#{bindings.SearchFunctionsQuery.processQueryOperation}"
+                      resultComponentId="::pc1:resId1"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:panelBox text="Search Result" id="pb1"
+                         styleClass="AFStretchWidth">
+              <f:facet name="toolbar"/>
+              <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t1" flex="1">
+                    <af:commandImageLink id="cil1" icon="/image/add.png"
+                                         hoverIcon="/image/add_en.png"
+                                         action="go"/>
+                    <af:spacer width="10" height="10" id="s2"/>
+                    <af:commandImageLink id="cil2" icon="/image/edit.png"
+                                         hoverIcon="/image/edit_en.png"
+                                         action="edit">
+                      <af:setPropertyListener to="#{pageFlowScope.fid}"
+                                              type="action"
+                                              from="#{bindings.FuncId.inputValue}"/>
+                    </af:commandImageLink>
+                  </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.Funtions_ROVO1.collectionModel}"
+                          var="row" rows="#{bindings.Funtions_ROVO1.rangeSize}"
+                          emptyText="#{bindings.Funtions_ROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="6" rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.Funtions_ROVO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.Funtions_ROVO1.collectionModel.makeCurrent}"
+                          rowSelection="single" id="resId1" scrollPolicy="page"
+                          autoHeightRows="0" first="0" varStatus="vs"
+                          styleClass="AFStretchWidth">
+                  <af:column id="c1" headerText="S.No" width="30"
+                             inlineStyle="text-align:center;">
+                    <af:outputText value="#{vs.index + 1}" id="ot13"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.FuncId.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.FuncId.label}"
+                             id="resId1c1" rendered="false">
+                    <af:outputText value="#{row.FuncId}" id="ot8">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.Funtions_ROVO1.hints.FuncId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.FuncName.name}"
+                             sortable="false" headerText="Name" id="resId1c2"
+                             width="155">
+                    <af:commandLink text="#{row.FuncName}" id="cl1"
+                                    action="edit">
+                      <af:setPropertyListener from="#{bindings.FuncId.inputValue}"
+                                              to="#{pageFlowScope.fid}"
+                                              type="action"/>
+                    </af:commandLink>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.FuncShortCode.name}"
+                             sortable="false" headerText="Short Code"
+                             id="resId1c3" width="155">
+                    <af:outputText value="#{row.FuncShortCode}" id="ot23"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.AutoNumberYn.name}"
+                             sortable="false" headerText="Auto Number"
+                             id="resId1c4" width="155">
+                    <af:outputText value="#{row.AutoNumberYn}" id="ot2"
+                                   rendered="false"/>
+                    <af:image source="/image/Ok_icon.png" id="i1"
+                              rendered="#{row.AutoNumberYn eq 'Y'}"
+                              shortDesc="Ok"/>
+                    <af:image source="/image/Cancel.png" id="i2"
+                              rendered="#{row.AutoNumberYn eq 'N'}"
+                              shortDesc="Cancel"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Prefix.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Prefix.label}"
+                             id="resId1c5" width="155">
+                    <af:outputText value="#{row.Prefix}" id="ot20"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.NextNumber.name}"
+                             sortable="false" headerText="Next Number"
+                             id="resId1c6" width="155">
+                    <af:outputText value="#{row.NextNumber}" id="ot14">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.Funtions_ROVO1.hints.NextNumber.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.PagePath.name}"
+                             sortable="false" headerText="Page Path"
+                             id="resId1c7" width="220">
+                    <af:outputText value="#{row.PagePath}" id="ot1"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.ActiveYn.name}"
+                             sortable="false" headerText="Active ?"
+                             id="resId1c8" width="135">
+                    <af:outputText value="#{row.ActiveYn}" id="ot3"
+                                   rendered="false"/>
+                    <af:image source="/image/Ok_icon.png" shortDesc="Ok" id="i3"
+                              rendered="#{row.ActiveYn eq 'Y'}"/>
+                    <af:image source="/image/Cancel.png" shortDesc="Cancel"
+                              id="i4" rendered="#{row.ActiveYn eq 'N'}"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.InactiveOn.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.InactiveOn.label}"
+                             id="resId1c9" rendered="false">
+                    <af:outputText value="#{row.InactiveOn}" id="ot24">
+                      <af:convertDateTime pattern="#{bindings.Funtions_ROVO1.hints.InactiveOn.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.AttributeCategory.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.AttributeCategory.label}"
+                             id="resId1c10" rendered="false">
+                    <af:outputText value="#{row.AttributeCategory}" id="ot10"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute1.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute1.label}"
+                             id="resId1c11" rendered="false">
+                    <af:outputText value="#{row.Attribute1}" id="ot5"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute2.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute2.label}"
+                             id="resId1c12" rendered="false">
+                    <af:outputText value="#{row.Attribute2}" id="ot17"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute3.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute3.label}"
+                             id="resId1c13" rendered="false">
+                    <af:outputText value="#{row.Attribute3}" id="ot7"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute4.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute4.label}"
+                             id="resId1c14" rendered="false">
+                    <af:outputText value="#{row.Attribute4}" id="ot6"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute5.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute5.label}"
+                             id="resId1c15" rendered="false">
+                    <af:outputText value="#{row.Attribute5}" id="ot21"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute6.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute6.label}"
+                             id="resId1c16" rendered="false">
+                    <af:outputText value="#{row.Attribute6}" id="ot9"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute7.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute7.label}"
+                             id="resId1c17" rendered="false">
+                    <af:outputText value="#{row.Attribute7}" id="ot11"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute8.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute8.label}"
+                             id="resId1c18" rendered="false">
+                    <af:outputText value="#{row.Attribute8}" id="ot25"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute9.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute9.label}"
+                             id="resId1c19" rendered="false">
+                    <af:outputText value="#{row.Attribute9}" id="ot15"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.Attribute10.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.Attribute10.label}"
+                             id="resId1c20" rendered="false">
+                    <af:outputText value="#{row.Attribute10}" id="ot4"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.CreatedBy.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.CreatedBy.label}"
+                             id="resId1c21" rendered="false">
+                    <af:outputText value="#{row.CreatedBy}" id="ot12"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.CreationDate.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.CreationDate.label}"
+                             id="resId1c22" rendered="false">
+                    <af:outputText value="#{row.CreationDate}" id="ot16">
+                      <af:convertDateTime pattern="#{bindings.Funtions_ROVO1.hints.CreationDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.LastUpdatedBy.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.LastUpdatedBy.label}"
+                             id="resId1c23" rendered="false">
+                    <af:outputText value="#{row.LastUpdatedBy}" id="ot19"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.LastUpdateDate.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.LastUpdateDate.label}"
+                             id="resId1c24" rendered="false">
+                    <af:outputText value="#{row.LastUpdateDate}" id="ot18">
+                      <af:convertDateTime pattern="#{bindings.Funtions_ROVO1.hints.LastUpdateDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.Funtions_ROVO1.hints.LastUpdateLogin.name}"
+                             sortable="false"
+                             headerText="#{bindings.Funtions_ROVO1.hints.LastUpdateLogin.label}"
+                             id="resId1c25" rendered="false">
+                    <af:outputText value="#{row.LastUpdateLogin}" id="ot22"/>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:panelBox>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelStretchLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header">
+      <af:group id="g2"/>
+    </f:facet>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+</jsp:root>

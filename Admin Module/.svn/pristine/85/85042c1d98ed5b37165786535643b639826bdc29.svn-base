@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AddEditDateaSecurityPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DataSecurity_VO1" RangeSize="25"
+              DataControl="DataSecurity_AMDataControl"
+              id="DataSecurity_VO1Iterator"/>
+    <iterator id="DataSecSegment_ROVO1Iterator" Binds="DataSecSegment_ROVO1"
+              DataControl="DataSecurity_AMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DataSecurity_VO1Iterator" id="SeqNumber">
+      <AttrNames>
+        <Item Value="SeqNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DataSecurity_VO1Iterator" id="ColumnName">
+      <AttrNames>
+        <Item Value="ColumnName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SrcTable" id="SrcTable" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SrcColumn" id="SrcColumn" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SrcDispColumn" id="SrcDispColumn" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SrcLookupType" id="SrcLookupType" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <button IterBinding="DataSecurity_VO1Iterator" id="Trans_Active"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Trans_Active"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <list IterBinding="DataSecurity_VO1Iterator" StaticList="false"
+          Uses="LOV_SegmentColumn" id="SegmentColumn" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <action id="Commit" DataControl="DataSecurity_AMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="DataSecurity_AMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

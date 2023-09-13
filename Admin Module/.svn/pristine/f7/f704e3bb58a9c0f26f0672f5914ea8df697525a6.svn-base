@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_AddEditMenu.pgl1}"
+                           id="pgl1" layout="scroll">
+        <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_AddEditMenu.pgl2}"
+                             id="pgl2">
+          <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_AddEditMenu.pgl3}"
+                              id="pgl3">
+            <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                        binding="#{backingBeanScope.backing_fragments_AddEditMenu.gr1}"
+                        id="gr1">
+              <af:gridCell marginStart="5px" width="50%"
+                           binding="#{backingBeanScope.backing_fragments_AddEditMenu.gc1}"
+                           id="gc1" marginEnd="5px">
+                <af:outputLabel value="Menu"
+                                binding="#{backingBeanScope.backing_fragments_AddEditMenu.ol1}"
+                                id="ol1"
+                                inlineStyle="font-size:large; font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                           binding="#{backingBeanScope.backing_fragments_AddEditMenu.gc2}"
+                           id="gc2" halign="end">
+                <af:commandButton text="Save"
+                                  binding="#{backingBeanScope.backing_fragments_AddEditMenu.cb1}"
+                                  id="cb1" action="back"
+                                  actionListener="#{backingBeanScope.backing_fragments_AddEditMenu.onClickCommit}"/>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.backing_fragments_AddEditMenu.s1}"
+                           id="s1"/>
+                <af:commandButton text="Cancel"
+                                  binding="#{backingBeanScope.backing_fragments_AddEditMenu.cb2}"
+                                  id="cb2" immediate="true">
+                  <af:showPopupBehavior popupId="p1"/>
+                </af:commandButton>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:panelFormLayout binding="#{backingBeanScope.backing_fragments_AddEditMenu.pfl1}"
+                              id="pfl1"
+                              inlineStyle="padding-left:400px; height:180px;">
+            <af:inputText value="#{bindings.MenuName.inputValue}"
+                          label="Menu Name"
+                          required="#{bindings.MenuName.hints.mandatory}"
+                          columns="#{bindings.MenuName.hints.displayWidth}"
+                          maximumLength="#{bindings.MenuName.hints.precision}"
+                          shortDesc="#{bindings.MenuName.hints.tooltip}"
+                          binding="#{backingBeanScope.backing_fragments_AddEditMenu.it1}"
+                          id="it1">
+              <f:validator binding="#{bindings.MenuName.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.MenuNameDisp.inputValue}"
+                          label="Menu Name Display"
+                          required="#{bindings.MenuNameDisp.hints.mandatory}"
+                          columns="#{bindings.MenuNameDisp.hints.displayWidth}"
+                          maximumLength="#{bindings.MenuNameDisp.hints.precision}"
+                          shortDesc="#{bindings.MenuNameDisp.hints.tooltip}"
+                          binding="#{backingBeanScope.backing_fragments_AddEditMenu.it2}"
+                          id="it2">
+              <f:validator binding="#{bindings.MenuNameDisp.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.MenuNameDispTl.inputValue}"
+                          label="Menu Name Display TL"
+                          required="#{bindings.MenuNameDispTl.hints.mandatory}"
+                          columns="#{bindings.MenuNameDispTl.hints.displayWidth}"
+                          maximumLength="#{bindings.MenuNameDispTl.hints.precision}"
+                          shortDesc="#{bindings.MenuNameDispTl.hints.tooltip}"
+                          binding="#{backingBeanScope.backing_fragments_AddEditMenu.it3}"
+                          id="it3">
+              <f:validator binding="#{bindings.MenuNameDispTl.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.MenuOrder.inputValue}"
+                          label="Menu Order"
+                          required="#{bindings.MenuOrder.hints.mandatory}"
+                          columns="#{bindings.MenuOrder.hints.displayWidth}"
+                          maximumLength="#{bindings.MenuOrder.hints.precision}"
+                          shortDesc="#{bindings.MenuOrder.hints.tooltip}"
+                          binding="#{backingBeanScope.backing_fragments_AddEditMenu.it4}"
+                          id="it4">
+              <f:validator binding="#{bindings.MenuOrder.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.MenuOrder.format}"/>
+            </af:inputText>
+          </af:panelFormLayout>
+          <af:panelCollection binding="#{backingBeanScope.backing_fragments_AddEditMenu.pc1}"
+                              id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar binding="#{backingBeanScope.backing_fragments_AddEditMenu.t2}"
+                          id="t2">
+                <af:commandImageLink actionListener="#{bindings.CreateInsert.execute}"
+                                     disabled="#{!bindings.CreateInsert.enabled}"
+                                     binding="#{backingBeanScope.backing_fragments_AddEditMenu.cil1}"
+                                     id="cil1" icon="/image/add.png"
+                                     hoverIcon="/image/add_en.png"
+                                     partialSubmit="true"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.SubMenu_VO1.collectionModel}" var="row"
+                      rows="#{bindings.SubMenu_VO1.rangeSize}"
+                      emptyText="#{bindings.SubMenu_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="6"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.SubMenu_VO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SubMenu_VO1.collectionModel.makeCurrent}"
+                      rowSelection="single"
+                      binding="#{backingBeanScope.backing_fragments_AddEditMenu.t1}"
+                      id="t1" partialTriggers="::cil1" varStatus="vs"
+                      scrollPolicy="page" autoHeightRows="0">
+              <af:column id="column1" headerText="S.No" width="50">
+                <af:outputText value="#{vs.index+1}" id="outputText1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_VO1.hints.FuncId.name}"
+                         sortable="false" headerText="Functions" id="c1"
+                         width="180">
+                <af:selectOneChoice value="#{row.bindings.FuncId.inputValue}"
+                                    label="#{row.bindings.FuncId.label}"
+                                    required="#{bindings.SubMenu_VO1.hints.FuncId.mandatory}"
+                                    shortDesc="#{bindings.SubMenu_VO1.hints.FuncId.tooltip}"
+                                    id="soc1">
+                  <f:selectItems value="#{row.bindings.FuncId.items}" id="si1"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_VO1.hints.SubMenuName.name}"
+                         sortable="false"
+                         id="c5" width="180" headerText="Sub Menu Name">
+                <af:inputText value="#{row.bindings.SubMenuName.inputValue}"
+                              label="#{bindings.SubMenu_VO1.hints.SubMenuName.label}"
+                              required="#{bindings.SubMenu_VO1.hints.SubMenuName.mandatory}"
+                              columns="#{bindings.SubMenu_VO1.hints.SubMenuName.displayWidth}"
+                              maximumLength="#{bindings.SubMenu_VO1.hints.SubMenuName.precision}"
+                              shortDesc="#{bindings.SubMenu_VO1.hints.SubMenuName.tooltip}"
+                              id="it9">
+                  <f:validator binding="#{row.bindings.SubMenuName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_VO1.hints.SubMenuNameDisp.name}"
+                         sortable="false"
+                         headerText="Sub Menu Display"
+                         id="c2" width="180">
+                <af:inputText value="#{row.bindings.SubMenuNameDisp.inputValue}"
+                              label="#{bindings.SubMenu_VO1.hints.SubMenuNameDisp.label}"
+                              required="#{bindings.SubMenu_VO1.hints.SubMenuNameDisp.mandatory}"
+                              columns="#{bindings.SubMenu_VO1.hints.SubMenuNameDisp.displayWidth}"
+                              maximumLength="#{bindings.SubMenu_VO1.hints.SubMenuNameDisp.precision}"
+                              shortDesc="#{bindings.SubMenu_VO1.hints.SubMenuNameDisp.tooltip}"
+                              id="it5">
+                  <f:validator binding="#{row.bindings.SubMenuNameDisp.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_VO1.hints.SubMenuNameDispTl.name}"
+                         sortable="false"
+                         headerText="Sub Menu Display TL"
+                         id="c3" width="220">
+                <af:inputText value="#{row.bindings.SubMenuNameDispTl.inputValue}"
+                              label="#{bindings.SubMenu_VO1.hints.SubMenuNameDispTl.label}"
+                              required="#{bindings.SubMenu_VO1.hints.SubMenuNameDispTl.mandatory}"
+                              columns="#{bindings.SubMenu_VO1.hints.SubMenuNameDispTl.displayWidth}"
+                              maximumLength="#{bindings.SubMenu_VO1.hints.SubMenuNameDispTl.precision}"
+                              shortDesc="#{bindings.SubMenu_VO1.hints.SubMenuNameDispTl.tooltip}"
+                              id="it8">
+                  <f:validator binding="#{row.bindings.SubMenuNameDispTl.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_VO1.hints.SubMenuOrder.name}"
+                         sortable="false"
+                         headerText="Sub Menu Order"
+                         id="c4" width="180">
+                <af:inputText value="#{row.bindings.SubMenuOrder.inputValue}"
+                              label="#{bindings.SubMenu_VO1.hints.SubMenuOrder.label}"
+                              required="#{bindings.SubMenu_VO1.hints.SubMenuOrder.mandatory}"
+                              columns="#{bindings.SubMenu_VO1.hints.SubMenuOrder.displayWidth}"
+                              maximumLength="#{bindings.SubMenu_VO1.hints.SubMenuOrder.precision}"
+                              shortDesc="#{bindings.SubMenu_VO1.hints.SubMenuOrder.tooltip}"
+                              id="it7">
+                  <f:validator binding="#{row.bindings.SubMenuOrder.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SubMenu_VO1.hints.SubMenuOrder.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SubMenu_VO1.hints.MenuParams.name}"
+                         sortable="false"
+                         headerText="Parameter"
+                         id="c6" width="220">
+                <af:inputText value="#{row.bindings.MenuParams.inputValue}"
+                              label="#{bindings.SubMenu_VO1.hints.MenuParams.label}"
+                              required="#{bindings.SubMenu_VO1.hints.MenuParams.mandatory}"
+                              columns="#{bindings.SubMenu_VO1.hints.MenuParams.displayWidth}"
+                              maximumLength="#{bindings.SubMenu_VO1.hints.MenuParams.precision}"
+                              shortDesc="#{bindings.SubMenu_VO1.hints.MenuParams.tooltip}"
+                              id="it6">
+                  <f:validator binding="#{row.bindings.MenuParams.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+          <af:popup binding="#{backingBeanScope.backing_fragments_AddEditMenu.p1}"
+                    id="p1">
+            <af:dialog binding="#{backingBeanScope.backing_fragments_AddEditMenu.d1}"
+                       id="d1" inlineStyle="width:350px; height:100.0px;"
+                       title="Warning"
+                       titleIconSource="/image/warning.png" type="none">
+              <af:outputText value="Are you sure you want to Cancel this information?"
+                             binding="#{backingBeanScope.backing_fragments_AddEditMenu.ot1}"
+                             id="ot1"/>
+              <f:facet name="buttonBar">
+                <af:group binding="#{backingBeanScope.backing_fragments_AddEditMenu.g1}"
+                          id="g1">
+                  <af:commandButton text="Ok"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditMenu.cb3}"
+                                    id="cb3" action="back"
+                                    actionListener="#{backingBeanScope.backing_fragments_AddEditMenu.onClickRollback}"/>
+                  <af:spacer width="10" height="10"
+                             binding="#{backingBeanScope.backing_fragments_AddEditMenu.s2}"
+                             id="s2"/>
+                  <af:commandButton text="Cancel"
+                                    binding="#{backingBeanScope.backing_fragments_AddEditMenu.cb4}"
+                                    id="cb4"
+                                    actionListener="#{backingBeanScope.backing_fragments_AddEditMenu.onClickClose}"/>
+                </af:group>
+              </f:facet>
+            </af:dialog>
+          </af:popup>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_AddEditMenu-->
+</jsp:root>

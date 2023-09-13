@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
+-->
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+     <skin>
+            <id>fuse.desktop</id>
+            <family>fuse</family>
+            <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+            <extends>alta</extends>
+            <style-sheet-name>/css/fuse-ui.css</style-sheet-name>
+      </skin>
+      <skin-addition>
+            <skin-id>alta-v1.desktop</skin-id>
+            <style-sheet-name>/css/alta-additions.css</style-sheet-name>
+      </skin-addition>
+</skins> 

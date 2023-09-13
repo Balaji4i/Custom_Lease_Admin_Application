@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="SearchDataGroupPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DataGroup_ROVO1" RangeSize="25"
+              DataControl="DataGroup_AMDataControl"
+              id="DataGroup_ROVO1Iterator"/>
+    <searchRegion Criteria="SearchDataGroup"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DataGroup_ROVO1Iterator" id="SearchDataGroupQuery"/>
+    <iterator Binds="DataGroupDetail_ROVO1" RangeSize="25"
+              DataControl="DataGroup_AMDataControl"
+              id="DataGroupDetail_ROVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DataGroup_ROVO1Iterator" id="DataGroup_ROVO1">
+      <nodeDefinition DefName="fusion.um.model.ROVO.DataGroup_ROVO"
+                      Name="DataGroup_ROVO10">
+        <AttrNames>
+          <Item Value="DataGroupName"/>
+          <Item Value="ActiveYn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DataGroupDetail_ROVO1Iterator"
+          id="DataGroupDetail_ROVO1">
+      <nodeDefinition DefName="fusion.um.model.ROVO.DataGroupDetail_ROVO"
+                      Name="DataGroupDetail_ROVO10">
+        <AttrNames>
+          <Item Value="ActiveYn"/>
+          <Item Value="DcombId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DataGroup_ROVO1Iterator" id="DataGroupId">
+      <AttrNames>
+        <Item Value="DataGroupId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

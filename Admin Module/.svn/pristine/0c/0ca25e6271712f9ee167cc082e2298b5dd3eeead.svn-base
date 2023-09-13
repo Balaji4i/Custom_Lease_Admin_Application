@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="fusion.um.model.AM.User_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="User_AMLocal" ApplicationName="fusion.um.model.AM.User_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="fusion.um.model.AM.User_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="User_AMShared" ApplicationName="fusion.um.model.AM.User_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="fusion.um.model.AM.User_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="fusion.um.model.AM.Functions_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="Functions_AMLocal" ApplicationName="fusion.um.model.AM.Functions_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="fusion.um.model.AM.Functions_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="Functions_AMShared" ApplicationName="fusion.um.model.AM.Functions_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="fusion.um.model.AM.Functions_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="fusion.um.model.AM.DataSecurity_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="DataSecurity_AMLocal" ApplicationName="fusion.um.model.AM.DataSecurity_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="fusion.um.model.AM.DataSecurity_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="DataSecurity_AMShared" ApplicationName="fusion.um.model.AM.DataSecurity_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="fusion.um.model.AM.DataSecurity_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="fusion.um.model.AM.DataCombination_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="DataCombination_AMLocal" ApplicationName="fusion.um.model.AM.DataCombination_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="fusion.um.model.AM.DataCombination_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="DataCombination_AMShared" ApplicationName="fusion.um.model.AM.DataCombination_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="fusion.um.model.AM.DataCombination_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="fusion.um.model.AM.DataGroup_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="DataGroup_AMLocal" ApplicationName="fusion.um.model.AM.DataGroup_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="fusion.um.model.AM.DataGroup_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="DataGroup_AMShared" ApplicationName="fusion.um.model.AM.DataGroup_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="fusion.um.model.AM.DataGroup_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="fusion.um.model.AM.Menu_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="Menu_AMLocal" ApplicationName="fusion.um.model.AM.Menu_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="fusion.um.model.AM.Menu_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="Menu_AMShared" ApplicationName="fusion.um.model.AM.Menu_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="fusion.um.model.AM.Menu_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="fusion.um.model.AM.MenuAccess_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="MenuAccess_AMLocal" ApplicationName="fusion.um.model.AM.MenuAccess_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="fusion.um.model.AM.MenuAccess_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="MenuAccess_AMShared" ApplicationName="fusion.um.model.AM.MenuAccess_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="fusion.um.model.AM.MenuAccess_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="fusion.um.model.AM.Lookup_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="Lookup_AMLocal" ApplicationName="fusion.um.model.AM.Lookup_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Security AppModuleJndiName="fusion.um.model.AM.Lookup_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="fusion.um.model.UserManagement_Model" name="Lookup_AMShared" ApplicationName="fusion.um.model.AM.Lookup_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Security AppModuleJndiName="fusion.um.model.AM.Lookup_AM"/>
+         <Custom JDBCDataSource="PRISM_PL"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

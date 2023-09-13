@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1" binding="#{backingBeanScope.SearchLookup.pt1}">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.SearchLookup.pgl1}"
+                           id="pgl1">
+        <af:panelGridLayout binding="#{backingBeanScope.SearchLookup.pgl2}"
+                            id="pgl2">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                      binding="#{backingBeanScope.SearchLookup.gr1}"
+                      id="gr1">
+            <af:gridCell marginStart="5px" width="50%"
+                         binding="#{backingBeanScope.SearchLookup.gc1}"
+                         id="gc1" marginEnd="5px">
+              <af:outputLabel value="Lookup"
+                              binding="#{backingBeanScope.SearchLookup.ol1}"
+                              id="ol1"
+                              inlineStyle="font-size:large; font-weight:bold;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         binding="#{backingBeanScope.SearchLookup.gc2}"
+                         id="gc2"/>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.SearchLookupTypeQuery.queryDescriptor}"
+                  model="#{bindings.SearchLookupTypeQuery.queryModel}"
+                  queryListener="#{bindings.SearchLookupTypeQuery.processQuery}"
+                  queryOperationListener="#{bindings.SearchLookupTypeQuery.processQueryOperation}"
+                  resultComponentId="::pc1:resId1"
+                  binding="#{backingBeanScope.SearchLookup.qryId1}"/>
+        <af:spacer width="10" height="10"
+                   binding="#{backingBeanScope.SearchLookup.s1}"
+                   id="s1"/>
+        <af:panelBox text="Search Result"
+                     binding="#{backingBeanScope.SearchLookup.pb1}"
+                     id="pb1">
+          <f:facet name="toolbar"/>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                              binding="#{backingBeanScope.SearchLookup.pc1}">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t1" flex="1"
+                          binding="#{backingBeanScope.SearchLookup.t1}">
+                <af:commandImageLink id="cil1"
+                                     icon="/image/add.png"
+                                     hoverIcon="/image/add_en.png" action="go"
+                                     binding="#{backingBeanScope.SearchLookup.cil1}"
+                                     actionListener="#{backingBeanScope.SearchLookup.onClickReset}"/>
+                <af:spacer width="10" height="10" id="s2"
+                           binding="#{backingBeanScope.SearchLookup.s2}"/>
+                <af:commandImageLink id="cil2" icon="/image/edit.png"
+                                     hoverIcon="/image/edit_en.png"
+                                     action="edit"
+                                     binding="#{backingBeanScope.SearchLookup.cil2}">
+                  <af:setPropertyListener from="#{bindings.LookupTypeId.inputValue}"
+                                          to="#{pageFlowScope.tid}"
+                                          type="action"/>
+                  <af:setPropertyListener to="#{sessionScope.lookupid}"
+                                          from="#{bindings.LookupTypeId.inputValue}"
+                                          type="action"/>
+                </af:commandImageLink>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.LookupType_ROVO1.collectionModel}"
+                      var="row" rows="#{bindings.LookupType_ROVO1.rangeSize}"
+                      emptyText="#{bindings.LookupType_ROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="6"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.LookupType_ROVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.LookupType_ROVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="resId1"
+                      binding="#{backingBeanScope.SearchLookup.resId1}"
+                      scrollPolicy="page" autoHeightRows="0" varStatus="vs">
+              <af:column id="column1" headerText="S.No" width="50">
+                <af:outputText value="#{vs.index+1}" id="outputText1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.LookupType_ROVO1.hints.LookupTypeName.name}"
+                         sortable="false"
+                         headerText="Lookup Type"
+                         id="resId1c1" width="290" rendered="true">
+                <af:outputText value="#{row.LookupTypeName}" id="ot4"
+                               rendered="false"/>
+                <af:commandImageLink text="#{row.LookupTypeName}" id="cil3"
+                                     action="edit">
+                  <af:setPropertyListener from="#{bindings.LookupTypeId.inputValue}"
+                                          to="#{pageFlowScope.tid}"
+                                          type="action"/>
+                </af:commandImageLink>
+              </af:column>
+              <af:column sortProperty="#{bindings.LookupType_ROVO1.hints.LookupTypeNameDisp.name}"
+                         sortable="false"
+                         headerText="Display Name"
+                         id="resId1c2" width="290">
+                <af:outputText value="#{row.LookupTypeNameDisp}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.LookupType_ROVO1.hints.LookupTypeNameDispTl.name}"
+                         sortable="false"
+                         headerText="Lookup Type Name Display TL"
+                         id="resId1c3" width="290" rendered="false">
+                <af:outputText value="#{row.LookupTypeNameDispTl}" id="ot3"/>
+              </af:column>
+              <af:column headerText="Access Level"
+                         id="c1" width="230">
+                <af:selectOneChoice value="#{row.bindings.AccessLevel.inputValue}"
+                                    label="#{row.bindings.AccessLevel.label}"
+                                    required="#{bindings.LookupType_ROVO1.hints.AccessLevel.mandatory}"
+                                    shortDesc="#{bindings.LookupType_ROVO1.hints.AccessLevel.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.AccessLevel.items}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column headerText="Parent Type"
+                         id="c2" width="240">
+                <af:selectOneChoice value="#{row.bindings.ParentTypeId.inputValue}"
+                                    label="#{row.bindings.ParentTypeId.label}"
+                                    required="#{bindings.LookupType_ROVO1.hints.ParentTypeId.mandatory}"
+                                    shortDesc="#{bindings.LookupType_ROVO1.hints.ParentTypeId.tooltip}"
+                                    id="soc2" readOnly="true">
+                  <f:selectItems value="#{row.bindings.ParentTypeId.items}"
+                                 id="si2"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.LookupType_ROVO1.hints.ActiveYn.name}"
+                         sortable="false"
+                         headerText="Active ?"
+                         id="resId1c4" width="80">
+                <af:outputText value="#{row.ActiveYn}" id="ot2"
+                               rendered="false"/>
+                <af:image source="/image/Ok_icon.png" id="i1"
+                          rendered="#{row.ActiveYn eq 'Y'}"/>
+                <af:image source="/image/Cancel.png" id="i2"
+                          rendered="#{row.ActiveYn eq 'N'}"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelBox>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:SearchLookup-->
+</jsp:root>

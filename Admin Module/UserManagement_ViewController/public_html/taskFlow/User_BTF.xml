@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="User_BTF">
+    <default-activity id="__1">SearchUser</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__5">backing_fragments_SearchUser</managed-bean-name>
+      <managed-bean-class id="__4">fusion.um.view.backing.SearchUser</managed-bean-class>
+      <managed-bean-scope id="__3">backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1fragments/SearchUser.jsff-->
+    </managed-bean>
+    <managed-bean id="__6">
+      <managed-bean-name id="__8">backing_fragments_AddEditUser</managed-bean-name>
+      <managed-bean-class id="__9">fusion.um.view.backing.AddEditUser</managed-bean-class>
+      <managed-bean-scope id="__7">backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1fragments/AddEditUser.jsff-->
+    </managed-bean>
+    <view id="SearchUser">
+      <page>/fragments/SearchUser.jsff</page>
+    </view>
+    <view id="AddEditUser">
+      <page>/fragments/AddEditUser.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__10">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__11">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__32">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">SearchUser</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome id="__16">go</from-outcome>
+        <to-activity-id id="__15">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__34">
+        <from-outcome id="__35">edit</from-outcome>
+        <to-activity-id id="__33">ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">CreateInsert</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome id="__19">CreateInsert</from-outcome>
+        <to-activity-id id="__20">AddEditUser</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__22">
+      <from-activity-id id="__23">AddEditUser</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome id="__26">back</from-outcome>
+        <to-activity-id id="__24">Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id id="__28">Execute</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome id="__29">Execute</from-outcome>
+        <to-activity-id id="__31">SearchUser</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id id="__37">ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__38">
+        <from-outcome id="__39">ExecuteWithParams</from-outcome>
+        <to-activity-id id="__40">AddEditUser</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DataGroupDetail_VO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="DataGroupDetail_EO.DATA_DETAIL_ID, 
+       DataGroupDetail_EO.DATA_GROUP_ID, 
+       DataGroupDetail_EO.DCOMB_ID, 
+       DataGroupDetail_EO.ACTIVE_YN, 
+       DataGroupDetail_EO.CREATED_BY, 
+       DataGroupDetail_EO.CREATION_DATE, 
+       DataGroupDetail_EO.LAST_UPDATED_BY, 
+       DataGroupDetail_EO.LAST_UPDATE_DATE, 
+       DataGroupDetail_EO.LAST_UPDATE_LOGIN"
+  FromList="XXFND_DATA_GROUP_DETAIL DataGroupDetail_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="fusion.um.model.VO.DataGroupDetail_VORowImpl"
+  ComponentClass="fusion.um.model.VO.DataGroupDetail_VOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="SegmentComb_ROVO1"
+    ViewObjectName="fusion.um.model.ROVO.SegmentComb_ROVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_DcombId"
+    ListVOName="SegmentComb_ROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DcombId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DcombId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SegmentCombDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="DataGroupDetail_EO"
+    Entity="fusion.um.model.EO.DataGroupDetail_EO"/>
+  <ViewAttribute
+    Name="DataDetailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DataDetailId"
+    EntityUsage="DataGroupDetail_EO"
+    AliasName="DATA_DETAIL_ID">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("XXFND_DATA_DETAIL_ID_S",adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DataGroupId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DataGroupId"
+    EntityUsage="DataGroupDetail_EO"
+    AliasName="DATA_GROUP_ID"/>
+  <ViewAttribute
+    Name="DcombId"
+    PrecisionRule="true"
+    EntityAttrName="DcombId"
+    EntityUsage="DataGroupDetail_EO"
+    AliasName="DCOMB_ID"
+    LOVName="LOV_DcombId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ActiveYn"
+    PrecisionRule="true"
+    EntityAttrName="ActiveYn"
+    EntityUsage="DataGroupDetail_EO"
+    AliasName="ACTIVE_YN"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="DataGroupDetail_EO"
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="DataGroupDetail_EO"
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="DataGroupDetail_EO"
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="DataGroupDetail_EO"
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="DataGroupDetail_EO"
+    AliasName="LAST_UPDATE_LOGIN"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="Trans_Active"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT"/>
+</ViewObject>

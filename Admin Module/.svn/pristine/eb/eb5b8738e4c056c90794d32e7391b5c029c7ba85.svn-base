@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx"
+                   id="pt1">
+    <f:facet name="pageContents">
+      <af:panelGroupLayout binding="#{backingBeanScope.backing_fragments_SearchDataCombination.pgl1}"
+                           id="pgl1" layout="scroll">
+        <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_SearchDataCombination.pgl2}"
+                            id="pgl2">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                      binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gr1}"
+                      id="gr1">
+            <af:gridCell marginStart="5px" width="50%"
+                         binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc1}"
+                         id="gc1" marginEnd="5px">
+              <af:outputLabel value="Data Combination"
+                              binding="#{backingBeanScope.backing_fragments_SearchDataCombination.ol1}"
+                              id="ol1"
+                              inlineStyle="font-weight:bolder; font-size:large;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" marginEnd="5px"
+                         binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc2}"
+                         id="gc2"/>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelBox text="Search"
+                     binding="#{backingBeanScope.backing_fragments_SearchDataCombination.pb2}"
+                     id="pb2">
+          <f:facet name="toolbar"/>
+          <af:panelGridLayout binding="#{backingBeanScope.backing_fragments_SearchDataCombination.pgl3}"
+                              id="pgl3">
+            <af:gridRow marginTop="5px" height="auto"
+                        binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gr2}"
+                        id="gr2">
+              <af:gridCell marginStart="5px" width="25%"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc3}"
+                           id="gc3" halign="end">
+                <af:outputLabel value="#{backingBeanScope.backing_fragments_SearchDataCombination.segment1}"
+                                binding="#{backingBeanScope.backing_fragments_SearchDataCombination.ol3}"
+                                id="ol3"
+                                rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render1}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc4}"
+                           id="gc4">
+                <af:selectOneChoice value="#{bindings.Segment11.inputValue}"
+                                    required="#{bindings.Segment11.hints.mandatory}"
+                                    shortDesc="#{bindings.Segment11.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_SearchDataCombination.soc6}"
+                                    id="soc6"
+                                    rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render1}"
+                                    contentStyle="width:220px;">
+                  <f:selectItems value="#{bindings.Segment11.items}"
+                                 binding="#{backingBeanScope.backing_fragments_SearchDataCombination.si6}"
+                                 id="si6"/>
+                </af:selectOneChoice>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc5}"
+                           id="gc5" halign="end">
+                <af:outputLabel value="#{backingBeanScope.backing_fragments_SearchDataCombination.segment4}"
+                                binding="#{backingBeanScope.backing_fragments_SearchDataCombination.ol6}"
+                                id="ol6"
+                                rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render4}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc6}"
+                           id="gc6">
+                <af:selectOneChoice value="#{bindings.Segment41.inputValue}"
+                                    required="#{bindings.Segment41.hints.mandatory}"
+                                    shortDesc="#{bindings.Segment41.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_SearchDataCombination.soc9}"
+                                    id="soc9"
+                                    rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render4}"
+                                    contentStyle="width:220px;">
+                  <f:selectItems value="#{bindings.Segment41.items}"
+                                 binding="#{backingBeanScope.backing_fragments_SearchDataCombination.si9}"
+                                 id="si9"/>
+                </af:selectOneChoice>
+              </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto"
+                        binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gr3}"
+                        id="gr3">
+              <af:gridCell marginStart="5px" width="25%"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc7}"
+                           id="gc7" halign="end">
+                <af:outputLabel value="#{backingBeanScope.backing_fragments_SearchDataCombination.segment2}"
+                                binding="#{backingBeanScope.backing_fragments_SearchDataCombination.ol4}"
+                                id="ol4"
+                                rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render2}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc8}"
+                           id="gc8">
+                <af:selectOneChoice value="#{bindings.Segment21.inputValue}"
+                                    required="#{bindings.Segment21.hints.mandatory}"
+                                    shortDesc="#{bindings.Segment21.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_SearchDataCombination.soc7}"
+                                    id="soc7"
+                                    rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render2}"
+                                    contentStyle="width:220px;">
+                  <f:selectItems value="#{bindings.Segment21.items}"
+                                 binding="#{backingBeanScope.backing_fragments_SearchDataCombination.si7}"
+                                 id="si7"/>
+                </af:selectOneChoice>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc9}"
+                           id="gc9" halign="end">
+                <af:outputLabel value="#{backingBeanScope.backing_fragments_SearchDataCombination.segment5}"
+                                binding="#{backingBeanScope.backing_fragments_SearchDataCombination.ol2}"
+                                id="ol2"
+                                rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render5}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc10}"
+                           id="gc10">
+                <af:selectOneChoice value="#{bindings.Segment51.inputValue}"
+                                    required="#{bindings.Segment51.hints.mandatory}"
+                                    shortDesc="#{bindings.Segment51.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_SearchDataCombination.soc10}"
+                                    id="soc10"
+                                    rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render5}"
+                                    contentStyle="width:220px;">
+                  <f:selectItems value="#{bindings.Segment51.items}"
+                                 binding="#{backingBeanScope.backing_fragments_SearchDataCombination.si10}"
+                                 id="si10"/>
+                </af:selectOneChoice>
+              </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                        binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gr4}"
+                        id="gr4">
+              <af:gridCell marginStart="5px" width="25%"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc11}"
+                           id="gc11" halign="end">
+                <af:outputLabel value="#{backingBeanScope.backing_fragments_SearchDataCombination.segment3}"
+                                binding="#{backingBeanScope.backing_fragments_SearchDataCombination.ol5}"
+                                id="ol5"
+                                rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render3}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc12}"
+                           id="gc12">
+                <af:selectOneChoice value="#{bindings.Segment31.inputValue}"
+                                    required="#{bindings.Segment31.hints.mandatory}"
+                                    shortDesc="#{bindings.Segment31.hints.tooltip}"
+                                    binding="#{backingBeanScope.backing_fragments_SearchDataCombination.soc8}"
+                                    id="soc8"
+                                    rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render3}"
+                                    partialTriggers="cb2"
+                                    contentStyle="width:220px;">
+                  <f:selectItems value="#{bindings.Segment31.items}"
+                                 binding="#{backingBeanScope.backing_fragments_SearchDataCombination.si8}"
+                                 id="si8"/>
+                </af:selectOneChoice>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc13}"
+                           id="gc13"/>
+              <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.gc14}"
+                           id="gc14" halign="end">
+                <af:commandButton text="Search"
+                                  binding="#{backingBeanScope.backing_fragments_SearchDataCombination.cb1}"
+                                  id="cb1"
+                                  actionListener="#{backingBeanScope.backing_fragments_SearchDataCombination.onClickSearch}"/>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.s3}"
+                           id="s3"/>
+                <af:commandButton text="Reset"
+                                  binding="#{backingBeanScope.backing_fragments_SearchDataCombination.cb2}"
+                                  id="cb2"
+                                  actionListener="#{backingBeanScope.backing_fragments_SearchDataCombination.onClickReset}"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+        </af:panelBox>
+        <af:spacer width="10" height="10"
+                   binding="#{backingBeanScope.backing_fragments_SearchDataCombination.s1}"
+                   id="s1"/>
+        <af:panelBox text="Search Result"
+                     binding="#{backingBeanScope.backing_fragments_SearchDataCombination.pb1}"
+                     id="pb1">
+          <af:panelCollection binding="#{backingBeanScope.backing_fragments_SearchDataCombination.pc1}"
+                              id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar binding="#{backingBeanScope.backing_fragments_SearchDataCombination.t1}"
+                          id="t1" flex="1">
+                <af:commandImageLink
+                                     binding="#{backingBeanScope.backing_fragments_SearchDataCombination.cil1}"
+                                     id="cil1" icon="/image/add.png"
+                                     hoverIcon="/image/add_en.png" action="go"/>
+                <af:spacer width="10" height="10"
+                           binding="#{backingBeanScope.backing_fragments_SearchDataCombination.s2}"
+                           id="s2"/>
+                <af:commandImageLink
+                                     binding="#{backingBeanScope.backing_fragments_SearchDataCombination.cil2}"
+                                     id="cil2" icon="/image/edit.png"
+                                     hoverIcon="/image/edit_en.png"
+                                     action="edit">
+                  <af:setPropertyListener from="#{bindings.DcombId.inputValue}" to="#{pageFlowScope.did}"
+                                          type="action"/>
+                </af:commandImageLink>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.DataCombination_ROVO1.collectionModel}"
+                      var="row"
+                      rows="#{bindings.DataCombination_ROVO1.rangeSize}"
+                      emptyText="#{bindings.DataCombination_ROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="6"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.DataCombination_ROVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.DataCombination_ROVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="resId1"
+                      binding="#{backingBeanScope.backing_fragments_SearchDataCombination.resId1}"
+                      partialTriggers=":::cb1 :::cb2" varStatus="vs"
+                      scrollPolicy="page" autoHeightRows="0">
+              <af:column id="c1" headerText="S.No">
+                <af:outputText value="#{vs.index+1}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataCombination_ROVO1.hints.Segment1.name}"
+                         sortable="false"
+                         headerText="#{backingBeanScope.backing_fragments_SearchDataCombination.segment1}"
+                         id="resId1c1" width="155"
+                         rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render1}">
+                <af:selectOneChoice value="#{row.bindings.Segment1.inputValue}"
+                                    label="#{row.bindings.Segment1.label}"
+                                    required="#{bindings.DataCombination_ROVO1.hints.Segment1.mandatory}"
+                                    shortDesc="#{bindings.DataCombination_ROVO1.hints.Segment1.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.Segment1.items}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataCombination_ROVO1.hints.Segment2.name}"
+                         sortable="false"
+                         headerText="#{backingBeanScope.backing_fragments_SearchDataCombination.segment2}"
+                         id="resId1c2" width="155"
+                         rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render2}">
+                <af:selectOneChoice value="#{row.bindings.Segment2.inputValue}"
+                                    label="#{row.bindings.Segment2.label}"
+                                    required="#{bindings.DataCombination_ROVO1.hints.Segment2.mandatory}"
+                                    shortDesc="#{bindings.DataCombination_ROVO1.hints.Segment2.tooltip}"
+                                    id="soc2" readOnly="true">
+                  <f:selectItems value="#{row.bindings.Segment2.items}"
+                                 id="si2"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataCombination_ROVO1.hints.Segment3.name}"
+                         sortable="false"
+                         headerText="#{backingBeanScope.backing_fragments_SearchDataCombination.segment3}"
+                         id="resId1c3" width="155"
+                         rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render3}">
+                <af:selectOneChoice value="#{row.bindings.Segment3.inputValue}"
+                                    label="#{row.bindings.Segment3.label}"
+                                    required="#{bindings.DataCombination_ROVO1.hints.Segment3.mandatory}"
+                                    shortDesc="#{bindings.DataCombination_ROVO1.hints.Segment3.tooltip}"
+                                    id="soc3" readOnly="true">
+                  <f:selectItems value="#{row.bindings.Segment3.items}"
+                                 id="si3"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataCombination_ROVO1.hints.Segment4.name}"
+                         sortable="false"
+                         headerText="#{backingBeanScope.backing_fragments_SearchDataCombination.segment4}"
+                         id="resId1c4" width="155"
+                         rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render4}">
+                <af:selectOneChoice value="#{row.bindings.Segment4.inputValue}"
+                                    label="#{row.bindings.Segment4.label}"
+                                    required="#{bindings.DataCombination_ROVO1.hints.Segment4.mandatory}"
+                                    shortDesc="#{bindings.DataCombination_ROVO1.hints.Segment4.tooltip}"
+                                    id="soc4" readOnly="true">
+                  <f:selectItems value="#{row.bindings.Segment4.items}"
+                                 id="si4"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataCombination_ROVO1.hints.Segment5.name}"
+                         sortable="false"
+                         headerText="#{backingBeanScope.backing_fragments_SearchDataCombination.segment5}"
+                         id="resId1c5" width="155"
+                         rendered="#{backingBeanScope.backing_fragments_SearchDataCombination.render5}">
+                <af:selectOneChoice value="#{row.bindings.Segment5.inputValue}"
+                                    label="#{row.bindings.Segment5.label}"
+                                    required="#{bindings.DataCombination_ROVO1.hints.Segment5.mandatory}"
+                                    shortDesc="#{bindings.DataCombination_ROVO1.hints.Segment5.tooltip}"
+                                    id="soc5" readOnly="true">
+                  <f:selectItems value="#{row.bindings.Segment5.items}"
+                                 id="si5"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.DataCombination_ROVO1.hints.ActiveYn.name}"
+                         sortable="false"
+                         headerText="Active ?"
+                         id="resId1c6" width="155">
+                <af:outputText value="#{row.ActiveYn}" id="ot5"
+                               rendered="false"/>
+                <af:image source="/image/Ok_icon.png" id="i1"
+                          rendered="#{row.ActiveYn eq 'Y'}"/>
+                <af:image source="/image/Cancel.png" id="i2"
+                          rendered="#{row.ActiveYn eq 'N'}"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelBox>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="footerStart"/>
+    <f:facet name="footer"/>
+    <f:facet name="footerEnd"/>
+    <f:facet name="headerStart"/>
+    <f:facet name="header"/>
+    <f:facet name="headerEnd"/>
+  </af:pageTemplate>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_SearchDataCombination-->
+</jsp:root>
